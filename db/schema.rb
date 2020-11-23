@@ -10,10 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_151904) do
+ActiveRecord::Schema.define(version: 2020_11_23_160703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_comments_on_item_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "category"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.integer "status"
+    t.bigint "user_id", null: false
+    t.bigint "my_item_id"
+    t.bigint "original_item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["my_item_id"], name: "index_offers_on_my_item_id"
+    t.index ["original_item_id"], name: "index_offers_on_original_item_id"
+    t.index ["user_id"], name: "index_offers_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "user_id", null: false
+    t.bigint "offer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["offer_id"], name: "index_reviews_on_offer_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +66,19 @@ ActiveRecord::Schema.define(version: 2020_11_23_151904) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "address"
+    t.text "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "items"
+  add_foreign_key "comments", "users"
+  add_foreign_key "items", "users"
+  add_foreign_key "offers", "items", column: "my_item_id"
+  add_foreign_key "offers", "items", column: "original_item_id"
+  add_foreign_key "offers", "users"
+  add_foreign_key "reviews", "offers"
+  add_foreign_key "reviews", "users"
 end

@@ -16,37 +16,58 @@
 
   .card-review {
     overflow: hidden;
-    height: 138px;
+    height: 148px;
     background: white;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-    display: flex;
-    align-items: center;
   }
 
-  .card-review .avatar-large {
-    position: absolute;
-    left: 16px;
-    top: 16px;
-  }
-  
-  .card-review h3 {
-    margin: 0;
-  }
-  
-  .card-review p {
-    line-height: 1.5;
-    opacity: .7;
-    margin: 0;
-  }
-  
-  .card-review .card-review-infos {
+  .card-review .card-review-header {
     padding: 16px;
-    margin: 8px auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     position: relative;
   }
+
+  .card-review-header .rating {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 100px;
+  }
+
+
+  .card-review-header .avatar-large {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+  }
+  
+  .card-review-header h3 {
+    margin: 0;
+  }
+  
+  .card-review-header .p {
+      font-weight: lighter;
+      font-size: 14px;
+  }
+  
+  .card-review .card-review-content {
+    line-height: 1.5;
+    opacity: .7;
+    margin: 0;
+    padding: 16px;
+    display: grid;
+    position: relative;
+  }
+
+  .card-review-content .read-more {
+    background-color: $cream;
+    height: auto;
+    text-align: end;
+  }
+
+
   
   .card-product {
     overflow: hidden;

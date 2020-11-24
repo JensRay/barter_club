@@ -58,3 +58,4 @@ file = File.open("app/assets/images/lamp.jpg")
 lamp = Item.new(name: "A lamp", category: "furniture", description: "A lamp", user: antje)
 lamp.photo.attach(io: file, filename: 'lamp.jpg', content_type: 'image/jpg')
 lamp.save!
+

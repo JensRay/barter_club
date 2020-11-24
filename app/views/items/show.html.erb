@@ -13,7 +13,7 @@
 </div>
 
 <div class="border bg-white d-flex align-items-center p-1">
- <%= cl_image_tag @item.user.photo.key, class: 'avatar'%>
+ <%= cl_image_tag @item.user.photo.key, class: 'avatar-large'%>
   <p class="mb-0 ml-1"><%= link_to @item.user.name.capitalize, user_path(@item.user) %></p>
 </div>
 
@@ -29,12 +29,23 @@
 
 <div class="border bg-light text-secondary p-1 ">
   <p class="mb-0"><%= @item.user.name.capitalize %>'s other items</p>
-
-
-
 </div>
+
+<% @item.user.items.each do |item| %>
+<% if item != @item %>
+<%= link_to item_path(item) do %>
+<div class="card-product">
+  <%= cl_image_tag item.photo.key %>
+  <div class="card-product-infos">
+    <h2><%=item.name %></h2>
+    <p><%= item.description %></p>
+  </div>
+</div>
+<% end %>
+<% end %>
+<% end %>
+
 <div class="btn-sticky text-center bg-primary">
   <h2>Trade! => </h2>
 </div>
-
 

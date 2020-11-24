@@ -59,3 +59,13 @@ lamp = Item.new(name: "A lamp", category: "furniture", description: "A lamp", us
 lamp.photo.attach(io: file, filename: 'lamp.jpg', content_type: 'image/jpg')
 lamp.save!
 
+file = File.open("app/assets/images/bread.jpg")
+lamp = Item.new(name: "Bread", category: "food", description: "new baked bread from this morning. lovely", user: antje)
+lamp.photo.attach(io: file, filename: 'bread.jpg', content_type: 'image/jpg')
+lamp.save!
+
+file = File.open("app/assets/images/husband.jpg")
+lamp = Item.new(name: "My husband", category: "other", description: "my annoying husband. We have been married for 25 years and now I'm tired of him ", user: antje)
+lamp.photo.attach(io: file, filename: 'husband.jpg', content_type: 'image/jpg')
+lamp.save!
+

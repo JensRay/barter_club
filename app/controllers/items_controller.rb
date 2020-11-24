@@ -1,12 +1,15 @@
 class ItemsController < ApplicationController
+
+before_action :set_item, only: :show
+
   def index
     @items = policy_scope(Item).order(created_at: :desc)
   end
 
   def show
-    authorize @item
-    @item = Item.find(params[:id])
+    @items = Item.all
   end
+
 
   def new
     @item = Item.new
@@ -27,6 +30,11 @@ class ItemsController < ApplicationController
 
 private
 
+  def set_item
+    @item = Item.find(params[:id])
+    authorize @item
+  end
+  
   def item_params
     params.require(:item).permit(:name, :description, :category, :photo)
   end

@@ -4,11 +4,17 @@
 .item-img {
 height: 50vh;
 width: auto;
-border: solid 1px black;
+
 
 background-position: center;
 background-size: cover;
 }
 
 
+}
+
+a:-webkit-any-link {
+    text-decoration: none !important;
+    cursor: pointer;
+    color: unset;
 }

@@ -1,0 +1,56 @@
+  .btn-full {
+    color: white;
+    width: 342px;
+    padding: 8px 24px;
+    border-radius: 4px;
+    background: $green;
+    opacity: .8;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-full:hover {
+    opacity: 1;
+    color: white;
+  }
+
+  .btn-sm {
+    color: white;
+    width: 165px;
+    padding: 8px 24px;
+    border-radius: 4px;
+    background: $green;
+    opacity: .8;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-sm:hover {
+    opacity: 1;
+    color: white;
+  }
+
+  .btn-lg {
+    color: white;
+    width: 145px;
+    padding: 16px 24px;
+    border-radius: 4px;
+    background: $green;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-lg:hover {
+    background: $dark-green;
+    color: white;
+  }
+
+  .btn-ghost {
+    color: $green;
+    border: 1px solid $green;
+    padding: 8px 24px;
+    border-radius: 4px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+  
+  .btn-ghost:hover {
+    opacity: 1;
+  }

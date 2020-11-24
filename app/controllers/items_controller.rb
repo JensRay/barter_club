@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  
   def index
     @items = policy_scope(Item).order(created_at: :desc)
   end
@@ -11,11 +10,13 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    authorize @item
   end
 
   def create
     @item = Item.new(item_params)
     @item.user = current_user
+    authorize @item
 
     if @item.save
       redirect_to items_path

@@ -1,12 +1,12 @@
-.navbar-lewagon {
+.navbar-barters {
   justify-content: space-between;
-  background: white;
+  background: $cream-gray;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-barters .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-barters .navbar-brand img {
   width: 40px;
 }

@@ -1,1 +1,37 @@
-<h1>test</h1>
+<div class="info-small border text-center pt-1">
+  <p class="mb-0"><strong><%= @item.name.capitalize %></strong></p>
+
+<div class="item-img border shadow">
+</div>
+
+
+</div>
+<div class="border bg-light text-secondary p-1 ">
+  <p class="mb-0">Seller</p>
+
+</div>
+
+<div class="border bg-white d-flex align-items-center p-1">
+  <img src="https://via.placeholder.com/150" alt="" class="avatar">
+  <p class="mb-0 ml-1"><%= @item.user.name.capitalize %></p>
+</div>
+
+</div>
+<div class="border bg-light text-secondary p-1 ">
+  <p class="mb-0">Description</p>
+
+</div>
+
+<div class="border bg-white ">
+  <p class="mb-0 ml-1"><%= @item.description %> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam quaerat vel sapiente eligendi, error odit excepturi, odio laudantium illo facilis dolores, ducimus, vero placeat! Fugiat hic necessitatibus nemo itaque deserunt!</p>
+</div>
+
+<div class="border bg-light text-secondary p-1 ">
+  <p class="mb-0"><%= @item.user.name.capitalize %>'s other items</p>
+
+</div>
+<div class="btn-sticky text-center bg-primary">
+  <h2>Trade! => </h2>
+</div>
+
+

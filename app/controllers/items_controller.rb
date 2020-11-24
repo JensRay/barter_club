@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  
   def index
     @items = policy_scope(Item).order(created_at: :desc)
   end
@@ -7,4 +8,5 @@ class ItemsController < ApplicationController
     authorize @item
     @item = Item.find(params[:id])
   end
+
 end

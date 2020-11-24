@@ -7,7 +7,7 @@
     opacity: .8;
     transition: background 0.3s ease;
   }
-  
+
   .btn-full:hover {
     opacity: 1;
     color: white;
@@ -22,7 +22,7 @@
     opacity: .8;
     transition: background 0.3s ease;
   }
-  
+
   .btn-sm:hover {
     opacity: 1;
     color: white;
@@ -36,8 +36,22 @@
     background: $green;
     transition: background 0.3s ease;
   }
-  
+
   .btn-lg:hover {
+    background: $dark-green;
+    color: white;
+  }
+
+   .btn-long {
+    color: white;
+    width: 100%;
+    padding: 16px 24px;
+    border-radius: 4px;
+    background: $green;
+    transition: background 0.3s ease;
+  }
+
+  .btn-long:hover {
     background: $dark-green;
     color: white;
   }
@@ -50,7 +64,12 @@
     opacity: 0.6;
     transition: opacity 0.3s ease;
   }
-  
+
   .btn-ghost:hover {
     opacity: 1;
+  }
+
+  .btn-sticky {
+    position: sticky;
+    bottom: 0px;
   }

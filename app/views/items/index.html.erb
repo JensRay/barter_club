@@ -1,14 +1,12 @@
 <div class="cards">
   <% @items.each do |item| %>
     <%= link_to item_path(item) do %>
-      <div class="card-trip">
-        <div class="card-trip-infos">
-          <div>
+      <div class="card-product">
+        <div class="card-product-infos">
             <h3><%= item.name %></h3>
             <p><%= item.category %></p>
             <p>"<%= item.description.first(30) %>"</p>
             <%= cl_image_tag item.photo.key, height: 200, width:350, crop: :fill %>
-          </div>
         </div>
       </div>
     <% end %>

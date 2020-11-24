@@ -12,3 +12,9 @@ background-size: cover;
 
 
 }
+
+a:-webkit-any-link {
+    text-decoration: none !important;
+    cursor: pointer;
+    color: unset;
+}

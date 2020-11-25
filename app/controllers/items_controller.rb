@@ -3,7 +3,13 @@ class ItemsController < ApplicationController
 before_action :set_item, only: :show
 
   def index
-    @items = policy_scope(Item).order(created_at: :desc)
+    if params[:search][:query].present?
+      @items = Item.search_by_name_description_and_category(params[:search][:query])
+      # @items.each { |i| authorize i  }
+      policy_scope(Item)
+    else
+      @items = policy_scope(Item).order(created_at: :desc)
+    end
   end
 
   def show
@@ -34,7 +40,7 @@ private
     @item = Item.find(params[:id])
     authorize @item
   end
-  
+
   def item_params
     params.require(:item).permit(:name, :description, :category, :photo)
   end

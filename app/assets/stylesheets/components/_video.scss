@@ -1,0 +1,38 @@
+.home-container {
+  position: relative;
+  min-width: 100vw;
+  min-height: calc(100vh - 66px);
+
+
+}
+
+
+.vidcon  {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 40%;
+  min-height: 40%;
+}
+
+
+#video-bg {
+
+  object-fit: cover;
+  width: 100vw;
+  height: calc(100vh - 66px);
+  position: fixed;
+  top: 0;
+  left: 0;
+
+}
+
+.video-overlay {
+  color: #628A0D;
+  text-align: center;
+  position: fixed;
+  bottom: 10;
+  color: #828282;
+  width: 100%;
+  padding: 20px;
+}

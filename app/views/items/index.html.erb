@@ -1,38 +1,47 @@
-<%= form_tag items_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a movie"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
 
-<ul class="list-inline tabs-underlined">
-  <li>
-    <a href="#" class="tab-underlined active">Near You</a>
-  </li>
-  <li>
-    <a href="#" class="tab-underlined">Category</a>
-  </li>
-</ul>
-
-
-<div class="cards">
-  <% @items.each do |item| %>
-    <%= link_to item_path(item) do %>
-
-        <div class="card-product">
-          <% item.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-          <% end %>
-
-          <div class="card-product-infos">
-            <h3><%= item.name %></h3>
-            <p><%= item.category %></p>
-            <p>"<%= item.description.first(30) %>"</p>
-          </div>
-        </div>
-
+  <div class="mt-4 mb-4 ">
+    <%= form_tag items_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control form-rounded",
+      placeholder: "I'm looking for..."
+    %>
+    <%#= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
-  <% end %>
+  </div>
+
+
+  <ul class="list-inline tabs-underlined flex-row">
+    <li class="d-inline">
+      <a href="#" class="tab-underlined active "> Near You </a> |
+    </li>
+    <li class="d-inline">
+      <a href="#" class="tab-underlined"> Category</a>
+    </li>
+  </ul>
+
+
+  <div class="cards ">
+    <% @items.each do |item| %>
+      <%= link_to item_path(item) do %>
+
+          <div class="card-product mb-2">
+            <% item.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+
+            <div class="card-product-infos">
+              <h3><%= item.name %></h3>
+              <p><%= item.category %></p>
+              <p>"<%= item.description.first(30) %>"</p>
+            </div>
+          </div>
+
+      <% end %>
+    <% end %>
+  </div>
+
+
 </div>
+

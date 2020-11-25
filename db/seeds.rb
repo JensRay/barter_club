@@ -41,31 +41,31 @@ puts "creating items"
 
 file = File.open("app/assets/images/books.jpg")
 books = Item.new(name: "Old books", category: "collectible & hobbies", description: "Old books in weird language. Maybe from a different planet.", user: martin)
-books.photo.attach(io: file, filename: 'books.jpg', content_type: 'image/jpg')
+books.photos.attach(io: file, filename: 'books.jpg', content_type: 'image/jpg')
 books.save!
 
 file = File.open("app/assets/images/plant.jpg")
 plant = Item.new(name: "A plant", category: "other", description: "Plant", user: alize)
-plant.photo.attach(io: file, filename: 'plant.jpg', content_type: 'image/jpg')
+plant.photos.attach(io: file, filename: 'plant.jpg', content_type: 'image/jpg')
 plant.save!
 
 file = File.open("app/assets/images/chair.jpg")
 chair = Item.new(name: "A chair", category: "furniture", description: "A chair", user: j)
-chair.photo.attach(io: file, filename: 'chair.jpg', content_type: 'image/jpg')
+chair.photos.attach(io: file, filename: 'chair.jpg', content_type: 'image/jpg')
 chair.save!
 
 file = File.open("app/assets/images/lamp.jpg")
 lamp = Item.new(name: "A lamp", category: "furniture", description: "A lamp", user: antje)
-lamp.photo.attach(io: file, filename: 'lamp.jpg', content_type: 'image/jpg')
+lamp.photos.attach(io: file, filename: 'lamp.jpg', content_type: 'image/jpg')
 lamp.save!
 
 file = File.open("app/assets/images/bread.jpg")
 lamp = Item.new(name: "Bread", category: "food", description: "new baked bread from this morning. lovely", user: antje)
-lamp.photo.attach(io: file, filename: 'bread.jpg', content_type: 'image/jpg')
+lamp.photos.attach(io: file, filename: 'bread.jpg', content_type: 'image/jpg')
 lamp.save!
 
 file = File.open("app/assets/images/husband.jpg")
 lamp = Item.new(name: "My husband", category: "other", description: "my annoying husband. We have been married for 25 years and now I'm tired of him ", user: antje)
-lamp.photo.attach(io: file, filename: 'husband.jpg', content_type: 'image/jpg')
+lamp.photos.attach(io: file, filename: 'husband.jpg', content_type: 'image/jpg')
 lamp.save!
 

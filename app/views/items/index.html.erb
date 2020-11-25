@@ -22,7 +22,10 @@
     <%= link_to item_path(item) do %>
 
         <div class="card-product">
-          <%= cl_image_tag item.photo.key, height: 200, width:350, crop: :fill %>
+          <% item.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+
           <div class="card-product-infos">
             <h3><%= item.name %></h3>
             <p><%= item.category %></p>

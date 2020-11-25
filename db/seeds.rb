@@ -13,6 +13,7 @@ Item.destroy_all
 # Offer.destroy_all
 User.destroy_all
 
+
 puts "creating users"
 
 file = File.open("app/assets/images/martin.png")

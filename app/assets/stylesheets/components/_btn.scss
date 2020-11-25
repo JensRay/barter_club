@@ -42,6 +42,20 @@
     color: white;
   }
 
+  .btn-lg-white {
+    background: white;
+    color: $green;
+    width: 145px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+
+  .btn-lg-white:hover {
+    color: $green;
+    background: lightgrey;
+  }
+
    .btn-long {
     color: white;
     width: 100%;

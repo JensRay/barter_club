@@ -9,8 +9,14 @@
   <%= raw("<i class='fa fa-plus-square fa-2x'></i>") %>
 <% end %>
 
- <%= link_to items_path do %>
-  <%= raw("<i class='fa fa-user fa-2x'></i>") %>
-<% end %>
+  <% if current_user %>
+    <%= link_to user_path(current_user) do %>
+    <%= raw("<i class='fa fa-user fa-2x'></i>") %>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path do %>
+    <%= raw("<i class='fa fa-user fa-2x'></i>") %>
+    <% end %>
+  <% end %>
 
 </div>

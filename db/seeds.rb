@@ -9,7 +9,11 @@
 
 puts "destroying all"
 
+
+Offer.destroy_all
+
 Comment.destroy_all
+
 Item.destroy_all
 User.destroy_all
 
@@ -81,3 +85,13 @@ Comment.create(content: "How big is it?", user: j, item: bread)
 
 
 
+puts "creating offers"
+
+offer1 = Offer.new(user: j, original_item: plant, my_item: chair )
+offer1.save
+
+offer2 = Offer.new(user: martin, original_item: lamp, my_item: books )
+offer1.save
+
+offer3 = Offer.new(user: alize, original_item: books, my_item: plant )
+offer3.save

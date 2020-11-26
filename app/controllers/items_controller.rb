@@ -10,7 +10,6 @@ before_action :set_item, only: :show
     @items = Item.all
   end
 
-
   def new
     @item = Item.new
     authorize @item

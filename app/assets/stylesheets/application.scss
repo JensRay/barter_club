@@ -3,6 +3,8 @@
 @import "config/colors";
 @import "config/bootstrap_variables";
 
+// custom css applies beforete bootstrap! modification should be above this line
+
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
@@ -12,3 +14,6 @@
 @import "components/index";
 @import "pages/index";
 
+body {
+  padding-bottom: 2.3rem;
+}

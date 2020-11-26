@@ -9,10 +9,13 @@
 
 puts "destroying all"
 
+
 Offer.destroy_all
+
+Comment.destroy_all
+
 Item.destroy_all
 User.destroy_all
-
 
 
 
@@ -43,34 +46,44 @@ antje.save!
 puts "creating items"
 
 file = File.open("app/assets/images/books.jpg")
-books = Item.new(name: "Old books", category: "collectible & hobbies", description: "Old books in weird language. Maybe from a different planet.", user: martin)
+books = Item.new(name: "Old books", category: "Collectibles & Hobbies", description: "Old books in weird language. Maybe from a different planet.", user: martin)
 books.photos.attach(io: file, filename: 'books.jpg', content_type: 'image/jpg')
 books.save!
 
 file = File.open("app/assets/images/plant.jpg")
-plant = Item.new(name: "A plant", category: "other", description: "Plant", user: alize)
+plant = Item.new(name: "A plant", category: "Others", description: "Plant", user: alize)
 plant.photos.attach(io: file, filename: 'plant.jpg', content_type: 'image/jpg')
 plant.save!
 
 file = File.open("app/assets/images/chair.jpg")
-chair = Item.new(name: "A chair", category: "furniture", description: "A chair", user: j)
+chair = Item.new(name: "A chair", category: "Furniture", description: "A chair", user: j)
 chair.photos.attach(io: file, filename: 'chair.jpg', content_type: 'image/jpg')
 chair.save!
 
 file = File.open("app/assets/images/lamp.jpg")
-lamp = Item.new(name: "A lamp", category: "furniture", description: "A lamp", user: antje)
+lamp = Item.new(name: "A lamp", category: "Furniture", description: "A lamp", user: antje)
 lamp.photos.attach(io: file, filename: 'lamp.jpg', content_type: 'image/jpg')
 lamp.save!
 
 file = File.open("app/assets/images/bread.jpg")
-lamp = Item.new(name: "Bread", category: "food", description: "new baked bread from this morning. lovely", user: antje)
-lamp.photos.attach(io: file, filename: 'bread.jpg', content_type: 'image/jpg')
-lamp.save!
+bread = Item.new(name: "Bread", category: "Others", description: "new baked bread from this morning. lovely", user: antje)
+bread.photos.attach(io: file, filename: 'bread.jpg', content_type: 'image/jpg')
+bread.save!
 
 file = File.open("app/assets/images/husband.jpg")
-lamp = Item.new(name: "My husband", category: "other", description: "my annoying husband. We have been married for 25 years and now I'm tired of him ", user: antje)
-lamp.photos.attach(io: file, filename: 'husband.jpg', content_type: 'image/jpg')
-lamp.save!
+husband = Item.new(name: "My husband", category: "Collectibles & Hobbies", description: "my annoying husband. We have been married for 25 years and now I'm tired of him ", user: antje)
+husband.photos.attach(io: file, filename: 'husband.jpg', content_type: 'image/jpg')
+husband.save!
+
+
+puts "creating comments"
+
+Comment.create(content: "Can I eat it?", user: antje, item: chair)
+Comment.create(content: "Do you have move photos?", user: martin, item: bread)
+Comment.create(content: "Do you have different colors?", user: alize, item: lamp)
+Comment.create(content: "How big is it?", user: j, item: bread)
+
+
 
 puts "creating offers"
 

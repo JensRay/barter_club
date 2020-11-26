@@ -95,3 +95,7 @@ offer1.save
 
 offer3 = Offer.new(user: alize, original_item: books, my_item: plant )
 offer3.save
+
+offer4 = Offer.new(user: martin, original_item: husband, my_item: books )
+offer4.save
+

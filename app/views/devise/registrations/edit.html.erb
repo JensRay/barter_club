@@ -1,4 +1,8 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<nav class="nav nav-pills nav-fill">
+  <a class="nav-item nav-link" href="#"><i class="fas fa-chevron-left"></i></a>
+  <a class="nav-item nav-link disabled" href="#">Edit <%= resource_name.to_s.humanize %></a>
+  <a class="nav-item nav-link" href="#"><i class="fas fa-ellipsis-v"></i></a>
+</nav>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>

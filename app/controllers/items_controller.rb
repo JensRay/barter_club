@@ -15,6 +15,7 @@ before_action :set_item, only: :show
 
   def show
     @items = Item.all
+    @offers = Offer.all
   end
 
 

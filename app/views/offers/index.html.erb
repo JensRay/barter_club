@@ -30,9 +30,9 @@
     <% @offers.each do |bid| %>
       <% if bid.user == current_user && bid.status == nil %>
         <div class="d-flex justify-content-between border pt-1 pb-1 pl-1">
-          <%= cl_image_tag bid.my_item.photo.key, class: "rounded", height: 75, width:75, crop: :fill %>
+          <%= cl_image_tag bid.my_item.photos.first.key, class: "rounded", height: 75, width:75, crop: :fill %>
           <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="75px" width="75px">
-          <%= cl_image_tag bid.original_item.photo.key, class: "rounded", height: 75, width:75, crop: :fill %>
+          <%= cl_image_tag bid.original_item.photos.first.key, class: "rounded", height: 75, width:75, crop: :fill %>
         </div>
       <div class="text-center">
         <p class="mb-0">You have place a bid on  <strong><%= bid.original_item.name%></strong> with <strong><%= bid.my_item.name %></strong></p>

@@ -10,7 +10,6 @@
 puts "destroying all"
 
 Item.destroy_all
-# Offer.destroy_all
 User.destroy_all
 
 

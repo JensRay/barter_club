@@ -19,19 +19,30 @@
     <h6 class="card-subtitle mb-2 text-muted"><%= @user.email %></h6>
     <p class="card-text mt-3 text"><%- @user.bio %></p>
 </div>
-
   <div class="card-footer p-1 text-muted">
     <ul class="nav nav-fill">
       <li class="nav-item">
-        <a class="trade-cal nav-link disabled" href="#">7</a>
+        <a class="trade-cal nav-link disabled" href="#">
+          <%= current_user.offers.count do |offer| %>
+          <% offer.pending? %>
+          <% end %>
+        </a>
         <a class="card-subtitle text-capitalize nav-link disabled" href="#">BIDS</a>
       </li>
       <li class="nav-item">
-        <a class="trade-cal nav-link disabled" href="#">2</a>
+        <a class="trade-cal nav-link disabled" href="#">
+          <%= current_user.offers.count do |offer| %>
+          <% offer.accept? %>
+          <% end %>
+        </a>
         <a class="card-subtitle text-capitalize text-capitalizenav-link disabled" href="#">ENDED</a>
       </li>
       <li class="nav-item">
-        <a class="trade-cal nav-link disabled" href="#">5</a>
+        <a class="trade-cal nav-link disabled" href="#">
+           <%= current_user.offers.count do |offer| %>
+          <% offer.decline? %>
+          <% end %>
+        </a>
         <a class="card-subtitle text-capitalize nav-link disabled" href="#">CANCELED</a>
       </li>
   </ul>

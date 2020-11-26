@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
-  has_many :offers_as_my_item, source: :offer, foreign_key: :my_item_id
-  has_many :offers_as_original_item, source: :offer, foreign_key: :original_item_id
+  has_many :offers, source: :offers, foreign_key: :my_item_id, dependent: :destroy
+  has_many :offers, source: :offers, foreign_key: :original_item_id, dependent: :destroy
   has_many :comments
 
   has_many_attached :photos
@@ -13,7 +13,7 @@ class Item < ApplicationRecord
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 
-  CATEGORIES = ["Clothes", "Electronics & Mobile", "Furniture", "Cars & Bikes", "Collectibles & Hobbies"]
+  CATEGORIES = ["Clothes", "Electronics & Mobile", "Furniture", "Cars & Bikes", "Collectibles & Hobbies", "Others"]
 
   validates :name, :description, :category, :photos, presence: true
 end

@@ -4,6 +4,7 @@ class OffersController < ApplicationController
   def index
     @offers = policy_scope(Offer).order(created_at: :desc)
 
+
   end
 
   def show
@@ -37,8 +38,35 @@ class OffersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+  end
+
+
+  def update
+
+    @offer = Offer.find(params[:id])
+    authorize @offer
+    if params[:status] == 'accept'
+      @offer.accept!
+    else
+      @offer.decline!
+    end
+    @offer.save
+    redirect_to offers_path
 
   end
+
+  def destroy
+    @offer = Offer.find(params[:id])
+    authorize @offer
+    @offer.destroy
+
+    redirect_to items_path
+  end
+
+
 
   private
 

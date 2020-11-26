@@ -2,7 +2,7 @@
   <h1 class="mb-0"><%= @item.name.capitalize %></h1>
 </div>
 
-<div class="item-img" style="background-image: url(<%= cl_image_path @item.photos.key %>)">
+<div class="item-img" style="background-image: url(<%= cl_image_path @item.photos.first.key %>)">
 </div>
 
 

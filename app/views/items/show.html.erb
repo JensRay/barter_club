@@ -47,9 +47,10 @@
       <% end %>
 
       <% @item.comments.each do |comment| %>
-      <div>
-          <%= comment.content %>
-          <%= comment.user.name %>
+      <div class="mb-0 bg-light">
+        <p class="m-3"><strong><%= comment.user.name %></strong></p>
+        <p><%= comment.content %></p>
+
       </div>
       <% end %>
 

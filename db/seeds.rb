@@ -9,8 +9,10 @@
 
 puts "destroying all"
 
+Comment.destroy_all
 Item.destroy_all
 User.destroy_all
+
 
 
 puts "creating users"
@@ -60,12 +62,22 @@ lamp.photos.attach(io: file, filename: 'lamp.jpg', content_type: 'image/jpg')
 lamp.save!
 
 file = File.open("app/assets/images/bread.jpg")
-lamp = Item.new(name: "Bread", category: "food", description: "new baked bread from this morning. lovely", user: antje)
-lamp.photos.attach(io: file, filename: 'bread.jpg', content_type: 'image/jpg')
-lamp.save!
+bread = Item.new(name: "Bread", category: "food", description: "new baked bread from this morning. lovely", user: antje)
+bread.photos.attach(io: file, filename: 'bread.jpg', content_type: 'image/jpg')
+bread.save!
 
 file = File.open("app/assets/images/husband.jpg")
-lamp = Item.new(name: "My husband", category: "other", description: "my annoying husband. We have been married for 25 years and now I'm tired of him ", user: antje)
-lamp.photos.attach(io: file, filename: 'husband.jpg', content_type: 'image/jpg')
-lamp.save!
+husband = Item.new(name: "My husband", category: "other", description: "my annoying husband. We have been married for 25 years and now I'm tired of him ", user: antje)
+husband.photos.attach(io: file, filename: 'husband.jpg', content_type: 'image/jpg')
+husband.save!
+
+
+puts "creating comments"
+
+Comment.create(content: "Can I eat it?", user: antje, item: chair)
+Comment.create(content: "Do you have move photos?", user: martin, item: bread)
+Comment.create(content: "Do you have different colors?", user: alize, item: lamp)
+Comment.create(content: "How big is it?", user: j, item: bread)
+
+
 

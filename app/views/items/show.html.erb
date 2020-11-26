@@ -62,26 +62,36 @@
 
 
 <div class="border bg-light text-secondary p-1 ">
-  <p class="mb-0"><%= @item.user.name.capitalize %>'s other items</p>
+  <p class="mb-0">Current Bids</p>
 </div>
 
-<% @item.user.items.each do |item| %>
-<% if item != @item %>
-<%= link_to item_path(item) do %>
-<div class="card-product">
-  <% item.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+
+
+
+  <% @offers.each do |offer| %>
+      <%= link_to item_path(offer.my_item) do %>
+  <div class="card-product d-inline">
+      <% if offer.original_item == @item %>
+
+      <div class="d-flex ">
+      <%= cl_image_tag offer.my_item.photos.first.key, height: 300, width: 400, crop: :fill %>
+
+      <div class="card-product-infos">
+        <h2><%=offer.my_item.name %></h2>
+        <p><%= offer.my_item.name %></p>
+        <% if offer.status == nil %>
+        <p>Bid by <%= offer.user.name %>, waiting for <%= offer.original_item.user.name %> to respond...</p>
+        <% end %>
+      </div>
+      </div>
   <% end %>
-  <div class="card-product-infos">
-    <h2><%=item.name %></h2>
-    <p><%= item.description %></p>
-  </div>
-</div>
-<% end %>
+    <% end %>
+    <% end %>
 
-<% end %>
 
-<% end %>
+
+
+
 
 
 

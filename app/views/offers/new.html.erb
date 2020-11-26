@@ -1,0 +1,32 @@
+<div class="bg-success text-white">
+  <h1 class="text-center">Trade your item! </h1>
+
+  <div class="d-flex justify-content-center">
+    <div>
+      <% if current_user.items.exists? %>
+         <%= simple_form_for [@original_item, @offer] do |f| %>
+         <%= f.association  :my_item,label: "Choose item", collection: @my_items ,as: :radio_buttons%>
+         <%= f.button :submit, "Trade!", class: 'btn-lg-white'  %>
+         <% end %>
+      <% else %>
+        <p>No Items to trade</p>
+        <%= link_to 'Add your item here', new_item_path %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <div class="text-center">
+      <%= link_to '+ add a new item', new_item_path  %>
+  </div>
+  <br>
+
+
+
+
+
+
+
+
+
+
+

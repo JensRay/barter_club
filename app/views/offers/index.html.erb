@@ -1,0 +1,57 @@
+<div class="border bg-light text-success p-1 text-center ">
+  <p class="mb-0 ">Your offers</p>
+</div>
+
+<div class="border p-2">
+  <% @offers.each do |offer| %>
+    <% if offer.original_item.user == current_user && offer.status == nil %>
+      <div class="d-flex justify-content-between border pt-1 pb-1 pl-1">
+        <%= cl_image_tag offer.original_item.photo.key, class: "rounded", height: 75, width:75, crop: :fill %>
+        <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="75px" width="75px">
+        <%= cl_image_tag offer.my_item.photo.key, class: "rounded", height: 75, width:75, crop: :fill %>
+      </div>
+    <div class="text-center">
+      <p class="mb-0"><%= offer.user.name.capitalize%> has place a bid on your <strong><%= offer.original_item.name%></strong> with <strong><%= offer.my_item.name %></strong></p>
+      <div class="d-flex justify-content-center mb-1">
+        <a class="mr-1" href="#"> Accept</a>
+        <a href="#"> Decline</a>
+    </div>
+
+    <% end %>
+  <% end %>
+</div>
+
+<div class="border bg-light text-success text-center p-1 ">
+  <p class="mb-0 ">Your bids</p>
+</div>
+
+
+  <div class="border p-2">
+    <% @offers.each do |bid| %>
+      <% if bid.user == current_user && bid.status == nil %>
+        <div class="d-flex justify-content-between border pt-1 pb-1 pl-1">
+          <%= cl_image_tag bid.my_item.photos.first.key, class: "rounded", height: 75, width:75, crop: :fill %>
+          <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="75px" width="75px">
+          <%= cl_image_tag bid.original_item.photos.first.key, class: "rounded", height: 75, width:75, crop: :fill %>
+        </div>
+      <div class="text-center">
+        <p class="mb-0">You have place a bid on  <strong><%= bid.original_item.name%></strong> with <strong><%= bid.my_item.name %></strong></p>
+        <div class="d-flex justify-content-center mb-1">
+          <p>Waiting for <%= bid.original_item.user.name.capitalize %> to accept or decline</p>
+      </div>
+
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="border bg-light text-success text-center p-1 ">
+  <p class="mb-0 ">Accepted trades</p>
+  </div>
+
+  <div class="border bg-light text-success text-center p-1 ">
+  <p class="mb-0 ">Declined bids</p>
+  </div>
+
+
+  </div>
+

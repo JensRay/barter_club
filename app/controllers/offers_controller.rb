@@ -48,7 +48,7 @@ class OffersController < ApplicationController
 
     @offer = Offer.find(params[:id])
     authorize @offer
-    if params[:action] == 'accept'
+    if params[:status] == 'accept'
       @offer.accept!
     else
       @offer.decline!

@@ -11,6 +11,10 @@ before_action :set_item, only: :show
       @items = policy_scope(Item).order(created_at: :desc)
     end
 
+    if params[:categories].present? && params[:categories] != "All categories"
+      @items = @items.where(categories: params[:categories])
+    end
+
   end
 
   def show

@@ -17,7 +17,13 @@
       <a href="#" class="tab-underlined active "> Near You </a> |
     </li>
     <li class="d-inline">
-      <a href="#" class="tab-underlined"> Category</a>
+      <%= form_tag items_path, method: :get do %>
+        <div>
+          <%= select_tag :categories, options_for_select(["All categories", "Clothes", "Electronics & Mobile", "Furniture", "Cars & Bikes", "Collectibles & Hobbies", "Others"]) %>
+        </div>
+
+      <% end %>
+     <!--  <a href="#" class="tab-underlined"> Category</a> -->
     </li>
   </ul>
 

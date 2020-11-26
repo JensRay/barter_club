@@ -4,4 +4,19 @@ class OfferPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def show?
+    user
+  end
+
+  def new?
+    user
+  end
+
+
+  def create?
+    user
+  end
+
+
 end

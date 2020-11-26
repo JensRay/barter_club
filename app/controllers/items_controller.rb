@@ -10,6 +10,7 @@ before_action :set_item, only: :show
     else
       @items = policy_scope(Item).order(created_at: :desc)
     end
+
   end
 
   def show
@@ -23,6 +24,7 @@ before_action :set_item, only: :show
   end
 
   def create
+
     @item = Item.new(item_params)
     @item.user = current_user
     authorize @item

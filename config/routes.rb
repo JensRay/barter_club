@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   # resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
 
   # end
+  resources :offers, only: []  do
+    resources :reviews, only: [:index, :new, :create]
+  end
 
   resources :users, only: [:show, :edit, :update] do
     resources :reviews, only: [:index, :new, :create]

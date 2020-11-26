@@ -1,0 +1,7 @@
+<ul>
+   <% @user.reviews.each do |review| %>
+   <li><%= review.content %></li>
+   <% end %>
+</ul>
+
+<%= link_to 'Leave a review', new_user_review_path(@user) %>

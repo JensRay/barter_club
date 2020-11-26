@@ -6,9 +6,9 @@
   <% @offers.each do |offer| %>
     <% if offer.original_item.user == current_user && offer.status == nil %>
       <div class="d-flex justify-content-between border pt-1 pb-1 pl-1">
-        <%= cl_image_tag offer.original_item.photo.key, class: "rounded", height: 75, width:75, crop: :fill %>
+        <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 75, width:75, crop: :fill %>
         <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="75px" width="75px">
-        <%= cl_image_tag offer.my_item.photo.key, class: "rounded", height: 75, width:75, crop: :fill %>
+        <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 75, width:75, crop: :fill %>
       </div>
     <div class="text-center">
       <p class="mb-0"><%= offer.user.name.capitalize%> has place a bid on your <strong><%= offer.original_item.name%></strong> with <strong><%= offer.my_item.name %></strong></p>

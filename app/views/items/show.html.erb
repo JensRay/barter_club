@@ -36,19 +36,25 @@
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
     <!-- <div class="form-group"> -->
-      <label for="comment"></label>
+     <!--  <label for="comment"></label>
       <textarea class="form-control" rows="3" id="comment" placeholder="Add your comment..."></textarea>
-   <!--  </div> -->
-      <!-- <button class="btn btn-primary"></button> -->
+   <--  </div> -->
+      <!-- <button class="btn btn-primary" type="button">Send</button> -->
 
-      <%# @comments.each do |comment| %>
+      <%= simple_form_for [@item, @comment] do |f| %>
+          <%= f.input :content %>
+          <%= f.submit "Send", class: "col btn-sm"%>
+      <% end %>
 
-        <%#= simple_form_for @comment do |f| %>
-          <%#= f.input :content %>
+      <% @item.comments.each do |comment| %>
+      <div>
+          <%= comment.content %>
+          <%= comment.user.name %>
+      </div>
+      <% end %>
 
-          <%#=f.button :submit, "Submit", class: "btn-lg"%>
-        <%# end %>
-    <%# end %>
+
+
   </div>
 </div>
 

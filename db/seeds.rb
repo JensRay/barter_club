@@ -9,8 +9,11 @@
 
 puts "destroying all"
 
+Offer.destroy_all
 Item.destroy_all
 User.destroy_all
+
+
 
 
 puts "creating users"
@@ -69,3 +72,13 @@ lamp = Item.new(name: "My husband", category: "other", description: "my annoying
 lamp.photos.attach(io: file, filename: 'husband.jpg', content_type: 'image/jpg')
 lamp.save!
 
+puts "creating offers"
+
+offer1 = Offer.new(user: j, original_item: plant, my_item: chair )
+offer1.save
+
+offer2 = Offer.new(user: martin, original_item: lamp, my_item: books )
+offer1.save
+
+offer3 = Offer.new(user: alize, original_item: books, my_item: plant )
+offer3.save

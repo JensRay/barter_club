@@ -11,3 +11,28 @@
   font-size: 16px;
   text-transform: uppercase;
 }
+
+.banner-landing {
+  text-align: center;
+  background-size: cover;
+  background: transparent;
+  position: relative;
+  margin-top: 40%;
+  margin-bottom: 3rem;
+}
+
+.banner-landing .banner-landing-title {
+  font-family: inherit;
+  text-align: center;
+  color: $green;
+  text-shadow: 1px 1px 2px $white;
+}
+
+.banner-landing p {
+  font-size: 1.3em;
+  font-weight: bolder;
+  margin: 0px;
+  opacity: .8;
+  color: $white;
+  text-shadow: 1px 1px 2px $dark;
+}

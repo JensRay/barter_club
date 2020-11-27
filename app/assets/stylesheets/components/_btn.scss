@@ -19,7 +19,6 @@
     padding: 8px 24px;
     border-radius: 4px;
     background: $green;
-    opacity: .8;
     transition: background 0.3s ease;
   }
 
@@ -105,3 +104,20 @@
   .collapse-buttons {
     background-color: $green;
   }
+
+  .question-button .btn:hover {
+    color: $white;
+  }
+
+  .btn:not(:disabled):not(.disabled) {
+    cursor: not-allowed;
+}
+
+.btn:hover {
+  color: $white;
+  text-decoration: none;
+}
+
+input[type="submit" i] {
+  border: none;
+}

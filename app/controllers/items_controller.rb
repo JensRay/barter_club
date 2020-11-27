@@ -15,9 +15,10 @@ before_action :set_item, only: :show
 
   def show
     @items = Item.all
+    @comment = Comment.new
     @offers = Offer.all
-  end
 
+  end
 
   def new
     @item = Item.new

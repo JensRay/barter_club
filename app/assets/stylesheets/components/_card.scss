@@ -14,6 +14,10 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
   }
 
+  .card .user-item {
+    margin: auto;
+  }
+
   .card-review {
     overflow: hidden;
     height: 148px;
@@ -62,12 +66,10 @@
   }
 
   .card-review-content .read-more {
-    background-color: $cream;
+    background-color: $white;
     height: auto;
     text-align: end;
   }
-
-
 
   .card-product {
     overflow: hidden;
@@ -80,7 +82,6 @@
 
 .card-product:hover {
     background: #e5e3e3;
-
   }
 
 
@@ -107,6 +108,27 @@
   .card-product .card-product-infos {
     padding: 12px;
   }
+
+.card-profile .card-footer .card-subtitle {
+  font-size: smaller;
+}
+
+.card-profile .card-footer .trade-cal {
+  font-weight: bolder;
+  font-size: larger;
+  color: $green;
+}
+
+.rating {
+  padding-bottom: 8px;
+}
+
+.card-profile .card-img-top .avatar-large {
+  width: 64px;
+  height: 64px;
+}
+
+
 
   @media (min-width: 100px) and (max-width: 575px) {
     .cards {

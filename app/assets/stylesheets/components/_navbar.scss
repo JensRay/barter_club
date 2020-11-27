@@ -1,8 +1,20 @@
-.navbar-barters {
+.navbar-barters  {
   justify-content: space-between;
-  background: $cream-gray;
+  background: $light;
 }
 
+.navbar-nav .navbar-barters {
+  justify-content: space-between;
+  margin-top: 1.2rem;
+}
+.navbar-barters .fa {
+  color: $gray-300;
+  opacity: .7;
+}
+.navbar-barters .fa :hover {
+  color: $gray-300;
+  opacity: 1;
+}
 .navbar-barters .navbar-collapse {
   flex-grow: 0;
 }

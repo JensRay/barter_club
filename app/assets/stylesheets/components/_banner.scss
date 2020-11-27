@@ -1,0 +1,13 @@
+.banner-title {
+  background-size: cover;
+  background-color: $light;
+  padding: 16px 0;
+  text-align: center;
+}
+
+.banner-title .page-title {
+  margin: 0;
+  color: $gray;
+  font-size: 16px;
+  text-transform: uppercase;
+}

@@ -10,12 +10,12 @@
   <% @offers.each do |offer| %>
     <% if offer.original_item.user == current_user && offer.pending? %>
       <div class="d-flex justify-content-between border pt-1 pb-1 pl-1">
-        <%= link_to item_path(offer.my_item_id) do %>
+        <%= link_to item_path(offer.original_item_id) do %>
         <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
         <% end %>
         <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="50px" width="50px" class="icon">
 
-        <%= link_to item_path(offer.original_item_id) do %>
+        <%= link_to item_path(offer.my_item_id) do %>
         <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
         <% end %>
       </div>
@@ -71,11 +71,11 @@
   <% @offers.each do |offer| %>
     <% if (offer.original_item.user  == current_user && offer.accept?) || (offer.user  == current_user && offer.accept?) %>
       <div class="d-flex justify-content-between border pt-1 pb-1 pl-1">
-        <%= link_to item_path(offer.my_item_id) do %>
+        <%= link_to item_path(offer.original_item_id) do %>
         <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
          <% end %>
         <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="50px" width="50px" class="icon">
-        <%= link_to item_path(offer.original_item_id) do %>
+        <%= link_to item_path(offer.my_item_id) do %>
         <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
         <% end %>
       </div>
@@ -106,11 +106,11 @@
   <% @offers.each do |offer| %>
     <% if  (offer.user  == current_user && offer.decline?) %>
       <div class="d-flex justify-content-between border pt-1 pb-1 pl-1">
-        <%= link_to item_path(offer.my_item_id) do %>
+        <%= link_to item_path(offer.original_item_id) do %>
         <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
         <% end %>
         <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="50px" width="50px" class="icon">
-        <%= link_to item_path(offer.original_item_id) do %>
+        <%= link_to item_path(offer.my_item_id) do %>
         <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
         <% end %>
       </div>

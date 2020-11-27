@@ -73,13 +73,27 @@
   .btn-ghost {
     color: $green;
     border: 1px solid $green;
-    padding: 8px 24px;
+    // font-size: 12px;
+    padding: 6px 18px;
     border-radius: 4px;
     opacity: 0.6;
     transition: opacity 0.3s ease;
   }
 
   .btn-ghost:hover {
+    opacity: 1;
+  }
+
+   .btn-ghost-red {
+    color: $red;
+    border: 1px solid $red;
+    padding: 6px 18px;
+    border-radius: 4px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-ghost-red:hover {
     opacity: 1;
   }
 

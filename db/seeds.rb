@@ -42,7 +42,7 @@ antje.photo.attach(io: file, filename: 'antje.png', content_type: 'image/png')
 antje.save!
 
 file = File.open("app/assets/images/toni.jpeg")
-toni = User.create!(name: "toni", address: "Rudi-Dutschke-Straße 26, 10969 Berlin", bio: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?", email: "antje@antje.com", password: "123456")
+toni = User.create!(name: "toni", address: "Rudi-Dutschke-Straße 26, 10969 Berlin", bio: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?", email: "toni@toni.com", password: "123456")
 toni.photo.attach(io: file, filename: 'toni.jpeg', content_type: 'image/jpeg')
 toni.save!
 
@@ -80,9 +80,9 @@ husband = Item.new(name: "My husband", category: "Collectibles & Hobbies", descr
 husband.photos.attach(io: file, filename: 'husband.jpg', content_type: 'image/jpg')
 husband.save!
 
-file = File.open("app/assets/images/wateringcan.jpeg")
+file = File.open("app/assets/images/wateringcan.jpg")
 watering_can = Item.new(name: "Watering Can", category: "Collectibles & Hobbies", description: "Beutiful watering can from a famous designer, I dont remember who. ", user: antje)
-watering_can.photos.attach(io: file, filename: 'wateringcan.jpeg"', content_type: 'image/jpeg')
+watering_can.photos.attach(io: file, filename: 'wateringcan.jpg"', content_type: 'image/jpg')
 watering_can.save!
 
 

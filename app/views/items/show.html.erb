@@ -42,8 +42,8 @@
   </div>
   <div>
     <p>
-      <button class="btn col text-center collapse-buttons" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Comments
+      <button class="btn col text-center collapse-buttons collapse-button-color" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Questions:
   </button>
     </p>
     <div class="collapse" id="collapseExample">
@@ -54,17 +54,28 @@
    <--  </div> -->
       <!-- <button class="btn btn-primary" type="button">Send</button> -->
 
-      <%= simple_form_for [@item, @comment] do |f| %>
-          <%= f.input :content %>
-          <%= f.submit "Send", class: "col btn-sm"%>
-      <% end %>
+
 
       <% @item.comments.each do |comment| %>
       <div class="mb-0 bg-light">
-        <p class="m-3"><strong><%= comment.user.name %></strong></p>
-        <p><%= comment.content %></p>
+        <p class="message-author"><strong><%= comment.user.name %></strong></p>
+        <p class="message" ><%= comment.content %></p>
 
       </div>
+       <hr>
+
+      <%= simple_form_for [@item, @comment] do |f| %>
+          <div class="form-row align-items-center">
+            <div class="col-8">
+              <%= f.input :content, label: false %>
+            </div>
+            <div class="col-4">
+              <%= f.submit "Send", class: "col btn-sm "%>
+            </div>
+
+          </div>
+
+      <% end %>
       <% end %>
 
 

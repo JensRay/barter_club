@@ -19,15 +19,11 @@ a:-webkit-any-link {
 }
 
 
-.collapse-button-color {
+.collapse-button-color, .collapse-button-color:visited, .collapse-button-color:hover {
   color: white;
 
 }
 
-.collapse-button-color:visited {
-  color: white;
-
-}
 
 .message{
   background-color: rgb(224, 204, 240);

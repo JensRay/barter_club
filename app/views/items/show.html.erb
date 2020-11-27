@@ -59,9 +59,10 @@
       <% @item.comments.each do |comment| %>
       <div class="mb-0 bg-light">
         <p class="message-author"><strong><%= comment.user.name %></strong></p>
-        <p class="message" ><%= comment.content %></p>
+        <p class="message mb-3" ><%= comment.content %></p>
 
       </div>
+      <% end %>
        <hr>
 
       <%= simple_form_for [@item, @comment] do |f| %>
@@ -75,7 +76,7 @@
 
           </div>
 
-      <% end %>
+
       <% end %>
 
 

@@ -11,14 +11,19 @@
     <% end %>
   </div>
 
-
+  <%= form_tag items_path, method: :get do %>
   <ul class="list-inline tabs-underlined flex-row">
     <li class="d-inline">
       <a href="#" class="tab-underlined active "> Near You </a> |
     </li>
+
     <li class="d-inline">
-      <a href="#" class="tab-underlined"> Category</a>
+      <%= select_tag :category, options_for_select(Item::ALLCATEGORIES) %>
     </li>
+    <li class="d-inline">
+      <%= submit_tag "Filter", class: "btn-confirm" %>
+    </li>
+    <% end %>
   </ul>
 
 

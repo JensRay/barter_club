@@ -1,10 +1,6 @@
-
-
 .item-img {
 height: 50vh;
 width: auto;
-
-
 background-position: center;
 background-size: cover;
 }
@@ -16,4 +12,38 @@ a:-webkit-any-link {
     text-decoration: none !important;
     cursor: pointer;
     color: unset;
+}
+
+
+.collapse-button-color {
+  color: white;
+
+}
+
+.collapse-button-color:visited {
+  color: white;
+
+}
+
+.message{
+  background-color: rgb(224, 204, 240);
+  padding: 5px;
+  display: inline;
+  border-radius: 15px;
+
+}
+
+
+.message-author{
+
+  margin: 0px;
+  margin-top: 10px;
+
+
+}
+
+.message-border{
+  padding-top: 30px;
+  padding-bottom: 3px;
+  border-bottom: solid grey 1px;
 }

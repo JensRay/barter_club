@@ -1,0 +1,30 @@
+.landing-login {
+  position: fixed;
+  width: 70%;
+  bottom: 28%;
+}
+
+.landing-login-form .btn {
+  background-color: $green;
+  border-radius: 3px;
+  opacity: .7;
+  border: none;
+  color: $white;
+  width: 100%;
+}
+
+.landing-login-form .btn:hover {
+  opacity: 1;
+}
+
+.landing-login-form .form-control {
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 1px solid opacify($color: $green, $amount: .9);
+  color: $green;
+}
+
+.landing-login-form .form-control::placeholder {
+  color: $gray;
+  opacity: .9;
+}

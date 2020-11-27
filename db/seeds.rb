@@ -1,23 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
 puts "destroying all"
-
-
 Offer.destroy_all
-
 Comment.destroy_all
-
 Item.destroy_all
 User.destroy_all
-
-
 
 puts "creating users"
 
@@ -85,13 +70,61 @@ watering_can = Item.new(name: "Watering Can", category: "Collectibles & Hobbies"
 watering_can.photos.attach(io: file, filename: 'wateringcan.jpg"', content_type: 'image/jpg')
 watering_can.save!
 
+file = File.open("app/assets/images/guitar.jpg")
+guitar = Item.new(name: "Pink guitar", category: "Collectibles & Hobbies", description: "I'm selling my guitar. Now I play only heavy metal. I don't use it. ", user: j)
+guitar.photos.attach(io: file, filename: 'guitar.jpg"', content_type: 'image/jpg')
+guitar.save!
 
+file = File.open("app/assets/images/couch1.jpg")
+couch1 = Item.new(name: "Blue couch", category: "Furniture", description: "My dog puked on my chouch so I'm selling it. ", user: alize)
+couch1.photos.attach(io: file, filename: 'couch1.jpg"', content_type: 'image/jpg')
+couch1.save!
 
+file = File.open("app/assets/images/couch2.jpg")
+couch2 = Item.new(name: "Green couch", category: "Furniture", description: "I found this couch on the attic.", user: antje)
+couch2.photos.attach(io: file, filename: 'couch2.jpg"', content_type: 'image/jpg')
+couch2.save!
+
+file = File.open("app/assets/images/chair2.jpg")
+chair2 = Item.new(name: "A chair for chilren", category: "Furniture", description: "My child is too big for it. It's in a good state.", user: alize)
+chair2.photos.attach(io: file, filename: 'chair2.jpg"', content_type: 'image/jpg')
+chair2.save!
+
+file = File.open("app/assets/images/chair3.jpg")
+chair3 = Item.new(name: "Comfortable armchair", category: "Furniture", description: "I would gladly exchange it for some booze.", user: martin)
+chair3.photos.attach(io: file, filename: 'chair3.jpg"', content_type: 'image/jpg')
+chair3.save!
+
+file = File.open("app/assets/images/chair4.jpg")
+chair4 = Item.new(name: "Oldschool chair", category: "Furniture", description: "I'm selling this oldchair. Smells funny. I bought some Ikea.", user: j)
+chair4.photos.attach(io: file, filename: 'chair4.jpg"', content_type: 'image/jpg')
+chair4.save!
+
+file = File.open("app/assets/images/chair5.jpg")
+chair5 = Item.new(name: "Chair for a 'real lady'", category: "Furniture", description: "It's a chair for a 'real lady'. Like a queen or something.", user: alize)
+chair5.photos.attach(io: file, filename: 'chair5.jpg"', content_type: 'image/jpg')
+chair5.save!
+
+file = File.open("app/assets/images/oscar.jpg")
+oscar = Item.new(name: "Oscar award", category: "Collectibles & Hobbies", description: "I'm selling my oscar don't need it anymore.", user: j)
+oscar.photos.attach(io: file, filename: 'oscar.jpg"', content_type: 'image/jpg')
+oscar.save!
+
+file = File.open("app/assets/images/hanger.jpg")
+hanger = Item.new(name: "Weird hat hanger", category: "Furniture", description: "I've found it on the street. It looks like a hander for hats or coats.", user: j)
+hanger.photos.attach(io: file, filename: 'hanger.jpg"', content_type: 'image/jpg')
+hanger.save!
+
+file = File.open("app/assets/images/cape.jpg")
+cape = Item.new(name: "Superman cape", category: "Clothes", description: "Cape for children.", user: alize)
+cape.photos.attach(io: file, filename: 'cape.jpg"', content_type: 'image/jpg')
+cape.save!
 
 puts "creating comments"
 
 Comment.create(content: "Can I eat it?", user: antje, item: chair)
-Comment.create(content: "Do you have move photos?", user: martin, item: bread)
+Comment.create(content: "I wouldn't recommend it.", user: j, item: chair)
+Comment.create(content: "Do you have more photos?", user: martin, item: bread)
 Comment.create(content: "Do you have different colors?", user: alize, item: lamp)
 Comment.create(content: "How big is it?", user: j, item: bread)
 

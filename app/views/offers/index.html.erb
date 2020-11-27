@@ -10,16 +10,27 @@
   <% @offers.each do |offer| %>
     <% if offer.original_item.user == current_user && offer.pending? %>
       <div class="d-flex justify-content-between border pt-1 pb-1 pl-1">
-        <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 75, width:75, crop: :fill %>
-        <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="75px" width="75px">
-        <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 75, width:75, crop: :fill %>
+        <%= link_to item_path(offer.my_item_id) do %>
+        <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
+        <% end %>
+        <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="50px" width="50px" class="icon">
+
+        <%= link_to item_path(offer.original_item_id) do %>
+        <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
+        <% end %>
       </div>
     <div class="text-center">
-      <p class="mb-0"><%= offer.user.name.capitalize%> has place a bid on your <strong><%= offer.original_item.name%></strong> with <strong><%= offer.my_item.name %></strong></p>
+      <p class="mb-0"><%= offer.user.name.capitalize%> has placed a bid on your <strong><%= offer.original_item.name%></strong> with <strong><%= offer.my_item.name %></strong></p>
       <div class="d-flex justify-content-center mb-1">
-        <%= link_to 'Accept', offer_path(offer, status:'accept'),method: :patch, data: {confirm: "Are you sure you want to accept this offer?"}  %>
-        <%= link_to 'Decline', offer_path(offer, status:'decline'), method: :patch, data: {confirm: "Are you sure you want to decline this offer?"}  %>
+        <%= link_to offer_path(offer, status:'accept'),method: :patch, data: {confirm: "Are you sure you want to accept this offer?"} do %>
+        <div class="btn-sm-green">Accept</div>
+        <% end %>
+        <%= link_to offer_path(offer, status:'decline'), method: :patch, data: {confirm: "Are you sure you want to decline this offer?"} do %>
+         <div class="btn-sm-grey">Decline</div>
+        <% end %>
     </div>
+
+
 
     <% end %>
   <% end %>
@@ -34,12 +45,16 @@
     <% @offers.each do |bid| %>
       <% if bid.user == current_user && bid.pending? %>
         <div class="d-flex justify-content-between border pt-1 pb-1 pl-1">
-          <%= cl_image_tag bid.my_item.photos.first.key, class: "rounded", height: 75, width:75, crop: :fill %>
-          <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="75px" width="75px">
-          <%= cl_image_tag bid.original_item.photos.first.key, class: "rounded", height: 75, width:75, crop: :fill %>
+          <%= link_to item_path(bid.my_item_id) do %>
+          <%= cl_image_tag bid.my_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
+          <% end %>
+          <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="50px" width="50px" class="icon">
+          <%= link_to item_path(bid.original_item_id) do %>
+          <%= cl_image_tag bid.original_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
+          <% end %>
         </div>
       <div class="text-center">
-        <p class="mb-0">You have place a bid on  <strong><%= bid.original_item.name%></strong> with <strong><%= bid.my_item.name %></strong></p>
+        <p class="mb-0">You have placed a bid on  <strong><%= bid.original_item.name%></strong> with <strong><%= bid.my_item.name %></strong></p>
         <div class="d-flex justify-content-center mb-1">
           <p>Waiting for <%= bid.original_item.user.name.capitalize %> to accept or decline</p>
       </div>
@@ -56,9 +71,13 @@
   <% @offers.each do |offer| %>
     <% if (offer.original_item.user  == current_user && offer.accept?) || (offer.user  == current_user && offer.accept?) %>
       <div class="d-flex justify-content-between border pt-1 pb-1 pl-1">
-        <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 75, width:75, crop: :fill %>
-        <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="75px" width="75px">
-        <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 75, width:75, crop: :fill %>
+        <%= link_to item_path(offer.my_item_id) do %>
+        <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
+         <% end %>
+        <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="50px" width="50px" class="icon">
+        <%= link_to item_path(offer.original_item_id) do %>
+        <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
+        <% end %>
       </div>
     <div class="text-center">
       <% if offer.original_item.user != current_user %>
@@ -67,6 +86,10 @@
       <% else %>
         <p class="mb-0">Congrats, you have accepted <%= offer.user.name.capitalize%>'s offer. You have a deal!</p>
         <p class="mb-0"> Please send an email to <%= offer.user.email %> </p>
+
+
+
+
       <% end %>
 
 
@@ -83,9 +106,13 @@
   <% @offers.each do |offer| %>
     <% if  (offer.user  == current_user && offer.decline?) %>
       <div class="d-flex justify-content-between border pt-1 pb-1 pl-1">
-        <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 75, width:75, crop: :fill %>
-        <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="75px" width="75px">
-        <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 75, width:75, crop: :fill %>
+        <%= link_to item_path(offer.my_item_id) do %>
+        <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
+        <% end %>
+        <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="50px" width="50px" class="icon">
+        <%= link_to item_path(offer.original_item_id) do %>
+        <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
+        <% end %>
       </div>
     <div class="text-center">
       <% if offer.original_item.user != current_user %>

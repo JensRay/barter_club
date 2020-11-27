@@ -1,7 +1,13 @@
-<nav class="nav nav-pills nav-fill">
-  <a class="nav-item nav-link" href="#"><i class="fas fa-chevron-left"></i></a>
-  <a class="nav-item nav-link disabled" href="#">user profile</a>
-  <a class="nav-item nav-link" href="#"><i class="fas fa-ellipsis-v"></i></a>
+<nav class="nav nav-page pt-2 pb-2 nav-pills nav-fill">
+  <a class="nav-item text-left pl-3" href="#"><i class="fas fa-chevron-left"></i></a>
+  <a class="nav-item text-center " href="#">user profile</a>
+  <i class="nav-item text-right dropdown pt-1 pr-3 fas fa-ellipsis-v" data-toggle="dropdown" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+    <div class="dropdown-menu text-right" aria-labelledby="dropdownMenuLink">
+      <a class="dropdown-item" href="#"><%= link_to 'Edit profile', edit_user_path %></a>
+      <a class="dropdown-item" href="#">Location</a>
+      <a class="dropdown-item" href="#">Logout</a>
+    </div>
+  </i>
 </nav>
 
 <div class="card card-profile text-center">
@@ -11,7 +17,7 @@
   <div class="card-body text-center">
     <h5 class="card-title"><%= @user.name %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= @user.email %></h6>
-    <p class="card-text mt-3 text"><%- @user.bio %> Lorem ipsum eum, eveniet, perspiciatis debitis officiis aspernatur ullam repellat sit harum ab! </p>
+    <p class="card-text mt-3"><%- @user.bio %></p>
 </div>
   <div class="card-footer p-1 text-muted">
     <ul class="nav nav-fill">

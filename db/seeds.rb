@@ -1,23 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
 puts "destroying all"
-
-
 Offer.destroy_all
-
 Comment.destroy_all
-
 Item.destroy_all
 User.destroy_all
-
-
 
 puts "creating users"
 
@@ -116,9 +101,24 @@ chair4.photos.attach(io: file, filename: 'chair4.jpg"', content_type: 'image/jpg
 chair4.save!
 
 file = File.open("app/assets/images/chair5.jpg")
-chair5 = Item.new(name: "Chair for a real lady", category: "Furniture", description: "It's a chair for a 'real lady'. Like a queen or something.", user: alize)
+chair5 = Item.new(name: "Chair for a 'real lady'", category: "Furniture", description: "It's a chair for a 'real lady'. Like a queen or something.", user: alize)
 chair5.photos.attach(io: file, filename: 'chair5.jpg"', content_type: 'image/jpg')
 chair5.save!
+
+file = File.open("app/assets/images/oscar.jpg")
+oscar = Item.new(name: "Oscar award", category: "Collectibles & Hobbies", description: "I'm selling my oscar don't need it anymore.", user: j)
+oscar.photos.attach(io: file, filename: 'oscar.jpg"', content_type: 'image/jpg')
+oscar.save!
+
+file = File.open("app/assets/images/hanger.jpg")
+hanger = Item.new(name: "Weird hat hanger", category: "Furniture", description: "I've found it on the street. It looks like a hander for hats or coats.", user: j)
+hanger.photos.attach(io: file, filename: 'hanger.jpg"', content_type: 'image/jpg')
+hanger.save!
+
+file = File.open("app/assets/images/cape.jpg")
+cape = Item.new(name: "Superman cape", category: "Clothes", description: "Cape for children.", user: alize)
+cape.photos.attach(io: file, filename: 'cape.jpg"', content_type: 'image/jpg')
+cape.save!
 
 puts "creating comments"
 

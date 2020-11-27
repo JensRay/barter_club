@@ -1,0 +1,43 @@
+
+.body {
+ margin: 10px;
+
+}
+
+
+.img {
+  padding: 10px;
+  opacity: 50%;
+}
+
+
+.icon {
+  margin-top: 39px;
+  padding: 10px;
+  opacity: 50%;
+}
+
+
+ .btn-sm-green {
+    color: white;
+    width: 100px;
+    padding: 8px 24px;
+    border-radius: 4px;
+    background: $green;
+    opacity: .8;
+    transition: background 0.3s ease;
+    margin: 5px;
+
+  }
+
+.btn-sm-grey {
+    color: grey;
+    width: 100px;
+    padding: 8px 24px;
+    border-radius: 4px;
+    background: #EFF0EA;
+    opacity: .8;
+    transition: background 0.3s ease;
+    margin: 5px;
+  }
+

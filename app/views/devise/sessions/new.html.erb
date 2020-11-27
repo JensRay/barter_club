@@ -1,5 +1,11 @@
-<h2>Log in</h2>
+<nav class="nav nav-page pt-2 pb-2 nav-pills nav-fill">
+  <%# <a class="nav-item text-left pl-3" href="/items"><i class="fas fa-chevron-left"></i></a> %>
+  <a class="nav-item text-center " href="#">Login to trade</a>
+  <%# <i class="nav-item text-right dropdown pt-1 pr-3 fas fa-ellipsis-v" data-toggle="dropdown" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false"> %>
+  </i>
+</nav>
 
+<div class="container session-login pt-5">
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
@@ -16,5 +22,9 @@
     <%= f.button :submit, "Log in" %>
   </div>
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<div class="container">
+  <%= render "devise/shared/links" %>
+</div>
+

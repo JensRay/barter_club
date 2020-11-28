@@ -1,15 +1,19 @@
-<div class="container">
 
-  <div class="mt-4 mb-4 ">
+<div class="masthead">
+ <div class="mt-4 mb-4 ">
     <%= form_tag items_path, method: :get do %>
       <%= text_field_tag :query,
       params[:query],
-      class: "form-control form-rounded",
+      class: "form-control masthead-search",
       placeholder: "I'm looking for..."
     %>
     <%#= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </div>
+</div>
+<div class="container">
+
+
 
   <%= form_tag items_path, method: :get do %>
   <ul class="list-inline tabs-underlined flex-row">
@@ -18,10 +22,10 @@
     </li>
 
     <li class="d-inline">
-      <%= select_tag :category, options_for_select(Item::ALLCATEGORIES) %>
+      <%= select_tag :category, options_for_select(Item::ALLCATEGORIES), class: "btn-green" %>
     </li>
     <li class="d-inline">
-      <%= submit_tag "Filter", class: "btn-confirm" %>
+      <%= submit_tag "Filter", class: "btn-green" %>
     </li>
     <% end %>
   </ul>
@@ -31,15 +35,21 @@
     <% @items.each do |item| %>
       <%= link_to item_path(item) do %>
 
-          <div class="card-product mb-2">
+          <div class="card-product-lg mb-2 p-2">
             <% item.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "item-img" %>
             <% end %>
+            <div class="d-flex justify-content-between align-items-center p-2">
+              <div class=" w-100 ">
+                <h3><%= item.name.capitalize %></h3>
+                <p><%= item.category %></p>
+                <p>"<%= item.description.first(30) %>"</p>
+              </div>
+              <div class="align-middle">
+                <%= link_to item.user.name.capitalize, user_path(item.user)  %>
+                <%= cl_image_tag item.user.photo.key, class: "avatar-sm"%>
 
-            <div class="card-product-infos">
-              <h3><%= item.name %></h3>
-              <p><%= item.category %></p>
-              <p>"<%= item.description.first(30) %>"</p>
+              </div>
             </div>
           </div>
 

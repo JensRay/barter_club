@@ -13,6 +13,15 @@
     color: white;
   }
 
+  .btn-green {
+  background-color: white;
+  color: #477204;
+  border: 1px solid #477204;
+  font-size: 14px;
+  border-radius: 4%;
+
+  }
+
   .btn-sm {
     color: white;
     width: 165px;
@@ -80,6 +89,7 @@
     transition: opacity 0.3s ease;
   }
 
+
   .btn-ghost:hover {
     opacity: 1;
   }
@@ -105,3 +115,4 @@
   .collapse-buttons {
     background-color: $green;
   }
+

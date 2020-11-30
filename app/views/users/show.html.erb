@@ -55,15 +55,11 @@
       <% @average_rating.times do%>
         <i class="fa fa-star mt-2"></i>
       <% end %>
-
+      <%=@average_rating%>/5
   </span>
 
-  <%=@average_rating%>
 
  <p class="text-muted font-weight-light">based on <%= pluralize @reviews.count, "review" %></p>
-
-
-
 
 
   <div class="card-link text-right"></div>

@@ -1,27 +1,36 @@
 // Define variables for your color scheme
+$red: #880721;
+$blue: #065374;
+$yellow: #F8A93A;
 
-$white:    #FBFBFB !default;
-$black:    #000000FF !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-700: #53595E !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
+// The barter Club main color-scheme
+$cream: #FEF7EC;
+$orange-sub: #d5b182;
+$orange: #cf7d08;
+$dark-grange: #9D5E06;
 
-$red: #FA4848;
-$blue: #167FFB;
-$yellow: #FFC65A;
-$orange: #F68648;
+$green-sub: #0AB593;
+$green: #06745E;
+$dark-green: #044E3F;
 
-$beige: #EFF0EA;
+/* gray-scheme SCSS HEX */
+$light: #f5f5f5ff;
+$lighter: #e7e8e8ff;
+$light-gray: #d9dadaff;
+$silver: #c1c2c2ff;
+$gray: #8E9090;
+$gray-2: #989a9aff;
+$gray-3: #656767ff;
+$gray-4: #474848ff;
+$dark: #282a2aff;
 
-$green: #628A0D;
-$dark-green: #4E8A65;
-$gray: $gray-700;
-
-
-$light: $gray-100;
-$dark: #383a3a;
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg, #f5f5f5ff, #e7e8e8ff, #d9dadaff, #cbcdcdff, #c1c2c2ff, #989a9aff, #656767ff, #474848ff, #282a2aff);
+$gradient-right: linear-gradient(90deg, #f5f5f5ff, #e7e8e8ff, #d9dadaff, #cbcdcdff, #c1c2c2ff, #989a9aff, #656767ff, #474848ff, #282a2aff);
+$gradient-bottom: linear-gradient(180deg, #f5f5f5ff, #e7e8e8ff, #d9dadaff, #cbcdcdff, #c1c2c2ff, #989a9aff, #656767ff, #474848ff, #282a2aff);
+$gradient-left: linear-gradient(270deg, #f5f5f5ff, #e7e8e8ff, #d9dadaff, #cbcdcdff, #c1c2c2ff, #989a9aff, #656767ff, #474848ff, #282a2aff);
+$gradient-top-right: linear-gradient(45deg, #f5f5f5ff, #e7e8e8ff, #d9dadaff, #cbcdcdff, #c1c2c2ff, #989a9aff, #656767ff, #474848ff, #282a2aff);
+$gradient-bottom-right: linear-gradient(135deg, #f5f5f5ff, #e7e8e8ff, #d9dadaff, #cbcdcdff, #c1c2c2ff, #989a9aff, #656767ff, #474848ff, #282a2aff);
+$gradient-top-left: linear-gradient(225deg, #f5f5f5ff, #e7e8e8ff, #d9dadaff, #cbcdcdff, #c1c2c2ff, #989a9aff, #656767ff, #474848ff, #282a2aff);
+$gradient-bottom-left: linear-gradient(315deg, #f5f5f5ff, #e7e8e8ff, #d9dadaff, #cbcdcdff, #c1c2c2ff, #989a9aff, #656767ff, #474848ff, #282a2aff);
+$gradient-radial: radial-gradient(#f5f5f5ff, #e7e8e8ff, #d9dadaff, #cbcdcdff, #c1c2c2ff, #989a9aff, #656767ff, #474848ff, #282a2aff);

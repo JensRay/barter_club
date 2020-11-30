@@ -52,10 +52,12 @@
 <div class="card-body rating text-center">
   <h6 class="card-subtitle mb-2 mt-2 text-muted">Rating & Reviews</h6>
   <span class="stars" style="">
+      <% if @average_rating != nil %>
       <% @average_rating.times do%>
         <i class="fa fa-star mt-2"></i>
       <% end %>
       <%=@average_rating%>/5
+      <% end %>
   </span>
 
 

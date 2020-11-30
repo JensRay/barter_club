@@ -1,0 +1,45 @@
+
+.masthead {
+
+  height: 40vh;
+  background-image: url(Plant2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 4px;
+
+
+}
+
+
+.masthead-search {
+
+  color: #477204;
+  width: 50%;
+  border: 1px solid #477204;
+  border-radius: 10px;
+  transition: width 0.4s ease-in-out;
+  position: absolute;
+  top:40%;
+  margin-left: 22px;
+
+}
+
+.masthead-search:focus {
+ width: 60%;
+}
+
+.category {
+
+  color: #477204;
+  width: 40%;
+  border: 1px solid #477204;
+  border-radius: 10px;
+  transition: width 0.4s ease-in-out;
+  margin-right: 3px;
+}
+
+.category:focus {
+ width: 50%;
+}

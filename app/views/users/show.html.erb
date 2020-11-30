@@ -63,10 +63,10 @@
 
 
   <div class="card-link text-right"></div>
-    <ul>
+    <ul class="list-group list-group-flush">
       <% @reviews.each do |review| %>
-      <li><%= review.rating %></li>
-      <li><%= review.content %></li>
+      <li class="list-group-item"><%= review.rating %></li>
+      <li class="list-group-item"><%= review.content %></li>
       <% end %>
     </ul>
 </div>

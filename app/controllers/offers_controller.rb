@@ -50,6 +50,9 @@ class OffersController < ApplicationController
     authorize @offer
     if params[:status] == 'accept'
       @offer.accept!
+      @chatroom = Chatroom.create(offer: @offer)
+      @offer.chatroom = @chatroom
+      @offer.save
     else
       @offer.decline!
     end

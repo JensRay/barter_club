@@ -52,19 +52,27 @@
 <div class="card-body rating text-center">
   <h6 class="card-subtitle mb-2 mt-2 text-muted">Rating & Reviews</h6>
   <span class="stars" style="">
-  <i class="fa fa-star mt-2"></i>
-  <i class="fa fa-star mt-2"></i>
-  <i class="fa fa-star mt-2"></i>
+      <% @average_rating.times do%>
+        <i class="fa fa-star mt-2"></i>
+      <% end %>
+
   </span>
-  <p class="text-muted font-weight-light">based on xxx reviews</p>
-  <div class="card-link text-right"><%= link_to 'Leave a review', new_user_review_path(@user) %></div>
+
+  <%=@average_rating%>
+
+ <p class="text-muted font-weight-light">based on <%= pluralize @reviews.count, "review" %></p>
+
+
+
+
+
+  <div class="card-link text-right"></div>
     <ul>
-      <% @user.reviews.each do |review| %>
+      <% @reviews.each do |review| %>
+      <li><%= review.rating %></li>
       <li><%= review.content %></li>
       <% end %>
     </ul>
-
-
 </div>
 
 

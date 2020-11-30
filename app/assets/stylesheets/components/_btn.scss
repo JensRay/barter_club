@@ -13,13 +13,21 @@
     color: white;
   }
 
+  .btn-green {
+  background-color: white;
+  color: #477204;
+  border: 1px solid #477204;
+  font-size: 14px;
+  border-radius: 4%;
+
+  }
+
   .btn-sm {
     color: white;
     width: 165px;
     padding: 8px 24px;
     border-radius: 4px;
     background: $green;
-    opacity: .8;
     transition: background 0.3s ease;
   }
 
@@ -80,6 +88,7 @@
     transition: opacity 0.3s ease;
   }
 
+
   .btn-ghost:hover {
     opacity: 1;
   }
@@ -105,3 +114,21 @@
   .collapse-buttons {
     background-color: $green;
   }
+
+  .question-button .btn:hover {
+    color: $white;
+  }
+
+  .btn:not(:disabled):not(.disabled) {
+    cursor: not-allowed;
+}
+
+.btn:hover {
+  color: $white;
+  text-decoration: none;
+}
+
+input[type="submit" i] {
+  border: none;
+}
+

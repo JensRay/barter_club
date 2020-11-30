@@ -36,12 +36,14 @@ end
 
   def average_rating
     sum = 0
-    @reviews.each do |review|
-      sum += review.rating
+    if @reviews.size > 0
+      @reviews.each do |review|
+        sum += review.rating
+      end
+      sum / @reviews.count
     end
-    (sum / @reviews.count.to_f).round
-
   end
+
 
   def set_user
     @user = User.find(params[:id])

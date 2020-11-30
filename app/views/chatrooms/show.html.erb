@@ -1,14 +1,19 @@
 <div class="container">
-  <h1>#<%= @chatroom.name %></h1>
-  <div class="mb-4" id="messages" data-chatroom-id="<%= @chatroom.id %>">
+  <!-- <h1>#<%#= @chatroom.name %></h1> -->
+  <div class="" id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
       <div class="message-container" id="message-<%= message.id %>">
 
           <% klass = current_user == message.user ? 'right' : 'left' %>
-          <div id="<%= klass %>">
+          <div id="<%= klass %>" class="message-content">
             <span><%= message.user.nickname %></span>
-            <p class="message"><%= message.content %></p>
-            <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            <p>
+              <span class="message-text">
+              <%= message.content %>
+              </span>
+            </p>
+            <!-- <small><%#= message.created_at.strftime("%a %b %e at %l:%M%p") %></small> -->
+            <small><%= message.created_at.strftime("%H:%M") %></small>
           </div>
           <br>
       </div>
@@ -18,9 +23,13 @@
 
 
 
+
+
+
+
   <div class="fixed-bottom message-input">
     <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-      <%= f.input :content, label: false, class: "", placeholder: "Type your message..." %>
+      <%= f.input :content, label: false, class: "", :autocomplete => :off, placeholder: "Type your message..." %>
     <% end %>
   </div>
 

@@ -1,20 +1,28 @@
 
 
-.message{
+.message-text {
   background-color: $orange;
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
+  padding: 5px 10px;
+  /*display: flex;*/
+  /*flex-direction: column;*/
   border-radius: 15px;
   color: $gray;
+  margin: 0;
 }
 
+.message-content {
+  display:inline-block;
+  clear: both;
+}
+
+.message-content p {
+  padding: 0;
+  margin: 0;
+}
 
 .message-author{
   margin: 0px;
   margin-top: 10px;
-
-
 }
 
 .message-border{
@@ -25,25 +33,34 @@
 
 
 .message-input {
-  margin-bottom: 35px;
-  border-radius: 15px;
+  margin-bottom: 33px;
+  border-radius: 15px; /* why this is not working? */
   display: inline;
 }
 
 #messages {
-  margin-bottom: 50px;
+  margin-bottom: 280px; /* why this is not working? */
 }
 
 #right {
   float: right;
-  min-width: 57%;
-  max-width: 57%;
+  text-align: right;
+
 }
 
+/*#right .message-text {
+  padding-right: 10px;
+}*/
+
 #left {
-  min-width: 57%;
-  max-width: 57%;
+  /*min-width: 50%;
+  max-width: 50%;*/
+  float: left;
 }
+
+/*#left .message-text {
+  padding-left: 10px;
+}*/
 
 .message-container {
   margin: 10px;

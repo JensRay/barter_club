@@ -1,6 +1,10 @@
+
+
 .item-img {
 height: 50vh;
 width: auto;
+
+
 background-position: center;
 background-size: cover;
 }
@@ -15,15 +19,11 @@ a:-webkit-any-link {
 }
 
 
-.collapse-button-color {
+.collapse-button-color, .collapse-button-color:visited, .collapse-button-color:hover {
   color: white;
 
 }
 
-.collapse-button-color:visited {
-  color: white;
-
-}
 
 .message{
   background-color: rgb(224, 204, 240);
@@ -46,4 +46,9 @@ a:-webkit-any-link {
   padding-top: 30px;
   padding-bottom: 3px;
   border-bottom: solid grey 1px;
+}
+
+
+.rating .stars {
+  color: $yellow;
 }

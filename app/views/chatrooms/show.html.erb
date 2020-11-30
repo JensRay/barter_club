@@ -3,10 +3,10 @@
   <div class="" id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
       <div class="message-container" id="message-<%= message.id %>">
-
-          <% klass = current_user == message.user ? 'right' : 'left' %>
+        <% klass = current_user == message.user ? 'right' : 'left' %>
           <div id="<%= klass %>" class="message-content">
-            <span><%= message.user.nickname %></span>
+            <!-- <span><%#= message.user.nickname %></span> -->
+            <span><%= cl_image_tag message.user.photo.key, class: "avatar-sm m-3" %></span>
             <p>
               <span class="message-text">
               <%= message.content %>
@@ -15,7 +15,10 @@
             <!-- <small><%#= message.created_at.strftime("%a %b %e at %l:%M%p") %></small> -->
             <small><%= message.created_at.strftime("%H:%M") %></small>
           </div>
-          <br>
+
+<!-- what's the easiest way to change the order of the elements -->
+<!-- container changes the length and margin is never enough -->
+<!-- why border-radius is not working on a message bar? -->
       </div>
 
     <% end %>

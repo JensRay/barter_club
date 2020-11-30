@@ -14,6 +14,12 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.offer_id = @offer.id
     authorize @review
+    if current_user == @offer.original_item.user
+      @user = @offer.user
+    else
+      @user = @offer.original_item.user
+
+    end
     if @review.save
       redirect_to user_path(@user)
     else

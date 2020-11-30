@@ -83,16 +83,13 @@
       <% if offer.original_item.user != current_user %>
         <p class="mb-0">Congrats, <%= offer.original_item.user.name.capitalize %> has accepted your offer. You have a deal!</p>
         <p class="mb-0"> Please send an email to <%= offer.original_item.user.email %> </p>
+        <%= link_to 'Leave a review', new_offer_review_path(offer) %>
       <% else %>
         <p class="mb-0">Congrats, you have accepted <%= offer.user.name.capitalize%>'s offer. You have a deal!</p>
         <p class="mb-0"> Please send an email to <%= offer.user.email %> </p>
 
-
-
-
+        <%= link_to 'Leave a review', new_offer_review_path(offer) %>
       <% end %>
-
-
     <% end %>
   <% end %>
 </div>

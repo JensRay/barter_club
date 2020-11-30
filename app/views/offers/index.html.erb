@@ -1,5 +1,5 @@
 <div class="info-small border text-center text-primary pt-1">
-  <h1 class="mb-0"> Trade Room</h1>
+  <h4 class="mb-0"> Trade Room</h4>
 </div>
 
 <!-- Tab links -->
@@ -10,12 +10,12 @@
 </div>
 
 <!-- Tab content -->
-<div id="active" class="tabcontent">
+<div id="active" class="tabcontent ">
   <div class="border bg-light text-primary p-1 text-center ">
     <p class="mb-0 "> <strong>Your offers</strong></p>
   </div>
 
-<div class="border p-2">
+<div class="border p-2 bg-white rounded">
   <% @offers.each do |offer| %>
     <% if offer.original_item.user == current_user && offer.pending? %>
       <div class="d-flex justify-content-between align-items-center pt-1 pb-1 pl-1 rounded">
@@ -23,8 +23,9 @@
         <div class=" card-mini-1 p-4 text-center">
           <h6><%= offer.my_item.name %></h6>
           <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
-          </div>
+        </div>
         <% end %>
+
         <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="50px" width="50px" class="icon">
         <div class="card-mini-2 p-4 text-center">
         <%= link_to item_path(offer.original_item_id) do %>
@@ -49,13 +50,15 @@
 
     <% end %>
   <% end %>
+</div>
 
-  <div class="border bg-light text-primary text-center p-1 ">
+
+  <div class="border bg-white text-primary text-center p-1  ">
   <p class="mb-0 "><strong>Your bids</strong></p>
 </div>
 
 
-  <div class="border p-2">
+  <div class="border p-2 bg-white">
     <% @offers.each do |bid| %>
       <% if bid.user == current_user && bid.pending? %>
         <div class=" d-flex justify-content-between align-items-center pt-1 pb-1 pl-1 rounded">

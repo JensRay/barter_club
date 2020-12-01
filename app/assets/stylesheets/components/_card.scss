@@ -11,10 +11,34 @@
   margin-bottom: 16px;
 }
 
+.section-title {
+    color: #656767ff;
+    margin-bottom: 16px;
+}
 
-//different type of cards
+.card-header {
+  background-color: $light;
+  color: $gray-3;
+  font-size: larger;
+  font-weight: lighter;
+}
+
+.card-body {
+  background-color: white;
+}
+
+.card-body-section {
+  background-color: $cream;
+  .card-title {
+    font-weight: lighter;
+    font-size: larger;
+  }
+  padding: 8px;
+}
+
+// item-index list card
 .card-index {
-  border-bottom: 1px solid $gray-1;
+  border-bottom: 1px solid $gray;
   padding: 16px 20px 16px 20px;
   overflow: hidden;
   height: 150px;
@@ -24,18 +48,23 @@
   align-items: center;
 }
 
+.card-index .card-index-img {
+  padding: 0px 4px 0px 4px;
+  background-size: cover;
+}
+
 .card-index .item-img {
-  height: 135px;
-  width: 140px;
   object-fit: cover;
-  padding: 4px 4px;
+  object-position: center;
+  height: 140px;
+  width: 150px;
 }
 
 .card-index .card-index-infos {
   padding: 0px 20px;
   margin-left: 16px;
   width: 100%;
-  color: $gray;
+  color: $gray-1;
 }
 
 .card-index .user a {
@@ -56,7 +85,17 @@
   margin-top: 8px;
 }
 
+// card-item-show
+.item-gallery .item-gallery-img {
+  object-fit: scale-down;
+  height: 370px;
+}
 
+
+
+
+
+//
 .card-product .card-product-infos {
   padding: 16px;
 }

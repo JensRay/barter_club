@@ -1,0 +1,29 @@
+
+<div class="header">
+  <div class="form-group d-block">
+    <%= form_tag items_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "header-serach form-control w-90",
+      placeholder: "I'm looking for..." %>
+    <%#= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+
+  <div class="header-category">
+    <%= form_tag items_path, method: :get do %>
+      <div class="form-group">
+        <ul class="list-inline tabs-underlined flex-row">
+          <li class="d-inline">
+            <a href="#" class="btn"> Near You </a>
+          </li>
+          <li class="d-inline dropdown">
+            <%= select_tag :category, options_for_select(Item::ALLCATEGORIES), class: "btn" %>
+            <%= submit_tag "Apply", class: "btn" %>
+          </li>
+      </div>
+        <% end %>
+      </ul>
+  </div>
+</div>

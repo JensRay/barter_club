@@ -1,6 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-barters navbar-sticky fixed-bottom mt-0">
 
     <%= link_to items_path do %>
+
     <%= raw("<i class='fa fa-frog fa-2x text-primary'></i>") %>
     <% end %>
 
@@ -10,6 +11,7 @@
 
      <% if current_user %>
       <%= link_to offers_path do %>
+
       <%= raw("<i class='fa fa-exchange-alt fa-2x text-primary''></i></i>") %>
       <% end %>
     <% else %>

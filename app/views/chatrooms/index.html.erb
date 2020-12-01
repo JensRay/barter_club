@@ -6,13 +6,11 @@
 <div class="container">
 
   <% @chatrooms.each do |c| %>
-   <% if c.offer.user || c.offer.original_item.user == current_user %>
-   <%= link_to chatroom_path(c) do %>
-    <div class="border-bottom">
-
-      <i class="far fa-envelope fa-2x text-primary"></i>
-
-      <div class="d-flex align-items-center ">
+   <% if (c.offer.user || c.offer.original_item.user) == current_user %>
+    <%= link_to chatroom_path(c) do %>
+      <div class="border-bottom">
+        <i class="far fa-envelope fa-2x text-primary"></i>
+        <div class="d-flex align-items-center ">
         <p class="mb-0">
           Chat with
           <% if c.offer.user || c.offer.original_item.user != current_user %>
@@ -25,29 +23,33 @@
       </div>
 
 
-      <div class="d-flex">
+      <div class="container">
+        <div class="row">
+          <div class="text-primary col text-left">
+            <% if current_user.items.include?(c.offer.original_item) %>
+              <p><%= c.offer.original_item.name %></p>
+            <% else %>
+              <p><%= c.offer.my_item.name %></p>
+            <% end %>
+          </div>
 
-        <div class="text-primary mr-1">
-          <% if current_user.items.include?(c.offer.original_item) %>
-            <p><%= c.offer.original_item.name %></p>
-          <% else %>
-            <p><%= c.offer.my_item.name %></p>
-          <% end %>
-        </div>
-
-        <i class="fas fa-exchange-alt mt-1"></i>
-        <div class="text-warning ml-1">
-          <% if current_user.items.include?(c.offer.original_item) %>
-            <p><%= c.offer.my_item.name %></p>
-          <% else %>
-            <p><%= c.offer.original_item.name %></p>
-          <% end %>
+          <i class="fas fa-exchange-alt text-center col"></i>
+          <div class="text-warning text-right col">
+            <% if current_user.items.include?(c.offer.original_item) %>
+              <p><%= c.offer.my_item.name %></p>
+            <% else %>
+              <p><%= c.offer.original_item.name %></p>
         </div>
       </div>
+          <% end %>
+        <% end %>
+      </div>
      </div>
-     <% end %>
+
+
      <% end %>
     <% end %>
+
 
 
 

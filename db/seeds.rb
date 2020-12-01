@@ -30,7 +30,7 @@ alize.photo.attach(io: file, filename: 'alize.png', content_type: 'image/png')
 alize.save!
 
 file = File.open("app/assets/images/antje.png")
-antje = User.create!(name: "antje", address: "Sveavägen 73, 113 80 Stockholm, Sweden", bio: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?", email: "antje@antje.com", nickname: "antje", password: "123456")
+antje = User.create!(name: "antje", address: "Sollentunavägen 163, 191 47 Sollentuna, Sweden", bio: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?", email: "antje@antje.com", nickname: "antje", password: "123456")
 antje.photo.attach(io: file, filename: 'antje.png', content_type: 'image/png')
 antje.save!
 

@@ -52,27 +52,50 @@
 <div class="card-body rating text-center">
   <h6 class="card-subtitle mb-2 mt-2 text-muted">Rating & Reviews</h6>
   <span class="stars" style="">
-      <% if @average_rating != nil %>
+    <% if @average_rating != nil %>
       <% @average_rating.times do%>
         <i class="fa fa-star mt-2"></i>
       <% end %>
-      <%=@average_rating%>/5
+      <% @average_blank_stars.times do %>
+        <i class="far fa-star"></i>
       <% end %>
+    <% end %>
   </span>
 
+
+
+<%#= @my_item.user.name.capitalize %>
+<%#= offer.my_item.name %>
+<%#= @original_item.user.name %>
+<%#= offer.original_item.name %>
+ <%#= cl_image_tag @user.photo.key, class: 'avatar-large' %>
 
  <p class="text-muted font-weight-light">based on <%= pluralize @reviews.count, "review" %></p>
 
 
-  <div class="card-link text-right"></div>
-    <ul class="list-group list-group-flush">
+  <div class="list-group text">
+    <ul class="list-group-item list-group-item-action flex-column">
       <% @reviews.each do |review| %>
-      <li class="list-group-item"><%= review.rating %></li>
-      <li class="list-group-item"><%= review.content %></li>
+      <div class="reviews">
+        <li class="d-flex w-100 justify-content-between"><%= review.user.name %> placed a review on <%= review.created_at.strftime("%b %d, %Y") %></li>
+        <li class="d-flex w-100 justify-content-between">
+          <span class="stars" style="">
+            <% if @average_rating != nil %>
+              <% @average_rating.times do%>
+                <i class="fa fa-star mt-2"></i>
+              <% end %>
+              <% @average_blank_stars.times do %>
+                <i class="far fa-star mt-2"></i>
+              <% end %>
+            <% end %>
+          </span>
+        </li>
+        <li class="d-flex w-100 justify-content-between mb-4"><%= review.content %></li>
+      </div>
       <% end %>
     </ul>
+  </div>
 </div>
-
 
 
 <div class="card-deck user-items">

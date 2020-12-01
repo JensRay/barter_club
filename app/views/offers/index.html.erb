@@ -3,7 +3,7 @@
 </div>
 
 <!-- Tab links -->
-<div class="tab d-flex justify-content-center">
+<div class="tab d-flex justify-content-center container">
   <button  class="tablinks "onclick="openCity(event, 'active')" id="defaultOpen">Active Trades</button>
   <button class="tablinks" onclick="openCity(event, 'closed')">Closed trades</button>
 
@@ -20,14 +20,14 @@
     <% if offer.original_item.user == current_user && offer.pending? %>
       <div class="d-flex justify-content-between align-items-center pt-1 pb-1 pl-1 rounded">
         <%= link_to item_path(offer.my_item_id) do %>
-        <div class=" card-mini-1 p-4 text-center">
+        <div class=" card-mini-1 p-2 text-center">
           <h6><%= offer.my_item.name %></h6>
-          <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
+          <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 100, width:100, crop: :fill %>
         </div>
         <% end %>
 
         <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="50px" width="50px" class="icon">
-        <div class="card-mini-2 p-4 text-center">
+        <div class="card-mini-2 p-2 text-center">
         <%= link_to item_path(offer.original_item_id) do %>
         <h6><%= offer.original_item.name %></h6>
         <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
@@ -63,17 +63,17 @@
       <% if bid.user == current_user && bid.pending? %>
         <div class=" d-flex justify-content-between align-items-center pt-1 pb-1 pl-1 rounded">
           <%= link_to item_path(bid.original_item) do %>
-          <div class="card-mini-1 p-4 text-center">
+          <div class="card-mini-1 p-2 text-center">
           <h6><%= bid.original_item.name %></h6>
-          <%= cl_image_tag bid.original_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
+          <%= cl_image_tag bid.original_item.photos.first.key, class: "rounded", height: 100, width:100, crop: :fill %>
            </div>
           <% end %>
 
           <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="50px" width="50px" class="icon">
-          <div class="card-mini-2 p-4 text-center">
+          <div class="card-mini-2 p-2 text-center">
             <%= link_to item_path(bid.my_item_id) do %>
             <h6><%= bid.my_item.name %></h6>
-            <%= cl_image_tag bid.my_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
+            <%= cl_image_tag bid.my_item.photos.first.key, class: "rounded", height: 100, width:100, crop: :fill %>
 
             <% end %>
             </div>
@@ -105,14 +105,14 @@
     <% if (offer.original_item.user  == current_user && offer.accept?) || (offer.user  == current_user && offer.accept?) %>
       <div class="d-flex justify-content-between align-items-center pt-1 pb-1 pl-1 rounded">
         <%= link_to item_path(offer.my_item_id) do %>
-        <div class="card-mini-1 p-4 text-center ">
+        <div class="card-mini-1 p-2 text-center ">
           <h6><%= offer.my_item.name %></h6>
-          <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
+          <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 100, width:100, crop: :fill %>
          </div>
          <% end %>
         <img src="https://www.flaticon.com/svg/static/icons/svg/152/152360.svg" alt="" height="50px" width="50px" class="icon">
         <%= link_to item_path(offer.original_item_id) do %>
-        <div class="card-mini-2 p-4 text-center ">
+        <div class="card-mini-2 p-2 text-center ">
           <h6><%= offer.original_item.name %></h6>
         <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 125, width:125, crop: :fill %>
         </div>
@@ -121,12 +121,11 @@
     <div class="text-center">
       <% if offer.original_item.user != current_user %>
         <p class="mb-0">Congrats, <%= offer.original_item.user.name.capitalize %> has accepted your offer. You have a deal!</p>
-        <%= link_to 'Leave a review', new_offer_review_path(offer) %>
         <%= link_to "Message the owner", chatroom_path(offer.chatroom) %>
+        <%= link_to 'Leave a review', new_offer_review_path(offer) %>
       <% else %>
         <p class="mb-0">Congrats, you have accepted <%= offer.user.name.capitalize%>'s offer. You have a deal!</p>
         <%= link_to "Message the bidder", chatroom_path(offer.chatroom) %>
-
         <%= link_to 'Leave a review', new_offer_review_path(offer) %>
       <% end %>
     <% end %>
@@ -163,6 +162,7 @@
 
 
   </div>
+</div>
 </div>
 
 

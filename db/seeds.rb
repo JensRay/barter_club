@@ -1,6 +1,6 @@
 puts "destroying all"
-Offer.destroy_all
 Comment.destroy_all
+Offer.destroy_all
 Item.destroy_all
 User.destroy_all
 

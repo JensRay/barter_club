@@ -1,15 +1,31 @@
-<h1>#<%= @chatroom.name %></h1>
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-  <% @chatroom.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>">
-      <i class="author">
-        <span><%= message.user.nickname %></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
-      <p><%= message.content %></p>
-    </div>
-  <% end %>
+<div class="container fullscreen">
+  <!-- <h1>#<%#= @chatroom.name %></h1> -->
+  <div class="" id="messages" data-chatroom-id="<%= @chatroom.id %>">
+    <% @chatroom.messages.each do |message| %>
+      <div class="message-container" id="message-<%= message.id %>">
+        <% klass = current_user == message.user ? 'right' : 'left' %>
+          <div class="message-content" id="<%= klass %>">
+            <!-- <span><%#= message.user.nickname %></span> -->
+            <div class="d-flex <%= klass %>">
+              <span><%= cl_image_tag message.user.photo.key, class: "avatar-sm" %></span>
+              <p class="message-text">
+
+                  <%= message.content %>
+
+              </p>
+            </div>
+
+            <!-- <small><%#= message.created_at.strftime("%a %b %e at %l:%M%p") %></small> -->
+            <small><%= message.created_at.strftime("%H:%M") %></small>
+          </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="fixed-bottom message-input">
+    <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+      <%= f.input :content, label: false, class: "", :autocomplete => :off, placeholder: "Type your message..." %>
+    <% end %>
+  </div>
+
 </div>
-<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
-<% end %>

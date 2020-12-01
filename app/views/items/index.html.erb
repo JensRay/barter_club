@@ -1,6 +1,6 @@
 <%= render 'shared/header_search' %>
-
-
+<!-- Item.user.near([current_user.latitude, current_user.longitude], 20, units: :km) -->
+<!-- Item.where(user.near([current_user.latitude, current_user.longitude], 20, units: :km)) -->
 <div class="cards">
   <div class="row justify-content-center">
       <% @items.each do |item| %>

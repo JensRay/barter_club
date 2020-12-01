@@ -1,0 +1,55 @@
+<div class="info-small border text-center text-primary pt-1">
+  <h4 class="mb-0"> Inbox</h4>
+</div>
+
+
+<div class="container">
+
+  <% @chatrooms.each do |c| %>
+   <% if c.offer.user || c.offer.original_item.user == current_user %>
+    <div class="border-bottom">
+
+      <i class="far fa-envelope fa-2x text-primary"></i>
+
+      <div class="d-flex align-items-center ">
+        <p class="mb-0">
+          Chat with
+          <% if c.offer.user || c.offer.original_item.user != current_user %>
+            <%= c.offer.user.name.capitalize %>
+          <% else %>
+            <%= c.offer.original_item.user.name.capitalize %>
+          <% end %>
+          to close the deal
+        </p>
+      </div>
+
+
+      <div class="d-flex">
+
+        <div class="text-primary mr-1">
+          <% if current_user.items.include?(c.offer.original_item) %>
+            <p><%= c.offer.original_item.name %></p>
+          <% else %>
+            <p><%= c.offer.my_item.name %></p>
+          <% end %>
+        </div>
+
+        <i class="fas fa-exchange-alt mt-1"></i>
+        <div class="text-warning ml-1">
+          <% if current_user.items.include?(c.offer.original_item) %>
+            <p><%= c.offer.my_item.name %></p>
+          <% else %>
+            <p><%= c.offer.original_item.name %></p>
+          <% end %>
+        </div>
+      </div>
+     </div>
+     <% end %>
+    <% end %>
+
+
+
+  </div>
+
+
+

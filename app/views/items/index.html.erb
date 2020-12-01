@@ -9,12 +9,17 @@
             <% item.photos.each do |photo| %>
               <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
             <% end %>
-            <div class="card-body card-index-infos">
+            <div class="card-body card-index-infos bg-white">
               <div class="mb-3">
                 <div class="card-title text-capitalize"><%= item.name.capitalize %></div>
                 <p class="card-text"><%= item.description.first(30) %>...</p>
               </div>
               <div class="card-subtitle user text-right text-dark mr-2"><%= link_to item.user.name.capitalize, user_path(item.user)%></div>
+
+              <p><% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [item.user.latitude, item.user.longitude]) %></p>
+              <% if distance != 0 %>
+                <p><%= number_with_precision(distance, precision: 0) %> km away </p>
+              <% end %>
             </div>
           </div>
         <% end %>

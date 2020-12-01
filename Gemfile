@@ -35,6 +35,7 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'pundit'
 gem 'pg_search', '~> 2.3', '>= 2.3.2'
 gem 'devise'
+gem 'geocoder'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

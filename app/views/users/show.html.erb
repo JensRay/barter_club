@@ -52,14 +52,24 @@
 <div class="card-body rating text-center">
   <h6 class="card-subtitle mb-2 mt-2 text-muted">Rating & Reviews</h6>
   <span class="stars" style="">
-      <% if @average_rating != nil %>
+    <% if @average_rating != nil %>
       <% @average_rating.times do%>
         <i class="fa fa-star mt-2"></i>
       <% end %>
-      <%=@average_rating%>/5
+      <% @average_blank_stars.times do %>
+        <i class="far fa-star"></i>
       <% end %>
+      <%=@average_rating%>/5
+    <% end %>
   </span>
 
+
+
+<%#= @my_item.user.name.capitalize %>
+<%#= offer.my_item.name %>
+<%#= @original_item.user.name %>
+<%#= offer.original_item.name %>
+ <%#= cl_image_tag @user.photo.key, class: 'avatar-large' %>
 
  <p class="text-muted font-weight-light">based on <%= pluralize @reviews.count, "review" %></p>
 

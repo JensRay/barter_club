@@ -2,31 +2,44 @@
 
     <%= link_to items_path do %>
 
-    <%= raw("<i class='fa fa-frog fa-2x text-primary'></i>") %>
+    <i class='fa fa-frog fa-2x' id="nav-active"></i>
     <% end %>
 
   <%= link_to new_item_path do %>
-    <%= raw("<i class='fa fa-plus-square fa-2x text-primary''></i>") %>
+   <i class='fa fa-plus-square fa-2x text-primary' id="icons" ></i>
   <% end %>
 
      <% if current_user %>
       <%= link_to offers_path do %>
 
-      <%= raw("<i class='fa fa-exchange-alt fa-2x text-primary''></i></i>") %>
+      <i class='fa fa-exchange-alt fa-2x text-primary' id="icons"></i>
       <% end %>
     <% else %>
       <%= link_to new_user_session_path do %>
-      <%= raw("<i class='fa fa-exchange-alt fa-2x text-primary''></i></i>") %>
+      <i class='fa fa-exchange-alt fa-2x text-primary' id="icons"></i>
       <% end %>
     <% end %>
 
+    <div>
     <% if current_user %>
-      <%= link_to user_path(current_user) do %>
-      <%= raw("<i class='fa fa-user fa-2x text-primary''></i>") %>
-      <% end %>
+
+      <div class="dropup">
+        <i class=" fa fa-user fa-2x text-primary" id="icons"></i>
+          <div class="dropup-content">
+           <%= link_to 'My profile', user_path(current_user)  %>
+            <%= link_to 'Inbox', chatrooms_path  %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          </div>
+        </div>
+
     <% else %>
       <%= link_to new_user_session_path do %>
-      <%= raw("<i class='fa fa-user fa-2x text-primary''></i>") %>
+        <i class='fa fa-user fa-2x text-primary' id="icons"></i>
       <% end %>
     <% end %>
 </div>
+
+
+
+
+

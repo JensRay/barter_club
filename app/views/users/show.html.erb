@@ -17,7 +17,7 @@
   <div class="card-body text-center">
     <h5 class="card-title"><%= @user.name %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= @user.email %></h6>
-    <p class="card-text mt-3"><%- @user.bio %></p>
+    <p class="card-text mt-3"><%= @user.bio %></p>
 </div>
   <div class="card-footer p-1 text-muted">
     <ul class="nav nav-fill">
@@ -27,7 +27,7 @@
           <% offer.pending? %>
           <% end %>
         </a>
-        <a class="card-subtitle text-capitalize nav-link disabled" href="#">BIDS</a>
+        <a class="card-subtitle text-capitalize nav-link disabled" href="#">CURRENT BIDS</a>
       </li>
       <li class="nav-item">
         <a class="trade-cal nav-link disabled" href="#">
@@ -35,53 +35,69 @@
           <% offer.accept? %>
           <% end %>
         </a>
-        <a class="card-subtitle text-capitalize text-capitalizenav-link disabled" href="#">ENDED</a>
+        <a class="card-subtitle text-capitalize text-capitalizenav-link disabled" href="#">CONFIRMED DEALS</a>
       </li>
-      <li class="nav-item">
-        <a class="trade-cal nav-link disabled" href="#">
-           <%= current_user.offers.count do |offer| %>
-          <% offer.decline? %>
-          <% end %>
-        </a>
-        <a class="card-subtitle text-capitalize nav-link disabled" href="#">CANCELED</a>
-      </li>
+
   </ul>
   </div>
 </div>
 
-<div class="card-body rating text-center">
-  <h6 class="card-subtitle mb-2 mt-2 text-muted">Rating & Reviews</h6>
-  <span class="stars" style="">
-    <% if @average_rating != nil %>
-      <% @average_rating.times do%>
-        <i class="fa fa-star mt-2"></i>
-      <% end %>
-      <% @average_blank_stars.times do %>
-        <i class="far fa-star"></i>
-      <% end %>
-      <%=@average_rating%>/5
-    <% end %>
-  </span>
+
+
+      <div class="user-question">
+            <button class="btn question-button col text-center collapse-buttons collapse-button-color" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Reviews and Ratings:
+            </button>
+
+          <div class="collapse" id="collapseExample">
+
+            <div class="card-body rating text-center">
+              <h6 class="card-subtitle mb-2 mt-2 text-muted">Rating & Reviews</h6>
+              <span class="stars" style="">
+                <% if @average_rating != nil %>
+                  <% @average_rating.times do%>
+                    <i class="fa fa-star mt-2"></i>
+                  <% end %>
+                  <% @average_blank_stars.times do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                <% end %>
+              </span>
+
+
+             <p class="text-muted font-weight-light">based on <%= pluralize @reviews.count, "review" %></p>
+
+
+              <div class="list-group text">
+                <ul class="list-group-item list-group-item-action flex-column">
+                  <% @reviews.each do |review| %>
+                  <div class="reviews">
+                    <li class="d-flex w-100 justify-content-between"><%= review.user.name %> placed a review on <%= review.created_at.strftime("%b %d, %Y") %></li>
+                    <li class="d-flex w-100 justify-content-between">
+                      <span class="stars" style="">
+                        <% if @average_rating != nil %>
+                          <% @average_rating.times do%>
+                            <i class="fa fa-star mt-2"></i>
+                          <% end %>
+                          <% @average_blank_stars.times do %>
+                            <i class="far fa-star mt-2"></i>
+                          <% end %>
+                        <% end %>
+                      </span>
+                    </li>
+                    <li class="d-flex w-100 justify-content-between mb-4"><%= review.content %></li>
+                  </div>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+      </div>
 
 
 
-<%#= @my_item.user.name.capitalize %>
-<%#= offer.my_item.name %>
-<%#= @original_item.user.name %>
-<%#= offer.original_item.name %>
- <%#= cl_image_tag @user.photo.key, class: 'avatar-large' %>
-
- <p class="text-muted font-weight-light">based on <%= pluralize @reviews.count, "review" %></p>
-
-
-  <div class="card-link text-right"></div>
-    <ul class="list-group list-group-flush">
-      <% @reviews.each do |review| %>
-      <li class="list-group-item"><%= review.rating %></li>
-      <li class="list-group-item"><%= review.content %></li>
-      <% end %>
-    </ul>
-</div>
 
 
 
@@ -124,12 +140,59 @@
           <div class="card-body">
             <h5 class="card-title"><%= item.name %></h5>
             <p class="card-text"><%= item.description %></p>
-            <p class="card-text"><small class="text-muted">Last updated at <%= item.updated_at %></small></p>
+            <p class="card-text"><small class="text-muted">Last updated on <%= item.updated_at.strftime("%b %d, %Y") %></small></p>
           </div>
         </div>
     <% end %>
   <% end %>
 
   </div>
+  <!-- Here is the nav bar. DONT TOUCH!
+ -->
+
+
+<div class="navbar navbar-expand-sm navbar-light navbar-barters navbar-sticky fixed-bottom mt-0">
+
+    <%= link_to items_path do %>
+
+    <i class='fa fa-frog fa-2x' id="icons"></i>
+    <% end %>
+
+  <%= link_to new_item_path do %>
+   <i class='fa fa-plus-square fa-2x text-primary' id="icons" ></i>
+  <% end %>
+
+     <% if current_user %>
+      <%= link_to offers_path do %>
+
+      <i class='fa fa-exchange-alt fa-2x text-primary' id="icons"></i>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+      <i class='fa fa-exchange-alt fa-2x text-primary' id="icons"></i>
+      <% end %>
+    <% end %>
+
+    <div>
+    <% if current_user %>
+
+      <div class="dropup">
+        <i class=" fa fa-user fa-2x text-primary" id="nav-active"></i>
+          <div class="dropup-content">
+           <%= link_to 'My profile', user_path(current_user)  %>
+            <%= link_to 'Inbox', chatrooms_path  %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          </div>
+        </div>
+
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <i class='fa fa-user fa-2x text-primary' id="icons"></i>
+      <% end %>
+    <% end %>
+</div>
+
+
+
 </div>
 

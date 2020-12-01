@@ -1,122 +1,114 @@
 <div class="card card-item-show">
-  <div class="card-header text-center"><%= @item.name %></div>
+  <div class="card-header text-center text-capitalize"><%= @item.name %></div>
 
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <% @item.photos.each do |photo| %>
-        <div class="carousel-item active">
-          <%= cl_image_tag photo.key, class: 'd-block w-100 card-img-top' %>
-        </div>
-
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-
-      <% end %>
+    <div id="carouselExampleControls" class="item-gallery carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <% @item.photos.each do |photo| %>
+          <div class="carousel-item active">
+            <%= cl_image_tag photo.key, class: 'item-gallery-img d-block w-100' %>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        <% end %>
+      </div>
     </div>
-  </div>
 
-  <div class="card-header">Seller</div>
-  <div class="card-body d-flex">
-    <div class="card-img-top card-img-user w-auto mr-3">
-      <%= cl_image_tag @item.user.photo.key, class: 'avatar-large' %>
-    </div>
-    <div class="card-text pl-3">
-      <div class="card-title"><%= link_to @item.user.name.capitalize, user_path(@item.user) %></div>
-      <div class="card-subtitle text-muted"><%= link_to @item.user.address.capitalize, user_path(@item.user) %></div>
-
-           <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [Item.find(params[:id]).user.latitude, Item.find(params[:id]).user.longitude]) %>
+    <div class="card-body figure-caption mt-0 pt-1 pb-2">
+      <%= @item.category %> | 3km away
+          <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [Item.find(params[:id]).user.latitude, Item.find(params[:id]).user.longitude]) %>
         <% if distance != 0 %>
           <div class="card-subtitle text-muted"><%= number_with_precision(distance, precision: 0) %> km away</div>
         <% end %>
+  
     </div>
-  </div>
-
-  <div class="card-header">Description</div>
-    <div class="card-body">
-      <div class="card-text"><%= @item.description %></div>
-    </div>
-  </div>
-  <div>
-      <button class="btn question-button col text-center collapse-buttons collapse-button-color" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Questions:
-     </button>
-    <div class="collapse" id="collapseExample">
-    <div class="card card-body">
-    <!-- <div class="form-group"> -->
-     <!--  <label for="comment"></label>
-      <textarea class="form-control" rows="3" id="comment" placeholder="Add your comment..."></textarea>
-   <--  </div> -->
-      <!-- <button class="btn btn-primary" type="button">Send</button> -->
 
 
+     
+ 
 
-      <% @item.comments.each do |comment| %>
-      <% klassforcomments = current_user == comment.user ? 'me' : 'you' %>
-      <div class="mb-0 comment-content" id="<%= klassforcomments %>">
-        <!-- <p class="comment-author"><strong><%#= comment.user.name %></strong></p> -->
 
-        <div class="d-flex <%= klassforcomments %>">
-          <span><%= cl_image_tag comment.user.photo.key, class: "avatar-sm" %></span>
-          <p class="comment-text" ><%= comment.content %></p>
+    <div class="card-body border-bottom pb-4">
+      <div class="card-text text-muted"><%= @item.description %></div>
+
+    <div class="card-body card-body-section">
+      <div class="card-title">Trader</div>
+      <div class="d-flex row-cols-2">
+        <div class="card-img-top card-img-user w-auto mr-3 col-2 justify-content-center">
+          <%= cl_image_tag @item.user.photo.key, class: 'avatar-large' %>
         </div>
-        <small><%= comment.created_at.strftime("%H:%M") %></small>
+        <div class="card-text pl-3 col-10">
+          <div class="card-title"><%= link_to @item.user.name.capitalize, user_path(@item.user) %></div>
+          <div class="card-subtitle text-muted"><%= link_to @item.user.address.capitalize, user_path(@item.user) %></div>
+        </div>
+
       </div>
-      <% end %>
-       <hr>
 
-      <%= simple_form_for [@item, @comment] do |f| %>
-          <div class="form-row align-items-center">
-            <div class="col-8">
-              <%= f.input :content, label: false %>
-            </div>
-            <div class="col-4">
-              <%= f.submit "Send", class: "col btn-sm "%>
-            </div>
+      <div class="user-question">
+            <button class="btn question-button col text-center collapse-buttons collapse-button-color" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Questions:
+            </button>
 
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              <% @item.comments.each do |comment| %>
+                <div class="mb-0 bg-light">
+                  <p class="message-author"><strong><%= comment.user.name %></strong></p>
+                  <p class="message mb-3" ><%= comment.content %></p>
+                </div>
+              <% end %>
+              <hr>
+
+              <%= simple_form_for [@item, @comment] do |f| %>
+                  <div class="form-row align-items-center">
+                    <div class="col-8">
+                      <%= f.input :content, label: false %>
+                    </div>
+                    <div class="col-4">
+                      <%= f.submit "Send", class: "col btn-sm "%>
+                    </div>
+
+                  </div>
+              <% end %>
+            </div>
           </div>
 
-
-      <% end %>
-
-
-
-  </div>
+      </div>
+    </div>
 </div>
-  </div>
+
+
 
   <% @offers.each do |offer| %>
-      <%= link_to item_path(offer.my_item) do %>
-  <div class="card-product d-inline">
-      <% if offer.original_item == @item %>
-
-      <div class="d-flex ">
-      <%= cl_image_tag offer.my_item.photos.first.key, height: 300, width: 400, crop: :fill %>
-
-      <div class="card-product-infos">
-        <h2><%=offer.my_item.name %></h2>
-        <p><%= offer.my_item.name %></p>
-        <% if offer.status == nil %>
-        <p>Bid by <%= offer.user.name %>, waiting for <%= offer.original_item.user.name %> to respond...</p>
-        <% end %>
-      </div>
-      </div>
+    <%= link_to item_path(offer.my_item) do %>
+      <div class="card-product d-inline">
+          <% if offer.original_item == @item %>
+            <div class="d-flex ">
+              <%= cl_image_tag offer.my_item.photos.first.key, height: 300, width: 400, crop: :fill %>
+                <div class="card-product-infos">
+                  <h2><%=offer.my_item.name %></h2>
+                  <p><%= offer.my_item.name %></p>
+          <% if offer.status == nil %>
+            <p>Bid by <%= offer.user.name %>, waiting for <%= offer.original_item.user.name %> to respond...</p>
+          <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   <% end %>
-    <% end %>
-    <% end %>
 
 
-
-<%= link_to new_item_offer_path(@item) do %>
-  <div class="btn-sticky text-center bg-white mb-1 mt-2">
-  <button class="btn-long border-0 shadow-none"> Trade</button>
+<div class="btn-trade">
+  <%= link_to new_item_offer_path(@item) do %>
+    <div class="btn-sticky text-center bg-white mb-1 mt-2">
+      <button class="btn-long border-0 shadow-none"> Trade</button>
+    </div>
+  <% end %>
 </div>
-<% end %>
 
 

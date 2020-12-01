@@ -19,5 +19,4 @@ class User < ApplicationRecord
   has_many :reviews_as_owner, through: :offers_as_owner, source: :reviews
 
   has_one_attached :photo
-
 end

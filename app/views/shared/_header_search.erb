@@ -1,10 +1,10 @@
 
 <div class="header">
-  <div class="form-group d-block">
+  <div class="form-group d-block m-0">
     <%= form_tag items_path, method: :get do %>
       <%= text_field_tag :query,
       params[:query],
-      class: "header-serach form-control w-90",
+      class: "form-control w-95 m-0",
       placeholder: "I'm looking for..." %>
     <%#= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
@@ -19,8 +19,8 @@
             <a href="#" class="btn"> Near You </a>
           </li>
           <li class="d-inline dropdown">
-            <%= select_tag :category, options_for_select(Item::ALLCATEGORIES), class: "btn" %>
-            <%= submit_tag "Apply", class: "btn" %>
+            <%= select_tag :category, options_for_select(Item::ALLCATEGORIES), class: "btn", id: "apply" %>
+            <%= submit_tag "Apply", class: "btn apply" %>
           </li>
       </div>
         <% end %>

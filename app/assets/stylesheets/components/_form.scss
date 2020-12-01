@@ -1,3 +1,30 @@
+.form {
+  width: fit-content;
+}
+
+.form-control {
+  width: 80%;
+  border: transparent;
+  color: $gray-1;
+}
+
+.form-control::placeholder {
+  color: $gray-1;
+  opacity: .9;
+}
+
+.form-control:focus {
+ width: 70%;
+}
+
+.form-control-line {
+  border-bottom: 1px solid opacify($color: $green, $amount: .9);
+}
+
+
+
+
+// landing page
 .landing-login {
   position: fixed;
   width: 70%;
@@ -15,16 +42,4 @@
 
 .landing-login-form .btn:hover {
   opacity: 1;
-}
-
-.landing-login-form .form-control {
-  background-color: transparent;
-  border: transparent;
-  border-bottom: 1px solid opacify($color: $green, $amount: .9);
-  color: $green;
-}
-
-.landing-login-form .form-control::placeholder {
-  color: $gray;
-  opacity: .9;
 }

@@ -1,20 +1,20 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-barters navbar-sticky fixed-bottom mt-0">
 
     <%= link_to items_path do %>
-    <%= raw("<i class='fa fa-frog fa-2x'></i>") %>
+    <%= raw("<i class='a fa fa-frog fa-2x'></i>") %>
     <% end %>
 
   <%= link_to new_item_path do %>
-    <%= raw("<i class='fa fa-plus-square fa-2x'></i>") %>
+    <%= raw("<i class='a fa fa-plus-square fa-2x'></i>") %>
   <% end %>
 
      <% if current_user %>
       <%= link_to offers_path do %>
-      <%= raw("<i class='fa fa-exchange-alt fa-2x'></i></i>") %>
+      <%= raw("<i class='a fa fa-exchange-alt fa-2x'></i></i>") %>
       <% end %>
     <% else %>
       <%= link_to new_user_session_path do %>
-      <%= raw("<i class='fa fa-exchange-alt fa-2x'></i></i>") %>
+      <%= raw("<i class='a fa fa-exchange-alt fa-2x'></i></i>") %>
       <% end %>
     <% end %>
 

@@ -8,13 +8,17 @@
   margin-top: 1.2rem;
 }
 .navbar-barters .fa {
-  color: $gray-300;
-  opacity: .9;
+  color: $gray;
+  transition: 0.3s ease;
+
+  &:hover {
+    color: $green !important;
+  }
 }
-.navbar-barters .fa:hover {
-  color: $gray-300;
-  opacity: 1;
-}
+
+
+
+
 .navbar-barters .navbar-collapse {
   flex-grow: 0;
 }

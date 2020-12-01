@@ -6,6 +6,14 @@ class UsersController < ApplicationController
 def show
   @user = User.find(params[:id])
   authorize @user
+  @reviews = @user.reviews_as_bidder.select do |review|
+    review.user != @user
+  end
+  @reviews += @user.reviews_as_owner.select do |review|
+    review.user != @user
+  end
+  @average_rating = average_rating
+  @average_blank_stars = average_blank_stars
 end
 
 
@@ -26,6 +34,21 @@ end
   end
 
   private
+
+  def average_rating
+    sum = 0
+    if @reviews.size > 0
+      @reviews.each do |review|
+        sum += review.rating
+      end
+      sum / @reviews.count
+    end
+  end
+
+  def average_blank_stars
+    5 - average_rating.to_i
+  end
+
 
   def set_user
     @user = User.find(params[:id])

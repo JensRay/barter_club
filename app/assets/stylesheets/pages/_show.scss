@@ -10,11 +10,12 @@ background-size: cover;
 a:-webkit-any-link {
     text-decoration: none !important;
     cursor: pointer;
-    color: unset;
+    color: inherit;
 }
 
 
 .collapse-button-color {
+
   color: white;
 
 }

@@ -1,0 +1,29 @@
+.header {
+  justify-content: center;
+  background-color: white;
+  padding: 1.2em;
+  width: auto;
+  height: auto;
+}
+
+.header .form {
+  width: fit-content;
+  position: relative;
+}
+
+.header .form-control {
+  background-color: white;
+  width: 85%;
+  border: 1px solid opacify($color: $gray, $amount: 0.7);
+  border-radius: 30px;
+  transition: width 0.4s ease-in-out;
+}
+
+.header-category {
+  display: inline;
+  justify-content: space-between;
+  width: auto;
+  border-radius: 10px;
+  transition: width 0.4s ease-in-out;
+  margin-right: 3px;
+}

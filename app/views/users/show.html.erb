@@ -52,19 +52,35 @@
 <div class="card-body rating text-center">
   <h6 class="card-subtitle mb-2 mt-2 text-muted">Rating & Reviews</h6>
   <span class="stars" style="">
-  <i class="fa fa-star mt-2"></i>
-  <i class="fa fa-star mt-2"></i>
-  <i class="fa fa-star mt-2"></i>
+    <% if @average_rating != nil %>
+      <% @average_rating.times do%>
+        <i class="fa fa-star mt-2"></i>
+      <% end %>
+      <% @average_blank_stars.times do %>
+        <i class="far fa-star"></i>
+      <% end %>
+      <%=@average_rating%>/5
+    <% end %>
   </span>
-  <p class="text-muted font-weight-light">based on xxx reviews</p>
-  <div class="card-link text-right"><%= link_to 'Leave a review', new_user_review_path(@user) %></div>
-    <ul>
-      <% @user.reviews.each do |review| %>
-      <li><%= review.content %></li>
+
+
+
+<%#= @my_item.user.name.capitalize %>
+<%#= offer.my_item.name %>
+<%#= @original_item.user.name %>
+<%#= offer.original_item.name %>
+ <%#= cl_image_tag @user.photo.key, class: 'avatar-large' %>
+
+ <p class="text-muted font-weight-light">based on <%= pluralize @reviews.count, "review" %></p>
+
+
+  <div class="card-link text-right"></div>
+    <ul class="list-group list-group-flush">
+      <% @reviews.each do |review| %>
+      <li class="list-group-item"><%= review.rating %></li>
+      <li class="list-group-item"><%= review.content %></li>
       <% end %>
     </ul>
-
-
 </div>
 
 

@@ -22,25 +22,25 @@
       </div>
     </div>
 
-    <div class="card-body pb-4">
+    <div class="card-body pb-4 align-content-center">
       <div class="card-text text-muted text-center"><%= @item.description %></div>
-    </div>
 
-  <%= link_to user_path(@item.user) do %>
-      <div class="card user-profile m-4">
-          <div class="card-body">
-            <div class="d-flex row-cols-2 pb-0">
-              <div class="card-img-top card-img-user w-auto mr-3 col-2 align-items-baseline">
-                <%= cl_image_tag @item.user.photo.key, class: 'avatar-large' %>
+      <%= link_to user_path(@item.user) do %>
+          <div class="card user-profile mb-3 mt-5">
+              <div class="card-body">
+                <div class="d-flex row-cols-2 pb-0">
+                  <div class="card-img-top card-img-user w-auto mr-3 col-2 align-items-baseline">
+                    <%= cl_image_tag @item.user.photo.key, class: 'avatar-large' %>
+                  </div>
+                  <div class="card-text pl-3 col-10">
+                    <div class="card-title"><%= @item.user.name.capitalize %></div>
+                    <div class="card-subtitle"><%= @item.user.address.capitalize %></div>
+                  </div>
+                </div>
               </div>
-              <div class="card-text pl-3 col-10">
-                <div class="card-title"><%= @item.user.name.capitalize %></div>
-                <div class="card-subtitle"><%= @item.user.address.capitalize %></div>
-              </div>
-            </div>
           </div>
-      </div>
-    <% end %>
+        <% end %>
+    </div>
 </div>
 
 

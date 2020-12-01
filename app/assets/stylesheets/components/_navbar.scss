@@ -9,10 +9,14 @@
 }
 .navbar-barters .fa {
   color: $gray;
+  opacity: .8;
   transition: 0.3s ease;
 
   &:hover {
     color: $green !important;
+  }
+  &:active {
+    color: $green;
   }
 }
 

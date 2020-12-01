@@ -1,3 +1,4 @@
+<div class="container">
 <div class="card card-item-show justify-content-center">
   <div class="card-header text-center text-capitalize"><%= @item.name %></div>
 
@@ -22,11 +23,14 @@
       </div>
     </div>
 
-    <div class="card-body pb-4 align-content-center">
+    <div class="card-body pb-5 align-content-center">
       <div class="card-text text-muted text-center"><%= @item.description %></div>
+    </div>
+</div>
 
-      <%= link_to user_path(@item.user) do %>
-          <div class="card user-profile mb-3 mt-5">
+<div class="jumbotron">
+<%= link_to user_path(@item.user) do %>
+          <div class="card user-profile mb-3">
               <div class="card-body">
                 <div class="d-flex row-cols-2 pb-0">
                   <div class="card-img-top card-img-user w-auto mr-3 col-2 align-items-baseline">
@@ -40,15 +44,12 @@
               </div>
           </div>
         <% end %>
-    </div>
-</div>
+  <%# <p>It uses utility classes for typography and spacing to space content out within the larger con
+  <p class="lead"> %>
 
-
-      <div class="card-body">
-
-        <div class="user-question">
+            <div class="user-question">
               <button class="btn question-button col text-center collapse-buttons collapse-button-color" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Questions:
+                Questions?
               </button>
 
             <div class="collapse" id="collapseExample">
@@ -76,11 +77,17 @@
             </div>
 
         </div>
-      </div>
-    </div>
 </div>
 
 
+
+    <div class="btn-trade">
+      <%= link_to new_item_offer_path(@item) do %>
+        <div class="btn-sticky text-center bg-white mb-1 mt-2">
+          <button class="btn-lg border-0 shadow-none">Trade</button>
+        </div>
+      <% end %>
+    </div>
 
   <% @offers.each do |offer| %>
     <%= link_to item_path(offer.my_item) do %>
@@ -98,14 +105,6 @@
         </div>
       <% end %>
     <% end %>
-  <% end %>
-
-
-<div class="btn-trade">
-  <%= link_to new_item_offer_path(@item) do %>
-    <div class="btn-sticky text-center bg-white mb-1 mt-2">
-      <button class="btn-long border-0 shadow-none"> Trade</button>
-    </div>
   <% end %>
 </div>
 

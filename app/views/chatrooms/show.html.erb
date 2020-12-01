@@ -18,20 +18,9 @@
             <!-- <small><%#= message.created_at.strftime("%a %b %e at %l:%M%p") %></small> -->
             <small><%= message.created_at.strftime("%H:%M") %></small>
           </div>
-
-
-
-<!-- why border-radius is not working on a message bar? -->
       </div>
-
     <% end %>
   </div>
-
-
-
-
-
-
 
   <div class="fixed-bottom message-input">
     <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
@@ -40,6 +29,3 @@
   </div>
 
 </div>
-
-
-

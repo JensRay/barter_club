@@ -4,9 +4,6 @@
   display:inline-block;
   clear: both;
   margin: 0 16px;
-}
-
-.comment-author {
 
 }
 
@@ -15,9 +12,55 @@
   color: white;
   margin: 0;
   padding: 5px 10px !important;
+  background-color: $orange;
+}
+
+.card-body {
+  background-color: $gray;
 }
 
 
+#me {
+  float: right;
+  text-align: right;
+}
+
+.me {
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.me p {
+  background-color: $orange;
+}
+
+/*#right .message-text {
+  padding-right: 10px;
+}*/
+
+.me span {
+  margin-left: 12px;
+}
+
+
+#you {
+  /*min-width: 50%;
+  max-width: 50%;*/
+  float: left;
+}
+
+.you {
+  align-items: center;
+}
+
+.you p {
+  background-color: $gray-2;
+  color: white;
+}
+
+.you span {
+  margin-right: 12px;
+}
 
 /*MESSENGER*/
 

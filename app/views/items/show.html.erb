@@ -53,9 +53,14 @@
 
 
       <% @item.comments.each do |comment| %>
-      <div class="mb-0 comment-content">
-        <p class="comment-author"><strong><%= comment.user.name %></strong></p>
-        <p class="comment-text" ><%= comment.content %></p>
+      <% klassforcomments = current_user == comment.user ? 'me' : 'you' %>
+      <div class="mb-0 comment-content" id="<%= klassforcomments %>">
+        <!-- <p class="comment-author"><strong><%#= comment.user.name %></strong></p> -->
+
+        <div class="d-flex <%= klassforcomments %>">
+          <span><%= cl_image_tag comment.user.photo.key, class: "avatar-sm" %></span>
+          <p class="comment-text" ><%= comment.content %></p>
+        </div>
         <small><%= comment.created_at.strftime("%H:%M") %></small>
       </div>
       <% end %>

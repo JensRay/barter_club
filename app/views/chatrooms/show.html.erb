@@ -1,23 +1,26 @@
-<div class="container">
+<div class="container fullscreen">
   <!-- <h1>#<%#= @chatroom.name %></h1> -->
   <div class="" id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
       <div class="message-container" id="message-<%= message.id %>">
         <% klass = current_user == message.user ? 'right' : 'left' %>
-          <div id="<%= klass %>" class="message-content">
+          <div class="message-content" id="<%= klass %>">
             <!-- <span><%#= message.user.nickname %></span> -->
-            <span><%= cl_image_tag message.user.photo.key, class: "avatar-sm m-3" %></span>
-            <p>
-              <span class="message-text">
-              <%= message.content %>
-              </span>
-            </p>
+            <div class="d-flex <%= klass %>">
+              <span><%= cl_image_tag message.user.photo.key, class: "avatar-sm" %></span>
+              <p class="message-text">
+
+                  <%= message.content %>
+
+              </p>
+            </div>
+
             <!-- <small><%#= message.created_at.strftime("%a %b %e at %l:%M%p") %></small> -->
             <small><%= message.created_at.strftime("%H:%M") %></small>
           </div>
 
-<!-- what's the easiest way to change the order of the elements -->
-<!-- container changes the length and margin is never enough -->
+
+
 <!-- why border-radius is not working on a message bar? -->
       </div>
 

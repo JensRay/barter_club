@@ -53,10 +53,10 @@
 
 
       <% @item.comments.each do |comment| %>
-      <div class="mb-0 bg-light">
-        <p class="message-author"><strong><%= comment.user.name %></strong></p>
-        <p class="message mb-3" ><%= comment.content %></p>
-
+      <div class="mb-0 comment-content">
+        <p class="comment-author"><strong><%= comment.user.name %></strong></p>
+        <p class="comment-text" ><%= comment.content %></p>
+        <small><%= comment.created_at.strftime("%H:%M") %></small>
       </div>
       <% end %>
        <hr>

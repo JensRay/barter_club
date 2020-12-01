@@ -1,18 +1,40 @@
+/*COMMENTS*/
 
+.comment-content {
+  display:inline-block;
+  clear: both;
+  margin: 0 16px;
+}
+
+.comment-author {
+
+}
+
+.comment-text {
+  border-radius: 15px;
+  color: white;
+  margin: 0;
+  padding: 5px 10px !important;
+}
+
+
+
+/*MESSENGER*/
 
 .message-text {
-  background-color: $orange;
-  padding: 5px 10px;
+
   /*display: flex;*/
   /*flex-direction: column;*/
   border-radius: 15px;
-  color: $gray;
+  color: white;
   margin: 0;
+  padding: 5px 10px !important;
 }
 
 .message-content {
   display:inline-block;
   clear: both;
+  margin: 0 16px;
 }
 
 .message-content p {
@@ -45,12 +67,25 @@
 #right {
   float: right;
   text-align: right;
+}
 
+.right {
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.right p {
+  background-color: $orange;
 }
 
 /*#right .message-text {
   padding-right: 10px;
 }*/
+
+.right span {
+  margin-left: 12px;
+}
+
 
 #left {
   /*min-width: 50%;
@@ -58,11 +93,33 @@
   float: left;
 }
 
+.left {
+  align-items: center;
+}
+
+.left p {
+  background-color: $gray-2;
+  color: white;
+}
+
+.left span {
+  margin-right: 12px;
+}
 /*#left .message-text {
   padding-left: 10px;
 }*/
 
 .message-container {
   margin: 0 10px;
-  min-height: 100px;
+  min-height: 70px;
+}
+
+.fullscreen {
+  overflow-y: scroll;
+  height: 100%;
+  margin-bottom: 3.5rem;
+}
+
+.container {
+   background-color: $gray;
 }

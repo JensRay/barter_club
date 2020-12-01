@@ -13,6 +13,7 @@ def show
     review.user != @user
   end
   @average_rating = average_rating
+  @average_blank_stars = average_blank_stars
 end
 
 
@@ -42,6 +43,10 @@ end
       end
       sum / @reviews.count
     end
+  end
+
+  def average_blank_stars
+    5 - average_rating.to_i
   end
 
 

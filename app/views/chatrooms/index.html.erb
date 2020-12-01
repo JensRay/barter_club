@@ -7,6 +7,7 @@
 
   <% @chatrooms.each do |c| %>
    <% if c.offer.user || c.offer.original_item.user == current_user %>
+   <%= link_to chatroom_path(c) do %>
     <div class="border-bottom">
 
       <i class="far fa-envelope fa-2x text-primary"></i>
@@ -44,6 +45,7 @@
         </div>
       </div>
      </div>
+     <% end %>
      <% end %>
     <% end %>
 

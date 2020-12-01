@@ -20,17 +20,18 @@
     </div>
 
     <div class="card-body figure-caption mt-0 pt-1 pb-2">
-      <%= @item.category %> | 3km away
-          <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [Item.find(params[:id]).user.latitude, Item.find(params[:id]).user.longitude]) %>
-        <% if distance != 0 %>
-          <div class="card-subtitle text-muted"><%= number_with_precision(distance, precision: 0) %> km away</div>
-        <% end %>
-  
+      <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [Item.find(params[:id]).user.latitude, Item.find(params[:id]).user.longitude]) %>
+      <% if distance != 0 %>
+        <%= @item.category %> | <%= number_with_precision(distance, precision: 0) %> km away
+      <% else %>
+        <%= @item.category %>
+      <% end %>
+
     </div>
 
 
-     
- 
+
+
 
 
     <div class="card-body border-bottom pb-4">

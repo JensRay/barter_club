@@ -28,7 +28,7 @@
     </div>
 </div>
 
-<div class="jumbotron">
+<div class="jumbotron mb-0 pt-5 pb-5">
 <%= link_to user_path(@item.user) do %>
           <div class="card user-profile mb-3">
               <div class="card-body">
@@ -48,7 +48,7 @@
   <p class="lead"> %>
 
             <div class="user-question">
-              <button class="btn question-button col text-center collapse-buttons collapse-button-color" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              <button class="btn-ghost-green btn-block text-center" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Questions?
               </button>
 
@@ -70,7 +70,6 @@
                       <div class="col-4">
                         <%= f.submit "Send", class: "col btn-sm "%>
                       </div>
-
                     </div>
                 <% end %>
               </div>
@@ -81,31 +80,37 @@
 
 
 
-    <div class="btn-trade">
-      <%= link_to new_item_offer_path(@item) do %>
-        <div class="btn-sticky text-center bg-white mb-1 mt-2">
-          <button class="btn-lg border-0 shadow-none">Trade</button>
-        </div>
+  <%= link_to new_item_offer_path(@item) do %>
+      <button class="btn-flat-orange btn-block btn-lg border-0 shadow-none">Trade</button>
+  <% end %>
+
+  <div class="card-header">Current Bids</div>
+  <div class="cards">
+    <div class="row justify-content-center">
+      <% @offers.each do |offer| %>
+        <%= link_to item_path(offer.my_item) do %>
+          <% if offer.original_item == @item %>
+            <div class="card-index d-flex col-12 col-sm-12 col-md-12 col-lg-6">
+              <div class="card-index-img">
+               <% offer.my_item.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
+               <% end %>
+              </div>
+
+              <div class="card-body card-index-infos">
+                <div class="card-title"><%=offer.my_item.name %></div>
+                <div class="card-text"><%= offer.my_item.name %></div>
+                <% if offer.status == nil %>
+                  <div class="card-text text-muted">Bid by <%= offer.user.name %>, waiting for <%= offer.original_item.user.name %> to respond...</div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
+  </div>
 
-  <% @offers.each do |offer| %>
-    <%= link_to item_path(offer.my_item) do %>
-      <div class="card-product d-inline">
-          <% if offer.original_item == @item %>
-            <div class="d-flex ">
-              <%= cl_image_tag offer.my_item.photos.first.key, height: 300, width: 400, crop: :fill %>
-                <div class="card-product-infos">
-                  <h2><%=offer.my_item.name %></h2>
-                  <p><%= offer.my_item.name %></p>
-          <% if offer.status == nil %>
-            <p>Bid by <%= offer.user.name %>, waiting for <%= offer.original_item.user.name %> to respond...</p>
-          <% end %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  <% end %>
-</div>
+
 
 

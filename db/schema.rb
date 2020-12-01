@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_144810) do
+ActiveRecord::Schema.define(version: 2020_11_30_094041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 2020_11_26_144810) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "offer_id"
+    t.index ["offer_id"], name: "index_chatrooms_on_offer_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
@@ -56,6 +64,16 @@ ActiveRecord::Schema.define(version: 2020_11_26_144810) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "offers", force: :cascade do |t|
     t.integer "status", default: 0
     t.bigint "user_id", null: false
@@ -63,6 +81,8 @@ ActiveRecord::Schema.define(version: 2020_11_26_144810) do
     t.bigint "original_item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "chatroom_id"
+    t.index ["chatroom_id"], name: "index_offers_on_chatroom_id"
     t.index ["my_item_id"], name: "index_offers_on_my_item_id"
     t.index ["original_item_id"], name: "index_offers_on_original_item_id"
     t.index ["user_id"], name: "index_offers_on_user_id"
@@ -90,14 +110,19 @@ ActiveRecord::Schema.define(version: 2020_11_26_144810) do
     t.string "name"
     t.string "address"
     t.text "bio"
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chatrooms", "offers"
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
   add_foreign_key "items", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
+  add_foreign_key "offers", "chatrooms"
   add_foreign_key "offers", "items", column: "my_item_id"
   add_foreign_key "offers", "items", column: "original_item_id"
   add_foreign_key "offers", "users"

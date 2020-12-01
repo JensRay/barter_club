@@ -1,17 +1,24 @@
-<nav class="nav nav-page pt-2 pb-2 nav-pills nav-fill">
-  <a class="nav-item text-center " href="#">New Trade</a>
+<div class="container-new border">
+<div class="info-small border text-center text-primary pt-1">
+  <h4 class="m-02"> New trade</h4>
+</div>
 
 </nav>
 
-<div class="bg-success text-white">
-  <h1 class="card-header">Trade your item! </h1>
+<div class="">
+
+  <div class=" d-flex justify-content-center">
+
+
+  </div>
   <div class="card-body">
-  <div class="d-flex justify-content-center">
+  <div class=" form-new d-flex justify-content-center align-items-center">
     <div>
       <% if current_user.items.exists? %>
+      <h6 class="tablinks"><strong>Trade your item</strong> </h6>
          <%= simple_form_for [@original_item, @offer] do |f| %>
-         <%= f.association  :my_item,label: "Choose item", collection: @my_items ,as: :radio_buttons%>
-         <%= f.button :submit, "Trade!", class: 'btn-lg-white'  %>
+         <%= f.association  :my_item,label: "Choose one of your items", collection: @my_items ,as: :radio_buttons%>
+         <%= f.button :submit, "Trade!", class: 'btn-sm-green'  %>
          <% end %>
       <% else %>
         <p>No Items to trade</p>
@@ -21,10 +28,14 @@
   </div>
   <br>
   <div class="text-center">
-      <%= link_to '+ add a new item', new_item_path  %>
+      <%= link_to new_item_path do %>
+      <div>
+          <i class="fas fa-plus"></i>
+          <p > Add new item</p>
+          <% end %>
   </div>
   </div>
-  <br>
+</div>
 
 
 

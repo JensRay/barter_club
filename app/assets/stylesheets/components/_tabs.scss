@@ -17,7 +17,7 @@
   outline: none;
   cursor: pointer;
   transition: 0.3s;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 /* Change background color of buttons on hover */
@@ -27,7 +27,7 @@
 
 /* Create an active/current tablink class */
 .tab div.active {
-  text-decoration: underline;
+  // text-decoration: underline;
   opacity: 1;
 
 }

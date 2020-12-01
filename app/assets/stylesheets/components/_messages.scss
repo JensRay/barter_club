@@ -1,0 +1,168 @@
+/*COMMENTS*/
+
+.comment-content {
+  display:inline-block;
+  clear: both;
+  margin: 0 16px;
+
+}
+
+.comment-text {
+  border-radius: 15px;
+  color: white;
+  margin: 0;
+  padding: 5px 10px !important;
+  background-color: $orange;
+}
+
+.card-body {
+  background-color: $gray;
+}
+
+
+#me {
+  float: right;
+  text-align: right;
+}
+
+.me {
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.me p {
+  background-color: $orange;
+}
+
+/*#right .message-text {
+  padding-right: 10px;
+}*/
+
+.me span {
+  margin-left: 12px;
+}
+
+
+#you {
+  /*min-width: 50%;
+  max-width: 50%;*/
+  float: left;
+}
+
+.you {
+  align-items: center;
+}
+
+.you p {
+  background-color: $gray-2;
+  color: white;
+}
+
+.you span {
+  margin-right: 12px;
+}
+
+/*MESSENGER*/
+
+.message-text {
+
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  border-radius: 15px;
+  color: white;
+  margin: 0;
+  padding: 5px 10px !important;
+}
+
+.message-content {
+  display:inline-block;
+  clear: both;
+  margin: 0 16px;
+}
+
+.message-content p {
+  padding: 0;
+  margin: 0;
+}
+
+.message-author{
+  margin: 0px;
+  margin-top: 10px;
+}
+
+.message-border{
+  padding-top: 30px;
+  padding-bottom: 3px;
+  border-bottom: solid grey 1px;
+}
+
+
+.message-input {
+  margin-bottom: 33px;
+  border-radius: 15px; /* why this is not working? */
+  display: inline;
+}
+
+#messages {
+  margin-bottom: 280px; /* why this is not working? */
+}
+
+#right {
+  float: right;
+  text-align: right;
+}
+
+.right {
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.right p {
+  background-color: $orange;
+}
+
+/*#right .message-text {
+  padding-right: 10px;
+}*/
+
+.right span {
+  margin-left: 12px;
+}
+
+
+#left {
+  /*min-width: 50%;
+  max-width: 50%;*/
+  float: left;
+}
+
+.left {
+  align-items: center;
+}
+
+.left p {
+  background-color: $gray-2;
+  color: white;
+}
+
+.left span {
+  margin-right: 12px;
+}
+/*#left .message-text {
+  padding-left: 10px;
+}*/
+
+.message-container {
+  margin: 0 10px;
+  min-height: 70px;
+}
+
+.fullscreen {
+  overflow-y: scroll;
+  height: 100%;
+  margin-bottom: 3.5rem;
+}
+
+.container {
+   background-color: $gray;
+}

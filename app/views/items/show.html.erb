@@ -1,4 +1,4 @@
-<div class="card card-item-show">
+<div class="card card-item-show justify-content-center">
   <div class="card-header text-center text-capitalize"><%= @item.name %></div>
 
     <div id="carouselExampleControls" class="item-gallery carousel slide" data-ride="carousel">
@@ -17,57 +17,65 @@
           </a>
         <% end %>
       </div>
-    </div>
-
-    <div class="card-body figure-caption mt-0 pt-1 pb-2">
-      <%= @item.category %> | 3km away
-    </div>
-
-    <div class="card-body border-bottom pb-4">
-      <div class="card-text text-muted"><%= @item.description %></div>
-
-    <div class="card-body card-body-section">
-      <div class="card-title">Trader</div>
-      <div class="d-flex row-cols-2">
-        <div class="card-img-top card-img-user w-auto mr-3 col-2 justify-content-center">
-          <%= cl_image_tag @item.user.photo.key, class: 'avatar-large' %>
-        </div>
-        <div class="card-text pl-3 col-10">
-          <div class="card-title"><%= link_to @item.user.name.capitalize, user_path(@item.user) %></div>
-          <div class="card-subtitle text-muted"><%= link_to @item.user.address.capitalize, user_path(@item.user) %></div>
-        </div>
-
+      <div class="figure-caption mt-0 pt-1 pb-2 text-center">
+        <%= @item.category %> | 3km away
       </div>
+    </div>
 
-      <div class="user-question">
-            <button class="btn question-button col text-center collapse-buttons collapse-button-color" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              Questions:
-            </button>
+    <div class="card-body pb-4">
+      <div class="card-text text-muted text-center"><%= @item.description %></div>
+    </div>
 
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-              <% @item.comments.each do |comment| %>
-                <div class="mb-0 bg-light">
-                  <p class="message-author"><strong><%= comment.user.name %></strong></p>
-                  <p class="message mb-3" ><%= comment.content %></p>
-                </div>
-              <% end %>
-              <hr>
-
-              <%= simple_form_for [@item, @comment] do |f| %>
-                  <div class="form-row align-items-center">
-                    <div class="col-8">
-                      <%= f.input :content, label: false %>
-                    </div>
-                    <div class="col-4">
-                      <%= f.submit "Send", class: "col btn-sm "%>
-                    </div>
-
-                  </div>
-              <% end %>
+  <%= link_to user_path(@item.user) do %>
+      <div class="card user-profile m-4">
+          <div class="card-body">
+            <div class="d-flex row-cols-2 pb-0">
+              <div class="card-img-top card-img-user w-auto mr-3 col-2 align-items-baseline">
+                <%= cl_image_tag @item.user.photo.key, class: 'avatar-large' %>
+              </div>
+              <div class="card-text pl-3 col-10">
+                <div class="card-title"><%= @item.user.name.capitalize %></div>
+                <div class="card-subtitle"><%= @item.user.address.capitalize %></div>
+              </div>
             </div>
           </div>
+      </div>
+    <% end %>
+</div>
 
+
+      <div class="card-body">
+
+        <div class="user-question">
+              <button class="btn question-button col text-center collapse-buttons collapse-button-color" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Questions:
+              </button>
+
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                <% @item.comments.each do |comment| %>
+                  <div class="mb-0 bg-light">
+                    <p class="message-author"><strong><%= comment.user.name %></strong></p>
+                    <p class="message mb-3" ><%= comment.content %></p>
+                  </div>
+                <% end %>
+                <hr>
+
+                <%= simple_form_for [@item, @comment] do |f| %>
+                    <div class="form-row align-items-center">
+                      <div class="col-8">
+                        <%= f.input :content, label: false %>
+                      </div>
+                      <div class="col-4">
+                        <%= f.submit "Send", class: "col btn-sm "%>
+                      </div>
+
+                    </div>
+                <% end %>
+              </div>
+            </div>
+
+        </div>
       </div>
     </div>
 </div>

@@ -1,4 +1,8 @@
 // our cards default display
+
+// use this group for cards deck =>
+// .cards .card .card-header .card-body .card-title .card-text
+
 .cards {
   display: grid;
   justify-content: center;
@@ -6,14 +10,10 @@
   grid-auto-flow: row;
 }
 
+// card global variables
 .card-title {
   color: $gray-3;
   margin-bottom: 16px;
-}
-
-.section-title {
-    color: #656767ff;
-    margin-bottom: 16px;
 }
 
 .card-header {
@@ -23,17 +23,13 @@
   font-weight: lighter;
 }
 
-.card-body {
-  background-color: white;
+.card-subtitle {
+  font-size: smaller;
 }
 
-.card-body-section {
-  background-color: $cream;
-  .card-title {
-    font-weight: lighter;
-    font-size: larger;
-  }
-  padding: 8px;
+.card-body {
+  background-color: white;
+  min-height: 4px;
 }
 
 // item-index list card
@@ -56,7 +52,7 @@
 .card-index .item-img {
   object-fit: cover;
   object-position: center;
-  height: 140px;
+  height: 135px;
   width: 150px;
 }
 
@@ -91,6 +87,12 @@
   height: 370px;
 }
 
+.user-profile {
+    height: 130px;
+    width: 82%;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
 
 
 
@@ -261,10 +263,6 @@ border: solid 1px;
   .card-product-infos-wrapper {
     display: flex;
     justify-content: center;
-  }
-  .user-info {
-
-
   }
 
 

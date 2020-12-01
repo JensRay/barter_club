@@ -3,7 +3,17 @@
  margin: 10px;
 
 }
+.arrow {
+  position: absolute;
+  top: 35%;
+  right:43%;
+}
 
+#trade {
+  // color: #171c11;
+  color: transparent;
+  text-shadow: 0 0 1px #000;
+}
 
 .img {
   padding: 10px;

@@ -30,13 +30,15 @@
 
 
 
-.icons {
+#icons {
 
   opacity: 0.4;
+  color: $green;
 }
 
-.nav-active {
+#nav-active {
   opacity: 1;
+  color: $green;
 }
 
 .dropup {

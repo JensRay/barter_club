@@ -1,8 +1,21 @@
 puts "destroying all"
+
+
+Message.destroy_all
 Comment.destroy_all
-Offer.destroy_all
+
+Chatroom.destroy_all
 Item.destroy_all
+
+Offer.destroy_all
+
 User.destroy_all
+puts "destroyed all"
+
+
+
+
+
 
 puts "creating users"
 

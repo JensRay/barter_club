@@ -2,9 +2,9 @@ class Item < ApplicationRecord
   belongs_to :user
   has_many :offers, source: :offers, foreign_key: :my_item_id, dependent: :destroy
   has_many :offers, source: :offers, foreign_key: :original_item_id, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
-  has_many_attached :photos
+  has_many_attached :photos, dependent: :destroy
 
   include PgSearch::Model
   pg_search_scope :search_by_name_description_and_category,

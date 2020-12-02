@@ -2,30 +2,32 @@
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
-  background-color: $orange-sub;
+  margin: 0px;
+  paddin: 0px;
+
 }
 
 /* Style the buttons that are used to open the tab content */
-.tab button {
-  background-color: $orange-sub;
+.tab div {
+  padding: 4px;
+  width: 100%;
   float: left;
   color: $green;
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
   transition: 0.3s;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 /* Change background color of buttons on hover */
-.tab button:hover {
+.tab div:hover {
 
 }
 
 /* Create an active/current tablink class */
-.tab button.active {
-  text-decoration: underline;
+.tab div.active {
+  // text-decoration: underline;
   opacity: 1;
 
 }
@@ -33,7 +35,7 @@
 /* Style the tab content */
 .tabcontent {
   display: none;
-  padding: 6px 12px;
+  padding: 0px 0px;
   border: 1px solid #ccc;
   border-top: none;
 }

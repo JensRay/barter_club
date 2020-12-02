@@ -1,11 +1,12 @@
 <%= render 'shared/header_search' %>
-
-
+<!-- Item.user.near([current_user.latitude, current_user.longitude], 20, units: :km) -->
+<!-- Item.where(user.near([current_user.latitude, current_user.longitude], 20, units: :km)) -->
 <div class="cards">
   <div class="row justify-content-center">
       <% @items.each do |item| %>
         <%= link_to item_path(item) do %>
           <div class="card-index d-flex col-12 col-sm-12 col-md-12 col-lg-6">
+
             <div class="card-index-img">
               <% item.photos.each do |photo| %>
                 <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
@@ -15,10 +16,62 @@
                 <div class="card-title text-capitalize"><%= item.name.capitalize %></div>
                 <p class="card-text"><%= item.description.first(30) %>...</p>
               <div class="card-subtitle user text-right text-dark mr-2"><%= link_to item.user.name.capitalize, user_path(item.user)%></div>
+
+              <p><% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [item.user.latitude, item.user.longitude]) %></p>
+              <% if distance != 0 %>
+                <p><%= number_with_precision(distance, precision: 0) %> km away </p>
+              <% end %>
             </div>
           </div>
         <% end %>
       <% end %>
   </div>
 </div>
+
+  <!-- Here is the nav bar. DONT TOUCH!
+ -->
+
+
+<div class="navbar navbar-expand-sm navbar-light navbar-barters navbar-sticky fixed-bottom mt-0">
+
+    <%= link_to items_path do %>
+
+    <i class='fa fa-frog fa-2x' id="nav-active"></i>
+    <% end %>
+
+  <%= link_to new_item_path do %>
+   <i class='fa fa-plus-square fa-2x text-primary' id="icons" ></i>
+  <% end %>
+
+     <% if current_user %>
+      <%= link_to offers_path do %>
+
+      <i class='fa fa-exchange-alt fa-2x text-primary' id="icons"></i>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+      <i class='fa fa-exchange-alt fa-2x text-primary' id="icons"></i>
+      <% end %>
+    <% end %>
+
+    <div>
+    <% if current_user %>
+
+      <div class="dropup">
+        <i class=" fa fa-user fa-2x text-primary" id="icons"></i>
+          <div class="dropup-content">
+           <%= link_to 'My profile', user_path(current_user)  %>
+            <%= link_to 'Inbox', chatrooms_path  %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          </div>
+        </div>
+
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <i class='fa fa-user fa-2x text-primary' id="icons"></i>
+      <% end %>
+    <% end %>
+</div>
+
+
 

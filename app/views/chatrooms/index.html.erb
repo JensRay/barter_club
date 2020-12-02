@@ -3,57 +3,56 @@
 </div>
 
 
-<div class="container">
-
-  <% @chatrooms.each do |c| %>
-   <% if (c.offer.user || c.offer.original_item.user) == current_user %>
-    <%= link_to chatroom_path(c) do %>
-      <div class="border-bottom">
-        <i class="far fa-envelope fa-2x text-primary"></i>
-        <div class="d-flex align-items-center ">
-        <p class="mb-0">
-          Chat with
-          <% if c.offer.user || c.offer.original_item.user != current_user %>
-            <%= c.offer.user.name.capitalize %>
-          <% else %>
-            <%= c.offer.original_item.user.name.capitalize %>
-          <% end %>
-          to close the deal
-        </p>
-      </div>
-
-
-      <div class="container">
-        <div class="row">
-          <div class="text-primary col text-left">
-            <% if current_user.items.include?(c.offer.original_item) %>
-              <p><%= c.offer.original_item.name %></p>
-            <% else %>
-              <p><%= c.offer.my_item.name %></p>
-            <% end %>
+<div class="">
+  <% @chatrooms.each do |chatroom| %>
+    <% if (chatroom.offer.original_item.user || chatroom.offer.my_item.user) == current_user %>
+      <%= link_to chatroom_path(chatroom) do %>
+        <div class="border-bottom">
+          <i class="far fa-envelope fa-2x text-primary ml-2 "></i>
+          <div class="d-flex align-items-center ">
+            <p class="ml-2">
+              Chat with
+                <% if (chatroom.offer.my_item.user || chatroom.offer.original_item.user) != current_user  %>
+                  <%= chatroom.offer.my_item.user.name.capitalize %>
+                <% else %>
+                  <%= chatroom.offer.original_item.user.name.capitalize %>
+                <% end %>
+              to close the deal
+            </p>
           </div>
 
-          <i class="fas fa-exchange-alt text-center col"></i>
-          <div class="text-warning text-right col">
-            <% if current_user.items.include?(c.offer.original_item) %>
-              <p><%= c.offer.my_item.name %></p>
-            <% else %>
-              <p><%= c.offer.original_item.name %></p>
+          <div class="card p-1 " >
+            <div class="row ">
+              <div class="text-warning col-4">
+                <% if current_user.items.include?(chatroom.offer.my_item) %>
+                  <p><%= chatroom.offer.my_item.name.capitalize %></p>
+                <% else %>
+                  <p><%= chatroom.offer.original_item.name.capitalize %></p>
+                <% end %>
+              </div>
+              <i class="fas fa-exchange-alt text-center col-4"></i>
+              <div class="text-primary col-4">
+                <% if current_user.items.include?(chatroom.offer.my_item) %>
+                  <p><%= chatroom.offer.original_item.name.capitalize %></p>
+                <% else %>
+                  <p><%= chatroom.offer.my_item.name.capitalize %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-          <% end %>
-        <% end %>
-      </div>
-     </div>
-
-
-     <% end %>
+      <% end %>
     <% end %>
+  <% end %>
+</div>
 
 
 
 
-  </div>
+
+
+
+
 
     <!-- Here is the nav bar. DONT TOUCH!
  -->

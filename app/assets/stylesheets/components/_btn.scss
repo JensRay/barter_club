@@ -120,8 +120,9 @@ transition: opacity 0.3s ease;
 
 .btn:hover {
   color: $white;
-  text-decoration: none
-  }
+  text-decoration: none;
+}
+
 
 .btn:not(:disabled):not(.disabled) {
   cursor: not-allowed

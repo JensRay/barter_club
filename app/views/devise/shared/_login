@@ -20,3 +20,49 @@
     </div>
   <% end %>
 <%= render "devise/shared/links" %>
+
+
+
+
+
+
+// modified
+
+<div class="cards">
+  <div class="row justify-content-center">
+      <% @offers.each do |offer| %>
+        <% if offer.original_item == @item %>
+          <%= link_to item_path(offer.my_item) do %>
+            <div class="card-index d-flex col-12 col-sm-12 col-md-12 col-lg-6">
+              <div class="card-index-img">
+                <% offer.my_item.photos.each do |photo| %>
+                  <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
+                <% end %>
+              </div>
+              <div class="card-body card-index-infos">
+                <div class="item-info pb-4">
+                  <div class="card-title"><%= offer.my_item.name %></div>
+                    <div class="card-text text-muted"> by <%= offer.user.name.capitalize %></div>
+                     <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [item.user.latitude, item.user.longitude]) %>
+                      <% if distance > 1 %>
+                        <%= number_with_precision(distance, precision: 0) %> km away
+                      <% else %>
+                        1 km
+                      <% end %>
+                  </div>
+                </div>
+              <div class="card-subtitle user">
+               <%= link_to item.user.name.capitalize, user_path(item.user)%>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        <% end %>
+
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>

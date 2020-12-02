@@ -1,0 +1,5 @@
+meta_product_name: "The Barter Club"
+meta_title: "Money-free trading made easy"
+meta_description: "The Barter Club makes money-free trading easy. Simply exchange something you don't need anymore with something you need or want. In a cool community of like-minded people."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@TheBarterClub1"   # required for Twitter Cards

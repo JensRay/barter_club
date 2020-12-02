@@ -6,33 +6,34 @@ Comment.destroy_all
 Offer.destroy_all
 Item.destroy_all
 User.destroy_all
+Message.destroy_all
 puts "destroyed all"
 
 
 puts "creating users"
 
 file = File.open("app/assets/images/martin.png")
-martin = User.create!(name: "martin", address: "Slottsbacken 1, 111 30 Stockholm, Sweden", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", email: "martin@martin.com", nickname: "martin", password: "123456")
+martin = User.create!(name: "Martin", address: "Läroverksvägen 3, 181 42 Stockholm, Sweden", bio: "32 years old, living togheter with my 5 cat in Stockholm. I play the harmonica and love nature ", email: "martin@martin.com", nickname: "martin", password: "123456")
 martin.photo.attach(io: file, filename: 'martin.png', content_type: 'image/png')
 martin.save!
 
 file = File.open("app/assets/images/j.jpg")
-j = User.create!(name: "j", address: "Holmbladsgade 94, Copenhagen Municipality, denmark", bio: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. ", email: "j@j.com", nickname: "jensray", password: "123456")
+j = User.create!(name: "J", address: "Stationsgatan 12,  753 75 Uppsala", bio: "Musician, composer, saxophone player living in Uppsala. I want to learn programming to create something different than music. I'm curious where exactly that will lead me. ", email: "j@j.com", nickname: "jensray", password: "123456")
 j.photo.attach(io: file, filename: 'j.png', content_type: 'image/jpg')
 j.save!
 
 file = File.open("app/assets/images/alize.png")
-alize = User.create!(name: "alize", address: "Götgatan 65, 116 21 Stockholm, Sweden", bio: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. ", email: "alize@alize.com", nickname: "alize", password: "123456")
+alize = User.create!(name: "Alize", address: "Götgatan 65, 116 21 Stockholm, Sweden", bio: "Born and raise in South Korea but I live in Stockholm now. When I'm not working as a UX designer, I like to spend my time with my reading a good book and listening to some good music", email: "alize@alize.com", nickname: "alize", password: "123456")
 alize.photo.attach(io: file, filename: 'alize.png', content_type: 'image/png')
 alize.save!
 
 file = File.open("app/assets/images/antje.png")
-antje = User.create!(name: "antje", address: "Sollentunavägen 163, 191 47 Sollentuna, Sweden", bio: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?", email: "antje@antje.com", nickname: "antje", password: "123456")
+antje = User.create!(name: "Antje", address: "Sollentunavägen 163, 191 47 Sollentuna, Sweden", bio: "Originally from Germany but now living in Sweden. Married since 15 years ago, 6 children, 3 dogs and I drive a Ferrari", email: "antje@antje.com", nickname: "antje", password: "123456")
 antje.photo.attach(io: file, filename: 'antje.png', content_type: 'image/png')
 antje.save!
 
 file = File.open("app/assets/images/toni.jpeg")
-toni = User.create!(name: "toni", address: "Rudi-Dutschke-Straße 26, 10969 Berlin", bio: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?", email: "toni@toni.com", nickname: "toni", password: "123456")
+toni = User.create!(name: "Toni", address: "Ulvsundavägen 185, 168 67, Bromma", bio: "I live in Stockholm, working as a teacher for brillant students mentally disabled children. I love Techno", email: "toni@toni.com", nickname: "toni", password: "123456")
 toni.photo.attach(io: file, filename: 'toni.jpeg', content_type: 'image/jpeg')
 toni.save!
 
@@ -40,23 +41,33 @@ toni.save!
 
 puts "creating items"
 
+file = File.open("app/assets/images/hanger.jpg")
+hanger = Item.new(name: "Weird hat hanger", category: "Furniture", description: "I've found it on the street. It looks like a hander for hats or coats.", user_id: j.id)
+hanger.photos.attach(io: file, filename: 'hanger.jpg"', content_type: 'image/jpg')
+hanger.save!
+
+file = File.open("app/assets/images/cape.jpg")
+cape = Item.new(name: "Superman cape", category: "Clothes", description: "Cape for children.", user_id: alize.id)
+cape.photos.attach(io: file, filename: 'cape.jpg"', content_type: 'image/jpg')
+cape.save!
+
 file = File.open("app/assets/images/books.jpg")
 books = Item.new(name: "Old books", category: "Collectibles & Hobbies", description: "Old books in weird language. Maybe from a different planet.", user_id: martin.id)
 books.photos.attach(io: file, filename: 'books.jpg', content_type: 'image/jpg')
 books.save!
 
 file = File.open("app/assets/images/plant.jpg")
-plant = Item.new(name: "A plant", category: "Others", description: "Plant", user_id: alize.id)
+plant = Item.new(name: " A plant", category: "Others", description: "A very unique plant from South America", user_id: alize.id)
 plant.photos.attach(io: file, filename: 'plant.jpg', content_type: 'image/jpg')
 plant.save!
 
 file = File.open("app/assets/images/chair.jpg")
-chair = Item.new(name: "A chair", category: "Furniture", description: "A chair", user_id: j.id)
+chair = Item.new(name: "A chair", category: "Furniture", description: "A very cool chair. Bought it from a flea market in Denmark", user_id: j.id)
 chair.photos.attach(io: file, filename: 'chair.jpg', content_type: 'image/jpg')
 chair.save!
 
 file = File.open("app/assets/images/lamp.jpg")
-lamp = Item.new(name: "A lamp", category: "Furniture", description: "A lamp", user_id: antje.id)
+lamp = Item.new(name: "A lamp", category: "Furniture", description: "Beutiful lamp from an unknown designer", user_id: antje.id)
 lamp.photos.attach(io: file, filename: 'lamp.jpg', content_type: 'image/jpg')
 lamp.save!
 
@@ -96,7 +107,7 @@ chair2.photos.attach(io: file, filename: 'chair2.jpg"', content_type: 'image/jpg
 chair2.save!
 
 file = File.open("app/assets/images/chair3.jpg")
-chair3 = Item.new(name: "Comfortable armchair", category: "Furniture", description: "I would gladly exchange it for some booze.", user_id: martin.id)
+chair3 = Item.new(name: "Cool armchair", category: "Furniture", description: "I would gladly exchange it for some booze.", user_id: martin.id)
 chair3.photos.attach(io: file, filename: 'chair3.jpg"', content_type: 'image/jpg')
 chair3.save!
 
@@ -115,15 +126,12 @@ oscar = Item.new(name: "Oscar award", category: "Collectibles & Hobbies", descri
 oscar.photos.attach(io: file, filename: 'oscar.jpg"', content_type: 'image/jpg')
 oscar.save!
 
-file = File.open("app/assets/images/hanger.jpg")
-hanger = Item.new(name: "Weird hat hanger", category: "Furniture", description: "I've found it on the street. It looks like a hander for hats or coats.", user_id: j.id)
-hanger.photos.attach(io: file, filename: 'hanger.jpg"', content_type: 'image/jpg')
-hanger.save!
+file = File.open("app/assets/images/rug.jpg")
+rug = Item.new(name: "Turkish rug", category: "Furniture", description: "I want to trade my Turkish rug, bought in Istanbul 2014.", user_id: toni.id)
+rug.photos.attach(io: file, filename: 'rug.jpg"', content_type: 'image/jpg')
+rug.save!
 
-file = File.open("app/assets/images/cape.jpg")
-cape = Item.new(name: "Superman cape", category: "Clothes", description: "Cape for children.", user_id: alize.id)
-cape.photos.attach(io: file, filename: 'cape.jpg"', content_type: 'image/jpg')
-cape.save!
+
 
 puts "creating comments"
 
@@ -155,4 +163,19 @@ offer5.save
 offer6 = Offer.new(user_id: toni.id, original_item: chair, my_item: watering_can )
 offer6.save
 
+offer7 = Offer.new(user_id: toni.id, original_item: chair3, my_item: rug, status: "accept" )
+offer7.save
 
+puts "creating chatrooms"
+chatroom1 = Chatroom.new(offer_id: offer7.id)
+chatroom1.save
+
+puts "creating messages"
+
+Message.create(content: "Where and when can we meet up?", chatroom_id: chatroom1.id, user_id: toni.id)
+Message.create(content: "I live in Lidingö and I am availible tomorrow at noon", chatroom_id: chatroom1.id, user_id: martin.id)
+Message.create(content: "Great, I live in Bromma. I'll take a taxi  tomorrow", chatroom_id: chatroom1.id, user_id: toni.id)
+Message.create(content: "ok?", chatroom_id: chatroom1.id, user_id: toni.id)
+Message.create(content: "Perfect! ", chatroom_id: chatroom1.id, user_id: martin.id)
+Message.create(content: "Looking forward to meeting you!", chatroom_id: chatroom1.id, user_id: toni.id)
+Message.create(content: "me too! ", chatroom_id: chatroom1.id, user_id: martin.id)

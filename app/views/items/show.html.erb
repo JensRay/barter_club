@@ -23,6 +23,7 @@
       </div>
     </div>
 
+
    
   
   <div class="card-body pb-5 align-content-center">
@@ -30,7 +31,8 @@
     
     // new geocoding from J  
       <div class="card-body figure-caption mt-0 pt-1 pb-2">
-      <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [Item.find(params[:id]).user.latitude, Item.find(params[:id]).user.longitude]) %>
+      <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [@item.user.latitude, @item.user.longitude]) %>
+
       <% if distance != 0 %>
         <%= @item.category %> | <%= number_with_precision(distance, precision: 0) %> km away
       <% else %>

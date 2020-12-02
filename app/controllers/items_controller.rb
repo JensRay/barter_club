@@ -10,7 +10,10 @@ before_action :set_item, only: :show
     elsif params[:category].present? && params[:category] != "All categories"
       @items = policy_scope(@items.where(category: params[:category]))
     elsif params[:query] == "near"
-      @items =  policy_scope(Item.where(user: User.near([current_user.latitude, current_user.longitude], 20, units: :km, order: :distance)))
+      near_by_users = User.near([current_user.latitude, current_user.longitude], 600, units: :km, order: :distance)
+      @items = near_by_users.map { |u|
+        policy_scope(Item.where(user: u ))
+      }.flatten
       # @items =  policy_scope(Item.where(user: User.near([55.67929434328641, 12.590234400169814], 200, units: :km, order: :distance)))
 
     end

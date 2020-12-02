@@ -21,9 +21,9 @@
         <div class="figure-caption mt-0 pt-1 pb-2 text-center ">
           <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [Item.find(params[:id]).user.latitude, Item.find(params[:id]).user.longitude]) %>
           <% if distance != 0 %>
-            <%= @item.category %> | <%= number_with_precision(distance, precision: 0) %> km away
+            <%= @item.category %> | <strong><%= number_with_precision(distance, precision: 0) %></strong> km away
           <% else %>
-            <%= @item.category %>
+            <%= @item.category %> | 1km away
           <% end %>
         </div>
     </div>
@@ -94,26 +94,34 @@
 
 
 <div class="card-header text-center">Current Bids</div>
-<div class="cards">
-    <div class="row justify-content-center pt-2 pb-2">
+  <div class="cards p-2">
       <% @offers.each do |offer| %>
-        <%= link_to item_path(offer.my_item) do %>
-          <% if offer.original_item == @item %>
-            <div class="card-index d-flex col-12 col-sm-12 col-md-12 col-lg-6">
-              <div class="card-index-img">
-               <% offer.my_item.photos.each do |photo| %>
-                <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
-               <% end %>
+        <% if offer.original_item == @item %>
+          <div class="row justify-content-center pt-2 pb-2">
+            <%= link_to item_path(offer.my_item) do %>
+              <div class="card-index d-flex col-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="card-index-img">
+                  <% offer.my_item.photos.each do |photo| %>
+                    <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
+                  <% end %>
+                </div>
+                <div class="card-body card-index-infos">
+                  <div class="card-title"><%= offer.my_item.name %></div>
+                  <div class="card-text text-muted">by <%= offer.user.name.capitalize %></div>
+                </div>
               </div>
-              <div class="card-body card-index-infos">
-                <div class="card-title"><%= offer.my_item.name %></div>
-                <div class="card-text text-muted">by <%= offer.user.name.capitalize %></div>
-                <% if offer.status == nil %>
-                <div class="card-text text-info"><i class="fas fa-glass-cheers"></i>Be the first bidder! </div>
-                <% end %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <% if offer.status == nil %>
+          <div class="row justify-content-center pt-2 pb-2">
+            <div class="card">
+              <div class="card-body card-index-infos d-flex col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="card-text"><i class="fas fa-glass-cheers"></i>Be the first bidder! </div>
               </div>
             </div>
-          <% end %>
+          </div>
         <% end %>
       <% end %>
     </div>

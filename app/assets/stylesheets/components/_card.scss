@@ -46,7 +46,7 @@
 }
 
 .card-index .card-index-img {
-  padding: 0px 4px 0px 4px;
+  padding: 0px 6px 0px 12px;
   background-size: cover;
 }
 
@@ -54,14 +54,25 @@
   object-fit: cover;
   object-position: center;
   height: 135px;
-  width: 150px;
+  width: 140px;
 }
 
 .card-index .card-index-infos {
-  padding: 0px 20px;
+  padding: 12px;
   margin-left: 16px;
+  margin-bottom: 0px;
   width: 100%;
   color: $gray-1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  min-height: 100px;
+}
+
+
+.card-index .user {
+  padding-right: 4px;
 }
 
 .card-index .user a {
@@ -96,7 +107,9 @@
     border-radius: 4px;
   }
 
-
+.current-bids {
+  min-height: 5px;
+}
 //
 .card-product .card-product-infos {
   padding: 16px;

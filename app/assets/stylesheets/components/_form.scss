@@ -1,31 +1,45 @@
 .form {
-  width: fit-content;
+  width: 80%;
+}
+
+.form-group {
+  color: $gray-3;
 }
 
 .form-control {
-  width: 80%;
-  border: transparent;
-  color: $gray-1;
+  display: block;
+  width: 85%;
+  color: $gray-3;
+  background-color: #white;
+  background-clip: padding-box;
+  border: none;
+  border-bottom: 1px solid opacify($color: $gray, $amount: .9);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+textarea.form-control {
+  height: auto;
+}
 .form-control::placeholder {
-  color: $gray-1;
-  opacity: .9;
+  color: $green;
+  opacity: .5;
 }
 
 .form-control:focus {
  width: 70%;
 }
 
-.form-control-line {
-  border-bottom: 1px solid opacify($color: $green, $amount: .9);
-}
 
 input[type="submit" i] {
-  border: none;
+  border: inherit !important;
+  width: fit-content;
+  margin: 0px;
 }
 
-
+.input {
+  border: none;
+}
 
 // landing page
 .landing-login {

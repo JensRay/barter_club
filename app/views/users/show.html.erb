@@ -5,9 +5,9 @@
    <%= cl_image_tag @user.photo.key, class: 'avatar-large' %>
   </div>
   <div class="card-body text-center">
-    <h5 class="card-title"><%= @user.name %></h5>
-    <h6 class="card-subtitle mb-2 text-muted"><%= @user.email %></h6>
-    <p class="card-text mt-3"><%= @user.bio %></p>
+    <div class="card-title"><%= @user.name %></div>
+    <div class="card-subtitle mb-2 text-muted"><%= @user.email %></div>
+    <div class="card-text mt-3"><%= @user.bio %></div>
 </div>
   <div class="card-footer p-1 text-muted">
     <ul class="nav nav-fill">

@@ -34,10 +34,10 @@
 
 
 
-      <div class="user-question">
-            <button class="btn question-button col text-center collapse-buttons collapse-button-color" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              Reviews and Ratings:
-            </button>
+<div class="user-question">
+    <button class="btn-ghost-orange btn-sm question-button col text-center" type="dropdown" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Reviews & Ratings <i class="fas fa-caret-down"></i>
+    </button>
 
           <div class="collapse" id="collapseExample">
 
@@ -83,17 +83,15 @@
             </div>
 
           </div>
-
-      </div>
-
+</div>
 
 
 
 
 
-<div class="card-deck user-items">
-  <div class="card-header text-center text-capitalize mt-3"> <%= @user.name.capitalize %>'s' Items </div>
 
+<div class="card-header text-center text-capitalize mt-3"> <%= @user.name.capitalize %>'s' Items </div>
+  <div class="card-deck user-items">
     <% @user.items.each do |item| %>
       <%= link_to item_path(item) do %>
         <div class="card user-item">

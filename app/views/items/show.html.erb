@@ -28,7 +28,7 @@
     </div>
 </div>
 
-<div class="jumbotron mb-0 pt-5 pb-5">
+<div class="jumbotron mb-0 pt-4 pb-">
 <%= link_to user_path(@item.user) do %>
           <div class="card user-profile mb-3">
               <div class="card-body">
@@ -64,11 +64,11 @@
 
                 <%= simple_form_for [@item, @comment] do |f| %>
                     <div class="form-row align-items-center">
-                      <div class="col-8">
+                      <div class="col-9">
                         <%= f.input :content, label: false %>
                       </div>
-                      <div class="col-4">
-                        <%= f.submit "Send", class: "col btn-sm "%>
+                      <div class="col-3">
+                        <%= f.submit "Send", class: "btn-flat-green btn-sm col"%>
                       </div>
                     </div>
                 <% end %>
@@ -84,9 +84,10 @@
       <button class="btn-flat-orange btn-block btn-lg border-0 shadow-none">Trade</button>
   <% end %>
 
-  <div class="card-header">Current Bids</div>
+  <div class="card-header text-center">Current Bids</div>
+
   <div class="cards">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center pt-2 pb-2">
       <% @offers.each do |offer| %>
         <%= link_to item_path(offer.my_item) do %>
           <% if offer.original_item == @item %>
@@ -96,12 +97,11 @@
                 <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
                <% end %>
               </div>
-
               <div class="card-body card-index-infos">
-                <div class="card-title"><%=offer.my_item.name %></div>
-                <div class="card-text"><%= offer.my_item.name %></div>
+                <div class="card-title"><%= offer.my_item.name %></div>
+                <div class="card-text text-muted">by <%= offer.user.name.capitalize %></div>
                 <% if offer.status == nil %>
-                  <div class="card-text text-muted">Bid by <%= offer.user.name %>, waiting for <%= offer.original_item.user.name %> to respond...</div>
+                <div class="card-text text-info"><i class="fas fa-glass-cheers"></i>Be the first bidder! </div>
                 <% end %>
               </div>
             </div>

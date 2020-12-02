@@ -1,6 +1,7 @@
 // to have full-width size, add .btn-block
 // to adjust heights, use  .btn-sm  .btn-lg
 
+// try not to use button element. ugly default..
 button {
   border: none;
   text-decoration: inherit;
@@ -16,6 +17,21 @@ button {
 
 
 // .btn-flat :main buttons
+.btn-flat {
+  color: $gray-1;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $light;
+  transition: background 0.3s ease;
+  &:focus {
+    background-color: $gray-2;
+  }
+}
+
+.btn-flat:hover {
+  background: $gray-2;
+  color: $gray-3;
+}
 
 .btn-flat-green {
   color: white;

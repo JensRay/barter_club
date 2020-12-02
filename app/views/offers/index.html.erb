@@ -1,6 +1,4 @@
-<div class="info-small border text-center text-primary pt-1">
-  <h4 class="mb-0"> Trade Room</h4>
-</div>
+<div class="banner">Trade room</div>
 
 <!-- Tab links -->
 <div class="tab d-flex justify-content-center container">
@@ -38,10 +36,10 @@
       <p class="mb-0"><%= offer.user.name.capitalize%> has placed a bid on your <strong><%= offer.original_item.name%></strong> with <strong><%= offer.my_item.name %></strong></p>
       <div class="d-flex justify-content-center mb-1">
         <%= link_to offer_path(offer, status:'accept'),method: :patch, data: {confirm: "Are you sure you want to accept this offer?"} do %>
-        <div class="btn-sm-green">Accept</div>
+        <div class="btn-flat-green btn-sm m-1">Accept</div>
         <% end %>
         <%= link_to offer_path(offer, status:'decline'), method: :patch, data: {confirm: "Are you sure you want to decline this offer?"} do %>
-         <div class="btn-sm-grey">Decline</div>
+         <div class="btn-flat btn-sm m-1">Decline</div>
         <% end %>
     </div>
   </div>

@@ -84,9 +84,9 @@
       <button class="btn-flat-orange btn-block btn-lg border-0 shadow-none">Trade</button>
   <% end %>
 
-  <div class="card-header text-center">Current Bids</div>
 
   <div class="cards">
+  <div class="card-header text-center">Current Bids</div>
     <div class="row justify-content-center pt-2 pb-2">
       <% @offers.each do |offer| %>
         <%= link_to item_path(offer.my_item) do %>

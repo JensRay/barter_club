@@ -74,7 +74,7 @@
                 <% end %>
                 <hr>
 
-                <%= simple_form_for [@item, @comment] do |f| %>
+                <%= simple_form_for [@item, @comment], remote: true do |f| %>
                     <div class="form-row align-items-center">
                       <div class="col-9">
                         <%= f.input :content, label: false %>

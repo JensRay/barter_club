@@ -1,6 +1,4 @@
-<div class="info-small border text-center text-primary pt-1">
-  <h4 class="mb-0"> Trade Room</h4>
-</div>
+<div class="banner">Trade room</div>
 
 <!-- Tab links -->
 <div class="tab d-flex justify-content-center container">
@@ -40,6 +38,9 @@
             <h6 class="col-4 text-primary"><%=offer.my_item.name %></h6>
           </div>
         </div>
+
+
+
         <div class="text-center">
          <div class="d-flex justify-content-center mb-1">
           <%= link_to offer_path(offer, status:'accept'),method: :patch, data: {confirm: "Are you sure you want to accept this offer?"} do %>

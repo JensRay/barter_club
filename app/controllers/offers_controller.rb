@@ -3,8 +3,6 @@ class OffersController < ApplicationController
 
   def index
     @offers = policy_scope(Offer).order(created_at: :desc)
-
-
   end
 
   def show
@@ -12,8 +10,6 @@ class OffersController < ApplicationController
     authorize @offer
     @original_item = Item.find(params[:item_id])
     @my_item = @offer.my_item
-
-
   end
 
   def new

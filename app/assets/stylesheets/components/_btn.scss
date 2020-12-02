@@ -1,127 +1,117 @@
-  .btn-full {
-    color: white;
-    width: 342px;
-    padding: 8px 24px;
-    border-radius: 4px;
-    background: $green;
-    opacity: .8;
-    transition: background 0.3s ease;
+// to have full-width size, add .btn-block
+// to adjust heights, use  .btn-sm  .btn-lg
+
+// try not to use button element. ugly default..
+button {
+  border: none;
+  text-decoration: inherit;
+  &:hover {
+    background-color: inherit;
+    opacity: inherit;
   }
-
-  .btn-full:hover {
-    opacity: 1;
-    color: white;
+  &:focus {
+    outline: none;
+    background-color: inherit;
   }
-
-  .btn-green {
-  background-color: white;
-  color: #477204;
-  border: 1px solid #477204;
-  font-size: 14px;
-  border-radius: 4%;
-
-  }
-
-  .btn-sm {
-    color: white;
-    width: 165px;
-    padding: 8px 24px;
-    border-radius: 4px;
-    background: $green-sub;
-    transition: background 0.3s ease;
-  }
-
-  .btn-sm:hover {
-    opacity: 1;
-    color: white;
-  }
-
-  .btn-lg {
-    color: white;
-    width: 145px;
-    padding: 16px 24px;
-    border-radius: 4px;
-    background: $green;
-    transition: background 0.3s ease;
-  }
-
-  .btn-lg:hover {
-    background: $dark-green;
-    color: white;
-  }
-
-  .btn-lg-white {
-    background: white;
-    color: $green;
-    width: 145px;
-    padding: 16px 24px;
-    border-radius: 8px;
-    transition: background 0.3s ease;
-  }
-
-  .btn-lg-white:hover {
-    color: $green;
-    background: lightgrey;
-  }
-
-   .btn-long {
-    color: white;
-    width: 100%;
-    padding: 16px 24px;
-    border-radius: 4px;
-    background: $green;
-    transition: background 0.3s ease;
-  }
-
-  .btn-long:hover {
-    background: $dark-green;
-    color: white;
-  }
-
-  .btn-ghost {
-    color: $green;
-    border: 1px solid $green;
-    // font-size: 12px;
-    padding: 6px 18px;
-    border-radius: 4px;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
-  }
-
-
-  .btn-ghost:hover {
-    opacity: 1;
-  }
-
-   .btn-ghost-red {
-    color: $red;
-    border: 1px solid $red;
-    padding: 6px 18px;
-    border-radius: 4px;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
-  }
-
-  .btn-ghost-red:hover {
-    opacity: 1;
-  }
-
-  .btn-sticky {
-    position: sticky;
-    bottom: 0px;
-  }
-
-  .collapse-buttons {
-    background-color: $green;
-  }
-
-  .question-button .btn:hover {
-    color: $white;
-  }
-
-  .btn:not(:disabled):not(.disabled) {
-    cursor: not-allowed;
 }
+
+
+// .btn-flat :main buttons
+.btn-flat {
+  color: $gray-1;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $light;
+  transition: background 0.3s ease;
+  &:focus {
+    background-color: $gray-2;
+  }
+}
+
+.btn-flat:hover {
+  background: $gray-2;
+  color: $gray-3;
+}
+
+.btn-flat-green {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $green;
+  transition: background 0.3s ease;
+  &:focus {
+    background-color: $green-sub;
+  }
+}
+
+.btn-flat-green:hover {
+  background: $green-sub;
+  color: white;
+}
+
+.btn-flat-orange {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $orange;
+  transition: background 0.3s ease;
+}
+
+.btn-flat-orange:hover {
+  background: $orange-sub;
+  color: white;
+}
+
+// outlined buttons
+.btn-ghost {
+  color: $gray-3;
+  border: 1px solid $gray-3;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost-green {
+  background: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: lighter;
+  color: $green;
+  border: 1px solid $green;
+  opacity: .6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost-green:hover {
+  background-color: white;
+  opacity: 1;
+}
+
+.btn-ghost-red {
+color: $red;
+border: 1px solid $red;
+background: white;
+padding: 8px 24px;
+border-radius: 4px;
+font-weight: lighter;
+opacity: 0.6;
+transition: opacity 0.3s ease;
+}
+
+.btn-ghost-red:hover {
+  background: white;
+  opacity: 1;
+}
+
+
+
+
+// if you have to create
+.btn-sticky {
+  position: sticky;
+  bottom: 0px;
 
 #apply {
   width: 45%;
@@ -130,9 +120,9 @@
 .btn:hover {
   color: $white;
   text-decoration: none;
+
 }
 
-input[type="submit" i] {
-  border: none;
+.btn:not(:disabled):not(.disabled) {
+  cursor: not-allowed;
 }
-

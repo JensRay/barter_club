@@ -1,4 +1,5 @@
-<div class="card card-item-show">
+<div class="container">
+<div class="card card-item-show justify-content-center">
   <div class="card-header text-center text-capitalize"><%= @item.name %></div>
 
     <div id="carouselExampleControls" class="item-gallery carousel slide" data-ride="carousel">
@@ -17,22 +18,49 @@
           </a>
         <% end %>
       </div>
+      <div class="figure-caption mt-0 pt-1 pb-2 text-center">
+        <%= @item.category %> | 3km away
+      </div>
     </div>
 
-    <div class="card-body figure-caption mt-0 pt-1 pb-2">
+   
+  
+  <div class="card-body pb-5 align-content-center">
+      <div class="card-text text-muted text-center"><%= @item.description %></div>
+    
+    // new geocoding from J  
+      <div class="card-body figure-caption mt-0 pt-1 pb-2">
       <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [Item.find(params[:id]).user.latitude, Item.find(params[:id]).user.longitude]) %>
       <% if distance != 0 %>
         <%= @item.category %> | <%= number_with_precision(distance, precision: 0) %> km away
       <% else %>
         <%= @item.category %>
       <% end %>
-
+   //
     </div>
+</div>
+
+
+  
+  // new layout
+  
+  <div class="jumbotron mb-0 pt-4 pb-">
+<%= link_to user_path(@item.user) do %>
+          <div class="card user-profile mb-3">
+              <div class="card-body">
+                <div class="d-flex row-cols-2 pb-0">
+                  <div class="card-img-top card-img-user w-auto mr-3 col-2 align-items-baseline">
+                    <%= cl_image_tag @item.user.photo.key, class: 'avatar-large' %>
+                  </div>
+                  <div class="card-text pl-3 col-10">
+                    <div class="card-title"><%= @item.user.name.capitalize %></div>
+                    <div class="card-subtitle"><%= @item.user.address.capitalize %></div>
+                  </div>
+//
 
 
 
-
-
+// master
 
     <div class="card-body border-bottom pb-4">
       <div class="card-text text-muted"><%= @item.description %></div>
@@ -61,55 +89,82 @@
                 <div class="mb-0 bg-light">
                   <p class="message-author"><strong><%= comment.user.name %></strong></p>
                   <p class="message mb-3" ><%= comment.content %></p>
+                  
+    // master              
+                  
+                  
+                  
                 </div>
-              <% end %>
-              <hr>
+              </div>
+          </div>
+        <% end %>
+  <%# <p>It uses utility classes for typography and spacing to space content out within the larger con
+  <p class="lead"> %>
 
-              <%= simple_form_for [@item, @comment] do |f| %>
-                  <div class="form-row align-items-center">
-                    <div class="col-8">
-                      <%= f.input :content, label: false %>
-                    </div>
-                    <div class="col-4">
-                      <%= f.submit "Send", class: "col btn-sm "%>
-                    </div>
+            <div class="user-question">
+              <button class="btn-ghost-green btn-block text-center" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Questions?
+              </button>
 
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                <% @item.comments.each do |comment| %>
+                  <div class="mb-0 bg-light">
+                    <p class="message-author"><strong><%= comment.user.name %></strong></p>
+                    <p class="message mb-3" ><%= comment.content %></p>
                   </div>
-              <% end %>
+                <% end %>
+                <hr>
+
+                <%= simple_form_for [@item, @comment] do |f| %>
+                    <div class="form-row align-items-center">
+                      <div class="col-9">
+                        <%= f.input :content, label: false %>
+                      </div>
+                      <div class="col-3">
+                        <%= f.submit "Send", class: "btn-flat-green btn-sm col"%>
+                      </div>
+                    </div>
+                <% end %>
+              </div>
             </div>
-          </div>
 
-      </div>
-    </div>
-</div>
-
-
-
-  <% @offers.each do |offer| %>
-    <%= link_to item_path(offer.my_item) do %>
-      <div class="card-product d-inline">
-          <% if offer.original_item == @item %>
-            <div class="d-flex ">
-              <%= cl_image_tag offer.my_item.photos.first.key, height: 300, width: 400, crop: :fill %>
-                <div class="card-product-infos">
-                  <h2><%=offer.my_item.name %></h2>
-                  <p><%= offer.my_item.name %></p>
-          <% if offer.status == nil %>
-            <p>Bid by <%= offer.user.name %>, waiting for <%= offer.original_item.user.name %> to respond...</p>
-          <% end %>
-          </div>
         </div>
-      <% end %>
-    <% end %>
-  <% end %>
-
-
-<div class="btn-trade">
-  <%= link_to new_item_offer_path(@item) do %>
-    <div class="btn-sticky text-center bg-white mb-1 mt-2">
-      <button class="btn-long border-0 shadow-none"> Trade</button>
-    </div>
-  <% end %>
 </div>
+
+
+
+  <%= link_to new_item_offer_path(@item) do %>
+      <button class="btn-flat-orange btn-block btn-lg border-0 shadow-none">Trade</button>
+  <% end %>
+
+
+  <div class="cards">
+  <div class="card-header text-center">Current Bids</div>
+    <div class="row justify-content-center pt-2 pb-2">
+      <% @offers.each do |offer| %>
+        <%= link_to item_path(offer.my_item) do %>
+          <% if offer.original_item == @item %>
+            <div class="card-index d-flex col-12 col-sm-12 col-md-12 col-lg-6">
+              <div class="card-index-img">
+               <% offer.my_item.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
+               <% end %>
+              </div>
+              <div class="card-body card-index-infos">
+                <div class="card-title"><%= offer.my_item.name %></div>
+                <div class="card-text text-muted">by <%= offer.user.name.capitalize %></div>
+                <% if offer.status == nil %>
+                <div class="card-text text-info"><i class="fas fa-glass-cheers"></i>Be the first bidder! </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
 
 

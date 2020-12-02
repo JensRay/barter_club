@@ -1,5 +1,12 @@
 <div class="container-fluid fullscreen">
   <!-- <h1>#<%#= @chatroom.name %></h1> -->
+  <div>
+    <% if @chatroom.offer.my_item.user == current_user %>
+      <%= @chatroom.offer.original_item.user.name %>
+    <% else %>
+      <%= @chatroom.offer.my_item.user.name %>
+    <% end %>
+  </div>
   <div class="" id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
       <div class="message-container" id="message-<%= message.id %>">

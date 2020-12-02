@@ -3,13 +3,15 @@ class ItemsController < ApplicationController
 before_action :set_item, only: :show
 
   def index
+    # @near = policy_scope(Item.where(user: User.near([current_user.latitude, current_user.longitude], 20)))
     @items = policy_scope(Item).order(created_at: :desc)
-    if params[:query].present?
+    if params[:query].present? && params[:query] != "near"
       @items = policy_scope(Item.search_by_name_description_and_category(params[:query]))
     elsif params[:category].present? && params[:category] != "All categories"
       @items = policy_scope(@items.where(category: params[:category]))
-    # elsif
-      # Item.where(user: User.near([current_user.latitude, current_user.longitude], 20))
+    elsif params[:query] == "near"
+      @items =  policy_scope(Item.all.where(user: User.near([current_user.latitude, current_user.longitude], 20, :order => :distance)))
+
     end
   end
 

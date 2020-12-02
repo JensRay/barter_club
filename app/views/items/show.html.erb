@@ -18,32 +18,26 @@
           </a>
         <% end %>
       </div>
-      <div class="figure-caption mt-0 pt-1 pb-2 text-center">
-        <%= @item.category %> | 3km away
-      </div>
+        <div class="figure-caption mt-0 pt-1 pb-2 text-center ">
+          <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [Item.find(params[:id]).user.latitude, Item.find(params[:id]).user.longitude]) %>
+          <% if distance != 0 %>
+            <%= @item.category %> | <%= number_with_precision(distance, precision: 0) %> km away
+          <% else %>
+            <%= @item.category %>
+          <% end %>
+        </div>
     </div>
 
-   
-  
+
+
   <div class="card-body pb-5 align-content-center">
       <div class="card-text text-muted text-center"><%= @item.description %></div>
-    
-    // new geocoding from J  
-      <div class="card-body figure-caption mt-0 pt-1 pb-2">
-      <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [Item.find(params[:id]).user.latitude, Item.find(params[:id]).user.longitude]) %>
-      <% if distance != 0 %>
-        <%= @item.category %> | <%= number_with_precision(distance, precision: 0) %> km away
-      <% else %>
-        <%= @item.category %>
-      <% end %>
-   //
-    </div>
+
 </div>
 
 
-  
-  // new layout
-  
+
+
   <div class="jumbotron mb-0 pt-4 pb-">
 <%= link_to user_path(@item.user) do %>
           <div class="card user-profile mb-3">
@@ -56,44 +50,6 @@
                     <div class="card-title"><%= @item.user.name.capitalize %></div>
                     <div class="card-subtitle"><%= @item.user.address.capitalize %></div>
                   </div>
-//
-
-
-
-// master
-
-    <div class="card-body border-bottom pb-4">
-      <div class="card-text text-muted"><%= @item.description %></div>
-
-    <div class="card-body card-body-section">
-      <div class="card-title">Trader</div>
-      <div class="d-flex row-cols-2">
-        <div class="card-img-top card-img-user w-auto mr-3 col-2 justify-content-center">
-          <%= cl_image_tag @item.user.photo.key, class: 'avatar-large' %>
-        </div>
-        <div class="card-text pl-3 col-10">
-          <div class="card-title"><%= link_to @item.user.name.capitalize, user_path(@item.user) %></div>
-          <div class="card-subtitle text-muted"><%= link_to @item.user.address.capitalize, user_path(@item.user) %></div>
-        </div>
-
-      </div>
-
-      <div class="user-question">
-            <button class="btn question-button col text-center collapse-buttons collapse-button-color" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              Questions:
-            </button>
-
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-              <% @item.comments.each do |comment| %>
-                <div class="mb-0 bg-light">
-                  <p class="message-author"><strong><%= comment.user.name %></strong></p>
-                  <p class="message mb-3" ><%= comment.content %></p>
-                  
-    // master              
-                  
-                  
-                  
                 </div>
               </div>
           </div>
@@ -139,8 +95,8 @@
   <% end %>
 
 
-  <div class="cards">
-  <div class="card-header text-center">Current Bids</div>
+<div class="card-header text-center">Current Bids</div>
+<div class="cards">
     <div class="row justify-content-center pt-2 pb-2">
       <% @offers.each do |offer| %>
         <%= link_to item_path(offer.my_item) do %>

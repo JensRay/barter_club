@@ -112,6 +112,7 @@ transition: opacity 0.3s ease;
 .btn-sticky {
   position: sticky;
   bottom: 0px;
+}
 
 #apply {
   width: 45%;
@@ -120,7 +121,6 @@ transition: opacity 0.3s ease;
 .btn:hover {
   color: $white;
   text-decoration: none;
-
 }
 
 .btn:not(:disabled):not(.disabled) {

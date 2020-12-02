@@ -108,10 +108,11 @@ transition: opacity 0.3s ease;
 
 
 
-// if you have to create
+
 .btn-sticky {
   position: sticky;
   bottom: 0px;
+}
 
 #apply {
   width: 45%;
@@ -119,10 +120,9 @@ transition: opacity 0.3s ease;
 
 .btn:hover {
   color: $white;
-  text-decoration: none;
-
-}
+  text-decoration: none
+  }
 
 .btn:not(:disabled):not(.disabled) {
-  cursor: not-allowed;
+  cursor: not-allowed
 }

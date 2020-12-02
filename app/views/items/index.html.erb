@@ -12,12 +12,9 @@
                 <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
               <% end %>
             </div>
-            <div class="card-body card-index-infos">
-
-              <div class="mb-3">
+            <div class="card-body card-index-infos mb-3">
                 <div class="card-title text-capitalize"><%= item.name.capitalize %></div>
                 <p class="card-text"><%= item.description.first(30) %>...</p>
-              </div>
               <div class="card-subtitle user text-right text-dark mr-2"><%= link_to item.user.name.capitalize, user_path(item.user)%></div>
 
               <p><% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [item.user.latitude, item.user.longitude]) %></p>

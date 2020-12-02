@@ -1,15 +1,13 @@
-.banner-title {
-  background-size: cover;
+.banner {
   background-color: $light;
-  padding: 16px 0;
+  color: $gray-3;
+  padding: 0.75rem 1.25rem;
+  font-size: larger;
+  font-weight: lighter;
+  text-transform: capitalize;
   text-align: center;
-}
-
-.banner-title .page-title {
-  margin: 0;
-  color: $gray;
-  font-size: 16px;
-  text-transform: uppercase;
+  border-bottom: 1px solid $light-gray;
+  letter-spacing: 1px;
 }
 
 .banner-landing {

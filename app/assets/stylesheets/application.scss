@@ -15,18 +15,29 @@
 @import "pages/index";
 
 body {
-  padding-bottom: 2.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.container {
+  width: 100%;
+  max-width: fit-content;
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
     grid-template-columns: 1fr;
   }
+  .container {
+    padding: 0px;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .cards {
+  }
+  .container {
+    padding: 0px;
   }
 }
 

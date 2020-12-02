@@ -25,9 +25,9 @@
         <div class="figure-caption mt-0 pt-1 pb-2 text-center ">
           <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [@item.user.latitude, @item.user.longitude]) %>
           <% if distance != 0 %>
-            <%= @item.category %> | <%= number_with_precision(distance, precision: 0) %> km away
+            <%= @item.category %> | <strong><%= number_with_precision(distance, precision: 0) %></strong> km away
           <% else %>
-            <%= @item.category %>
+            <%= @item.category %> | 1km away
           <% end %>
         </div>
     </div>
@@ -98,31 +98,84 @@
 
 
 <div class="card-header text-center">Current Bids</div>
+
 <div class="cards">
-    <div class="row justify-content-center pt-2 pb-2">
+  <div class="row justify-content-center">
       <% @offers.each do |offer| %>
-        <%= link_to item_path(offer.my_item) do %>
-          <% if offer.original_item == @item %>
+        <% if offer.original_item == @item %>
+          <%= link_to item_path(offer.my_item) do %>
             <div class="card-index d-flex col-12 col-sm-12 col-md-12 col-lg-6">
               <div class="card-index-img">
-               <% offer.my_item.photos.each do |photo| %>
-                <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
-               <% end %>
+                <% offer.my_item.photos.each do |photo| %>
+                    <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
+                  <% end %>
               </div>
               <div class="card-body card-index-infos">
-                <div class="card-title"><%= offer.my_item.name %></div>
-                <div class="card-text text-muted">by <%= offer.user.name.capitalize %></div>
-                <% if offer.status == nil %>
-                <div class="card-text text-info"><i class="fas fa-glass-cheers"></i>Be the first bidder! </div>
-                <% end %>
+                <div class="item-info pb-4">
+                  <div class="card-title text-capitalize mb-3"><%= offer.my_item.name.capitalize %></div>
+                   <div class="card-subtitle text-muted"><%= offer.my_item.category %></div>
+                  <div class="card-subtitle item-distance text-info">
+                    <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [offer.user.latitude, offer.user.longitude]) %>
+                      <% if distance != 0 %>
+                        <%= number_with_precision(distance, precision: 0) %> km away
+                      <% else %>
+                        -
+                      <% end %>
+                  </div>
+                </div>
+                <div class="card-subtitle user">
+                <%= link_to offer.user.name.capitalize, user_path(offer.user)%>
+                </div>
               </div>
             </div>
           <% end %>
         <% end %>
       <% end %>
-    </div>
   </div>
+</div>
 
 
+ <!-- Here is the nav bar. DONT TOUCH!
+ -->
 
 
+<div class="navbar navbar-expand-sm navbar-light navbar-barters navbar-sticky fixed-bottom mt-0">
+
+    <%= link_to items_path do %>
+
+    <i class='fa fa-frog fa-2x' id="icons"></i>
+    <% end %>
+
+  <%= link_to new_item_path do %>
+   <i class='fa fa-plus-square fa-2x text-primary' id="icons" ></i>
+  <% end %>
+
+     <% if current_user %>
+      <%= link_to offers_path do %>
+
+      <i class='fa fa-exchange-alt fa-2x text-primary' id="icons"></i>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+      <i class='fa fa-exchange-alt fa-2x text-primary' id="icons"></i>
+      <% end %>
+    <% end %>
+
+    <div>
+    <% if current_user %>
+
+      <div class="dropup">
+        <i class=" fa fa-user fa-2x text-primary" id="icons"></i>
+          <div class="dropup-content">
+           <%= link_to 'My profile', user_path(current_user)  %>
+            <%= link_to 'Inbox', chatrooms_path  %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          </div>
+        </div>
+
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <i class='fa fa-user fa-2x text-primary' id="icons"></i>
+      <% end %>
+    <% end %>
+</div>

@@ -21,6 +21,7 @@ body {
 .container {
   width: 100%;
   max-width: fit-content;
+  margin: auto;
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
@@ -34,6 +35,9 @@ body {
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
   .container {
     padding: 0px;
   }
@@ -41,12 +45,21 @@ body {
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 2fr;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 2fr;
+  }
 }

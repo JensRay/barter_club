@@ -8,6 +8,8 @@ before_action :set_item, only: :show
       @items = policy_scope(Item.search_by_name_description_and_category(params[:query]))
     elsif params[:category].present? && params[:category] != "All categories"
       @items = policy_scope(@items.where(category: params[:category]))
+    # elsif
+      # Item.where(user: User.near([current_user.latitude, current_user.longitude], 20))
     end
   end
 

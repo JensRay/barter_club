@@ -1,9 +1,9 @@
 <div class="banner">Trade room</div>
 
 <!-- Tab links -->
-<div class="tab d-flex justify-content-center container">
-  <div  class="tablinks text-right "onclick="openCity(event, 'active')" id="defaultOpen">Active Trades</div>
-  <div class="tablinks text-left" onclick="openCity(event, 'closed')">Closed trades</div>
+<div class=" tab ">
+  <div  class="tablinks text-right mr-1 "onclick="openCity(event, 'active')" id="defaultOpen">Active Trades</div>
+  <div class="tablinks text-left ml-1" onclick="openCity(event, 'closed')">Closed trades</div>
 </div>
 
 
@@ -42,12 +42,12 @@
 
 
         <div class="text-center">
-         <div class="d-flex justify-content-center mb-1">
+         <div class="d-flex justify-content-center mb-4">
           <%= link_to offer_path(offer, status:'accept'),method: :patch, data: {confirm: "Are you sure you want to accept this offer?"} do %>
-            <div class="btn-sm-green">Accept</div>
+            <div class=" mr-1 btn-flat-green">Accept</div>
           <% end %>
           <%= link_to offer_path(offer, status:'decline'), method: :patch, data: {confirm: "Are you sure you want to decline this offer?"} do %>
-            <div class="btn-sm-grey">Decline</div>
+            <div class=" ml-2 btn-flat">Decline</div>
           <% end %>
          </div>
         </div>
@@ -125,18 +125,18 @@
           <% if offer.original_item.user != current_user %>
             <p class="mb-0">Congrats! You have a deal!</p>
             <%= link_to chatroom_path(offer.chatroom) do  %>
-              <button class="btn-sm-grey">Contact bidder</button>
+              <button class="btn-ghost-green">Contact bidder</button>
             <% end %>
             <%= link_to new_offer_review_path(offer) do  %>
-            <button class="btn-sm-grey">Leave a revie</button>
+            <button class="btn-ghost-green">Leave a revie</button>
             <% end %>
           <% else %>
             <p class="mb-0">Congrats! You have a deal!</p>
             <%= link_to chatroom_path(offer.chatroom) do  %>
-              <button class="btn-sm-grey">Contact bidder</button>
+              <button class="btn-ghost-green">Contact bidder</button>
             <% end %>
             <%= link_to new_offer_review_path(offer) do  %>
-            <button class="btn-sm-grey">Leave a review</button>
+            <button class="btn-ghost-green">Leave a review</button>
             <% end %>
           <% end %>
         </div>

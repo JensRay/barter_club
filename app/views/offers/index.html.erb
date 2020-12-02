@@ -171,8 +171,8 @@
           </div>
         </div>
         <div class="text-center">
-          <% if offer.original_item.user != current_user %>
-            <p class="mb-0">Sorry, <%= offer.original_item.user.name.capitalize %> has declined your offer. Better luck next time!</p>
+          <% if bid.original_item.user != current_user %>
+            <p class="mb-0">Sorry, <%= bid.original_item.user.name.capitalize %> has declined your offer. Better luck next time!</p>
           <% end %>
          </div>
         </div>

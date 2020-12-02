@@ -1,64 +1,71 @@
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="landing-login">
-      <form class="landing-login-form">
-        <div class="form-group form-control">
-          <%= f.input :email,
-                  required: false,
-                  autofocus: true,
-                  placeholder: "your e-mail",
-                  input_html: { autocomplete: "email" } %>
-          <%= f.input :password,
-                  required: false,
-                  placeholder: "your password",
-                  input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-        </div>
-        <div class="form-actions btn btn-login">
-          <%= f.button :submit, "Login" %>
-        </div>
-      </form>
-    </div>
-  <% end %>
-<%= render "devise/shared/links" %>
+<% content_for :meta_title, "#{@item.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @item.description %>
+<% content_for :meta_image, cl_image_path(@item.photo.path) %>
 
 
 
 
+<%# bellow here is the part to fix %>
 
-
-// modified
-
-<div class="cards">
-  <div class="row justify-content-center">
+  <div class="cards p-2">
       <% @offers.each do |offer| %>
         <% if offer.original_item == @item %>
-          <%= link_to item_path(offer.my_item) do %>
-            <div class="card-index d-flex col-12 col-sm-12 col-md-12 col-lg-6">
-              <div class="card-index-img">
-                <% offer.my_item.photos.each do |photo| %>
-                  <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
-                <% end %>
-              </div>
-              <div class="card-body card-index-infos">
-                <div class="item-info pb-4">
-                  <div class="card-title"><%= offer.my_item.name %></div>
-                    <div class="card-text text-muted"> by <%= offer.user.name.capitalize %></div>
-                     <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [item.user.latitude, item.user.longitude]) %>
-                      <% if distance > 1 %>
-                        <%= number_with_precision(distance, precision: 0) %> km away
-                      <% else %>
-                        1 km
-                      <% end %>
-                  </div>
+          <div class="row justify-content-center pt-2 pb-2">
+            <%= link_to item_path(offer.my_item) do %>
+              <div class="card-index d-flex col-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="card-index-img">
+                  <% offer.my_item.photos.each do |photo| %>
+                    <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
+                  <% end %>
                 </div>
-              <div class="card-subtitle user">
-               <%= link_to item.user.name.capitalize, user_path(item.user)%>
+                <div class="card-body card-index-infos">
+                  <div class="card-title"><%= offer.my_item.name %></div>
+                  <div class="card-text text-muted">by <%= offer.user.name.capitalize %></div>
+                </div>
               </div>
-            </div>
             <% end %>
           </div>
         <% end %>
 
+        <% if offer.status == nil %>
+          <div class="row justify-content-center pt-2 pb-2">
+            <div class="card">
+              <div class="card-body card-index-infos d-flex col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="card-text"><i class="fas fa-glass-cheers"></i>Be the first bidder! </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
+// from the latest master
+
+
+<div class="cards">
+  <div class="row justify-content-center">
+     <% @offers.each do |offer| %>
+        <% if offer.original_item == @item %>
+          <%= link_to item_path(offer.my_item) do %>
+          <div class="card-index d-flex col-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="card-index-img">
+             <% offer.my_item.photos.each do |photo| %>
+                  <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
+                <% end %>
+            </div>
+            <div class="card-body card-index-infos">
+              <div class="item-info pb-4">
+                <div class="card-title text-capitalize mb-3"><%= offer.my_item.name.capitalize %></div>
+                <div class="card-subtitle item-distance text-info">
+                  <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [offer.user_if.latitude, offer.user_id.longitude]) %>
+                    <% if distance != 0 %>
+                      <%= number_with_precision(distance, precision: 0) %> km away
+                    <% else %>
+                      -
+                    <% end %>
+                </div>
               </div>
             </div>
           </div>

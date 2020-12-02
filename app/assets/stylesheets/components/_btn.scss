@@ -105,6 +105,21 @@ transition: opacity 0.3s ease;
   opacity: 1;
 }
 
+.btn-ghost-orange {
+color: $orange;
+border: 1px solid $orange;
+background: white;
+padding: 8px 24px;
+border-radius: 4px;
+font-weight: lighter;
+opacity: 0.6;
+transition: opacity 0.3s ease;
+}
+
+.btn-ghost-red:hover {
+  background: white;
+  opacity: 1;
+}
 
 
 
@@ -125,5 +140,5 @@ transition: opacity 0.3s ease;
 
 
 .btn:not(:disabled):not(.disabled) {
-  cursor: not-allowed
+  cursor: pointer;
 }

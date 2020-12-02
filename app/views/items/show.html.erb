@@ -1,6 +1,4 @@
-<% content_for :meta_title, "#{@item.name} is on #{DEFAULT_META["meta_product_name"]}" %>
-<% content_for :meta_description, @item.description %>
-<% content_for :meta_image, cl_image_path(@item.photo.path) %>
+
 
 <div class="container">
 <div class="card card-item-show justify-content-center">
@@ -98,39 +96,35 @@
 
 
 <div class="card-header text-center">Current Bids</div>
-  <div class="cards p-2">
-      <% @offers.each do |offer| %>
-        <% if offer.original_item == @item %>
-          <div class="row justify-content-center pt-2 pb-2">
-            <%= link_to item_path(offer.my_item) do %>
-              <div class="card-index d-flex col-12 col-sm-12 col-md-12 col-lg-6">
-                <div class="card-index-img">
-                  <% offer.my_item.photos.each do |photo| %>
-                    <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
-                  <% end %>
-                </div>
-                <div class="card-body card-index-infos">
-                  <div class="card-title"><%= offer.my_item.name %></div>
-                  <div class="card-text text-muted">by <%= offer.user.name.capitalize %></div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
 
-        <% if offer.status == nil %>
-          <div class="row justify-content-center pt-2 pb-2">
-            <div class="card">
-              <div class="card-body card-index-infos d-flex col-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="card-text"><i class="fas fa-glass-cheers"></i>Be the first bidder! </div>
+
+
+<div class="cards">
+  <div class="row justify-content-center">
+     <% @offers.each do |offer| %>
+        <% if offer.original_item == @item %>
+          <%= link_to item_path(offer.my_item) do %>
+          <div class="card-index d-flex col-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="card-index-img">
+             <% offer.my_item.photos.each do |photo| %>
+                  <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
+                <% end %>
+            </div>
+            <div class="card-body card-index-infos">
+              <div class="item-info pb-4">
+                <div class="card-title text-capitalize mb-3"><%= offer.my_item.name.capitalize %></div>
+                <div class="card-subtitle item-distance text-info">
+                  <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [offer.user_if.latitude, offer.user_id.longitude]) %>
+                    <% if distance != 0 %>
+                      <%= number_with_precision(distance, precision: 0) %> km away
+                    <% else %>
+                      -
+                    <% end %>
+                </div>
               </div>
             </div>
           </div>
         <% end %>
       <% end %>
-    </div>
   </div>
-
-
-
-
+</div>

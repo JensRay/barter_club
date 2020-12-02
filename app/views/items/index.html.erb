@@ -16,10 +16,10 @@
                 <div class="card-title text-capitalize mb-3"><%= item.name.capitalize %></div>
                 <div class="card-subtitle item-distance text-info">
                   <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [item.user.latitude, item.user.longitude]) %>
-                    <% if distance > 1 %>
+                    <% if distance != 0 %>
                       <%= number_with_precision(distance, precision: 0) %> km away
                     <% else %>
-                      1 km
+                      -
                     <% end %>
                 </div>
               </div>

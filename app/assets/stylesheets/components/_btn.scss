@@ -60,12 +60,22 @@ button {
   color: white;
 }
 
+.btn-full-green{
+  background: $green !important;
+  color: white !important;
+  width: 100% !important;
+  border-radius: 7px !important;
+}
+
 .btn-flat-orange {
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
   background: $orange;
   transition: background 0.3s ease;
+  width: 92%;
+  height: 4rem;
+  margin: 0 auto;
 }
 
 .btn-flat-orange:hover {

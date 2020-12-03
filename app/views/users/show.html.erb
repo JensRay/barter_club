@@ -1,6 +1,5 @@
 <div class="banner">Trader Profile</div>
 
-
 <div class="card card-profile text-center">
   <div class="card-img-top  mt-5">
    <%= cl_image_tag @user.photo.key, class: 'avatar-large' %>
@@ -81,105 +80,109 @@
                     </li>
                     <li class="d-flex w-100 justify-content-between font-weight-bold mb-1"><%= review.content %></li>
                   </div>
-                </div>
-
+                  <% end %>
+                </ul>
               </div>
-    </div>
+            </div>
+
+          </div>
+</div>
 
 
 
 
 
 
-    <div class="card-header text-center text-capitalize"> <%= @user.name.capitalize %>'s' Items </div>
-      <div class="card-deck user-items">
-        <% @user.items.each do |item| %>
-          <%= link_to item_path(item) do %>
-            <div class="card user-item">
-                <% if item.photos.size == 1 %>
-                  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <%= cl_image_tag item.photos.first.key, class: 'd-block w-100 card-img-top' %>
-                      </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </div>
-                <% else %>
-                  <div class="carousel-inner">
+<div class="card-header text-center text-capitalize mt-3"> <%= @user.name.capitalize %>'s' Items </div>
+  <div class="card-deck user-items">
+    <% @user.items.each do |item| %>
+      <%= link_to item_path(item) do %>
+        <div class="card user-item">
+            <% if item.photos.size == 1 %>
+              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
                   <div class="carousel-item active">
                     <%= cl_image_tag item.photos.first.key, class: 'd-block w-100 card-img-top' %>
                   </div>
-                  <div class="carousel-item">
-                    <%= cl_image_tag item.photos.second.key, class: 'd-block w-100 card-img-top' %>
-                  </div>
-                  <div class="carousel-item">
-                    <%= cl_image_tag item.photos.third.key, class: 'd-block w-100 card-img-top' %>
-                  </div>
                 </div>
-                <% end %>
-
-              <div class="card-body">
-                <h5 class="card-title"><%= item.name %></h5>
-                <p class="card-text"><%= item.description %></p>
-                <p class="card-text"><small class="text-muted">Last updated on <%= item.updated_at.strftime("%b %d, %Y") %></small></p>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
               </div>
-            </div>
-        <% end %>
-      <% end %>
-
-      </div>
-      <!-- Here is the nav bar. DONT TOUCH!
-    -->
-
-
-    <div class="navbar navbar-expand-sm navbar-light navbar-barters navbar-sticky fixed-bottom mt-0">
-
-        <%= link_to items_path do %>
-
-        <i class='fa fa-frog fa-2x' id="icons"></i>
-        <% end %>
-
-      <%= link_to new_item_path do %>
-      <i class='fa fa-plus-square fa-2x text-primary' id="icons" ></i>
-      <% end %>
-
-        <% if current_user %>
-          <%= link_to offers_path do %>
-
-          <i class='fa fa-exchange-alt fa-2x text-primary' id="icons"></i>
-          <% end %>
-        <% else %>
-          <%= link_to new_user_session_path do %>
-          <i class='fa fa-exchange-alt fa-2x text-primary' id="icons"></i>
-          <% end %>
-        <% end %>
-
-        <div>
-        <% if current_user %>
-
-          <div class="dropup">
-            <i class=" fa fa-user fa-2x text-primary" id="nav-active"></i>
-              <div class="dropup-content">
-              <%= link_to 'My profile', user_path(current_user)  %>
-                <%= link_to 'Inbox', chatrooms_path  %>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            <% else %>
+              <div class="carousel-inner">
+              <div class="carousel-item active">
+                <%= cl_image_tag item.photos.first.key, class: 'd-block w-100 card-img-top' %>
               </div>
-            </div>
+              <div class="carousel-item">
+                <%= cl_image_tag item.photos.second.key, class: 'd-block w-100 card-img-top' %>
+              </div>
+              <div class="carousel-item">
+                <%= cl_image_tag item.photos.third.key, class: 'd-block w-100 card-img-top' %>
+              </div>
+             </div>
+            <% end %>
 
-        <% else %>
-          <%= link_to new_user_session_path do %>
-            <i class='fa fa-user fa-2x text-primary' id="icons"></i>
-          <% end %>
-        <% end %>
-    </div>
-    </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= item.name %></h5>
+            <p class="card-text"><%= item.description %></p>
+            <p class="card-text"><small class="text-muted">Last updated on <%= item.updated_at.strftime("%b %d, %Y") %></small></p>
+          </div>
+        </div>
+    <% end %>
+  <% end %>
+
+  </div>
+  <!-- Here is the nav bar. DONT TOUCH!
+ -->
+
+
+<div class="navbar navbar-expand-sm navbar-light navbar-barters navbar-sticky fixed-bottom mt-0">
+
+    <%= link_to items_path do %>
+
+    <i class='fa fa-frog fa-2x' id="icons"></i>
+    <% end %>
+
+  <%= link_to new_item_path do %>
+   <i class='fa fa-plus-square fa-2x text-primary' id="icons" ></i>
+  <% end %>
+
+     <% if current_user %>
+      <%= link_to offers_path do %>
+
+      <i class='fa fa-exchange-alt fa-2x text-primary' id="icons"></i>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+      <i class='fa fa-exchange-alt fa-2x text-primary' id="icons"></i>
+      <% end %>
+    <% end %>
+
+    <div>
+    <% if current_user %>
+
+      <div class="dropup">
+        <i class=" fa fa-user fa-2x text-primary" id="nav-active"></i>
+          <div class="dropup-content">
+           <%= link_to 'My profile', user_path(current_user)  %>
+            <%= link_to 'Inbox', chatrooms_path  %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          </div>
+        </div>
+
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <i class='fa fa-user fa-2x text-primary' id="icons"></i>
+      <% end %>
+    <% end %>
+</div>
+
+
 
 </div>

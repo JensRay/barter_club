@@ -15,14 +15,11 @@
 textarea.form-control {
   height: auto;
 }
+
 .form-control::placeholder {
   color: $gray-2;
   opacity: .5;
 }
-
-.form-control:focus {
-}
-
 
 input[type="submit" i] {
   border: inherit !important;

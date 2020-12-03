@@ -1,13 +1,8 @@
-.form-rounded {
-  border-radius: 20px;
-}
-
 .header-category .btn:not(:disabled):not(.disabled) {
     cursor: pointer;
 }
 
 .btn:hover {
-  color: $gray;
   opacity: 1;
   text-decoration: none;
 }

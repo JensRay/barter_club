@@ -7,6 +7,7 @@ Offer.destroy_all
 Item.destroy_all
 User.destroy_all
 Message.destroy_all
+Review.destroy_all
 puts "destroyed all"
 
 
@@ -162,7 +163,7 @@ offer4.save
 offer5 = Offer.new(user_id: alize.id, original_item: chair, my_item: plant )
 offer5.save
 
-offer6 = Offer.new(user_id: toni.id, original_item: chair, my_item: watering_can )
+offer6 = Offer.new(user_id: toni.id, original_item: chair, my_item: watering_can, status: "accept" )
 offer6.save
 
 offer7 = Offer.new(user_id: toni.id, original_item: chair3, my_item: rug, status: "accept" )
@@ -181,3 +182,12 @@ Message.create(content: "ok?", chatroom_id: chatroom1.id, user_id: toni.id)
 Message.create(content: "Perfect! ", chatroom_id: chatroom1.id, user_id: martin.id)
 Message.create(content: "Looking forward to meeting you!", chatroom_id: chatroom1.id, user_id: toni.id)
 Message.create(content: "me too! ", chatroom_id: chatroom1.id, user_id: martin.id)
+
+puts "creating reviews"
+Review.create( rating: 5,  content:"Awesome guy!", user_id: toni.id, offer_id: offer6.id )
+Review.create( rating: 5,  content:"I love J!", user_id: alize.id, offer_id: offer6.id )
+Review.create( rating: 5,  content:"Best person ever.", user_id: antje.id, offer_id: offer6.id )
+
+
+
+

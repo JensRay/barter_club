@@ -1,29 +1,25 @@
 <div class="header mb-3">
-  <div class="header-search d-flex">
-    <div class="form-group col-10 m-0">
+    <div class="d-flex justify-content-center">
       <%= form_tag items_path, method: :get do %>
         <%= text_field_tag :query,
         params[:query],
         type: "search",
-        class: "form-control",
+        class: "form-control",  id: "searchbar",
         placeholder: "Search items..." %>
       <% end %>
     </div>
-    <div class="search-near ">
-      <%= link_to(query: "near", controller: "items") do %>
-        <i class="fas fa-map-marker-alt col-2"></i>
-      <% end %>
-    </div>
-  </div>
-  <div class="header-category mt-3">
+</div>
+  <div class="header-category mt-4">
     <div class="form-row justify-content-around mt-3 mb-3">
       <%= form_tag items_path, method: :get do %>
         <div class="d-flex">
-          <%= select_tag :category, options_for_select(Item::ALLCATEGORIES), class: "btn mr-2", id: "select-apply" %>
-          <%= submit_tag "Apply", class: "btn apply ml-2" %>
+          <%= link_to(query: "near", controller: "items") do %>
+            <i class="fas fa-map-marker-alt col-2 btn-link", id="nearme"></i>
+          <% end %>
+          <%= select_tag :category, options_for_select(Item::ALLCATEGORIES), class: "btn-link ml-4 mr-3", id: "select-apply" %>
+          <%= submit_tag "Apply", class: "btn-link ml-2", id: "apply" %>
         </div>
       <% end %>
     </div>
   </div>
-</div>
 

@@ -12,7 +12,12 @@
               <% end %>
             </div>
             <div class="card-body card-index-infos">
-              <div class="card-subtitle distance">
+
+                <div class="card-title text-capitalize mb-2"><%= item.name.capitalize %></div>
+                <div class="card-text mb-2"><%= item.description.first(50)... %></div>
+                <div class="item-info d-flex">
+                  <div class="card-subtitle distance">
+
                     <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [item.user.latitude, item.user.longitude]) %>
                       <% if distance != 0 %>
                         <%= number_with_precision(distance, precision: 0) %> km away

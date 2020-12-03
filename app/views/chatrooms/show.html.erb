@@ -41,8 +41,9 @@
   </div>
   <div class="" id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
+    <% klass = current_user == message.user ? 'right' : 'left' %>
       <div class="message-container" id="message-<%= message.id %>">
-        <% klass = current_user == message.user ? 'right' : 'left' %>
+
           <div class="message-content" id="<%= klass %>">
             <!-- <span><%#= message.user.nickname %></span> -->
             <div class="d-flex <%= klass %>">

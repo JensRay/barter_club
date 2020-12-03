@@ -39,6 +39,9 @@
   &:focus {
     background-color: $green;
     color: white;
+    &::placeholder {
+      color: $light;
+    }
   }
 }
 

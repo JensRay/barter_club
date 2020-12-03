@@ -116,6 +116,11 @@ chair4 = Item.new(name: "Oldschool chair", category: "Furniture", description: "
 chair4.photos.attach(io: file, filename: 'chair4.jpg"', content_type: 'image/jpg')
 chair4.save!
 
+file = File.open("app/assets/images/watch.jpg")
+watch = Item.new(name: "GPS Watch", category: "Collectibles & Hobbies", description: "I want to trade my Garmin GPS watch for runnning. ", user_id: antje.id)
+watch.photos.attach(io: file, filename: 'watch.jpg"', content_type: 'image/jpg')
+watch.save!
+
 file = File.open("app/assets/images/chair5.jpg")
 chair5 = Item.new(name: "Chair for a 'real lady'", category: "Furniture", description: "It's a chair for a 'real lady'. Like a queen or something.", user_id: alize.id)
 chair5.photos.attach(io: file, filename: 'chair5.jpg"', content_type: 'image/jpg')
@@ -135,7 +140,7 @@ rug.save!
 
 puts "creating comments"
 
-Comment.create(content: "Can I eat it?", user_id: antje.id, item: chair)
+Comment.create(content: "Can I have it outdoors?", user_id: antje.id, item: chair)
 Comment.create(content: "I wouldn't recommend it.", user_id: j.id, item: chair)
 Comment.create(content: "Do you have more photos?", user_id: martin.id, item: bread)
 Comment.create(content: "Do you have different colors?", user_id: alize.id, item: lamp)
@@ -150,9 +155,6 @@ offer1.save
 
 offer2 = Offer.new(user_id: martin.id, original_item: lamp, my_item: books )
 offer1.save
-
-offer3 = Offer.new(user_id: alize.id, original_item: books, my_item: plant )
-offer3.save
 
 offer4 = Offer.new(user_id: martin.id, original_item: husband, my_item: books )
 offer4.save

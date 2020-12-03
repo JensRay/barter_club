@@ -1,5 +1,12 @@
-<div class="container fullscreen">
+<div class="container-fluid fullscreen">
   <!-- <h1>#<%#= @chatroom.name %></h1> -->
+  <div>
+    <% if @chatroom.offer.my_item.user == current_user %>
+      <%= @chatroom.offer.original_item.user.name %>
+    <% else %>
+      <%= @chatroom.offer.my_item.user.name %>
+    <% end %>
+  </div>
   <div class="" id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
       <div class="message-container" id="message-<%= message.id %>">
@@ -22,9 +29,9 @@
     <% end %>
   </div>
 
-  <div class="fixed-bottom message-input">
+  <div class="fixed-bottom message-input form-group ">
     <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-      <%= f.input :content, label: false, class: "", :autocomplete => :off, placeholder: "Type your message..." %>
+      <%= f.input :content, label: false, class: "form-control w-95", :autocomplete => :off, placeholder: "Type your message..." %>
     <% end %>
   </div>
 

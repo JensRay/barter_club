@@ -121,7 +121,7 @@
             <h6 class="col-4 text-primary"><%=offer.original_item.name %></h6>
           </div>
         </div>
-        <div class="text-center">
+        <div class="text-center mb-2">
           <% if offer.original_item.user != current_user %>
             <p class="mb-0">Congrats! You have a deal!</p>
             <%= link_to chatroom_path(offer.chatroom) do  %>

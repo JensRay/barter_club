@@ -81,6 +81,10 @@
   margin: 0;
 }
 
+.message-content .form-control {
+  width: 100% !important;
+}
+
 .message-author{
   margin: 0px;
   margin-top: 10px;
@@ -95,12 +99,16 @@
 
 .message-input {
   margin-bottom: 33px;
-  border-radius: 15px; /* why this is not working? */
+  border-radius: 15px;
   display: inline;
 }
 
 #messages {
-  margin-bottom: 280px; /* why this is not working? */
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
 }
 
 #right {
@@ -159,3 +167,7 @@
   margin-bottom: 3.5rem;
 }
 
+.fullscreen.container-fluid {
+  padding: 0;
+  margin: 0;
+}

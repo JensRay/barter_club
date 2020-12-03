@@ -10,7 +10,7 @@
       <div class="carousel-inner">
         <% @item.photos.each do |photo| %>
           <div class="carousel-item active">
-            <%= cl_image_tag photo.key, class: 'item-gallery-img d-block w-100' %>
+            <%= cl_image_tag photo.key, class: 'item-gallery-img d-block w-100 mb-3'%>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -33,7 +33,7 @@
     </div>
 
 
-  <div class="card-body pb-5 align-content-center">
+  <div class="card-body pb-2 align-content-center">
       <div class="card-text text-muted text-center"><%= @item.description %></div>
   </div>
 
@@ -42,7 +42,7 @@
 
   <div class="jumbotron mb-0 pt-4 pb-">
 <%= link_to user_path(@item.user) do %>
-          <div class="card user-profile mb-3">
+          <div class="card user-profile mb-4">
               <div class="card-body">
                 <div class="d-flex row-cols-2 pb-0">
                   <div class="card-img-top card-img-user w-auto mr-3 col-2 align-items-baseline">

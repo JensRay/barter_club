@@ -19,13 +19,13 @@
 .card-header {
   background-color: $light;
   color: $gray-3;
+  padding: 0.5rem 1rem;
   font-size: larger;
   font-weight: lighter;
-  letter-spacing: 1px;
-}
-
-.card-subtitle {
-  font-size: smaller;
+  text-transform: capitalize;
+  text-align: center;
+  border-bottom: 1px solid $light-gray;
+  letter-spacing: 1.3px;
 }
 
 .card-body {
@@ -43,47 +43,49 @@
   background: white;
   display: flex;
   align-items: center;
+  .card-index-infos {
+    padding: 16px 8px;
+    margin-left: 8px;
+    margin-bottom: 0px;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100px;
+    font-weight: lighter;
+      .card-title {
+        margin-bottom: 8px;
+        color: $gray-3;
+        font-size: 1.1em;
+      }
+      .card-title:hover {
+        color: $gray-4;
+      }
+      .item-info {
+        justify-content: space-between;
+        color: $green;
+        opacity: 0.5;
+        font-weight: lighter;
+        position: relative;
+        &:hover{
+          opacity: 1;
+        }
+        }
+  }
 }
 
 .card-index .card-index-img {
-  padding: 0px 6px 0px 12px;
+  padding: 0px 4px 0px 4px;
   background-size: cover;
 }
 
 .card-index .item-img {
   object-fit: cover;
   object-position: center;
-  height: 135px;
+  height: 130px;
   width: 140px;
-}
-
-.card-index .card-index-infos {
-  padding: 12px;
-  margin-left: 16px;
-  margin-bottom: 0px;
-  width: 100%;
-  color: $gray-1;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-  min-height: 100px;
-}
-
-
-.card-index .user {
-  padding-right: 4px;
-}
-
-.card-index .user a {
-    color: $green;
-    opacity: 0.7;
-    font-weight: lighter;
-    transition: opacity 0.3s ease;
-  }
-
-.card-index .user a:hover {
-  opacity: 1;
+  box-shadow: 0px 0px 5px $lighter;
 }
 
 .card-index p {
@@ -218,7 +220,6 @@ border: solid 1px;
 
   .card-product-lg {
   border: none;
-  // border-bottom: opacify($color: $gray, $amount: 0.9);
   overflow: hidden;
   height: 320px;
   background: white;

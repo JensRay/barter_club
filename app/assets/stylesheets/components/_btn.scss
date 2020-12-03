@@ -105,6 +105,12 @@ transition: opacity 0.3s ease;
   opacity: 1;
 }
 
+
+.btn-ghost-orange:hover {
+  background: white;
+  opacity: 1;
+}
+
 .btn-ghost-orange {
 color: $orange;
 border: 1px solid $orange;
@@ -116,22 +122,12 @@ opacity: 0.6;
 transition: opacity 0.3s ease;
 }
 
-.btn-ghost-red:hover {
-  background: white;
-  opacity: 1;
-}
-
-
-
-
+// custom btn
 .btn-sticky {
   position: sticky;
   bottom: 0px;
 }
 
-#apply {
-  width: 45%;
-}
 
 .btn:hover {
   color: $white;

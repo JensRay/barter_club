@@ -13,7 +13,7 @@ class Item < ApplicationRecord
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 
-  CATEGORIES = ["Clothes", "Electronics & Mobile", "Furniture", "Cars & Bikes", "Collectibles & Hobbies", "Sport Equipment", "Others"]
-  ALLCATEGORIES = ["All categories", "Clothes", "Electronics & Mobile", "Furniture", "Cars & Bikes", "Collectibles & Hobbies", "Sport Equipment", "Others"]
+  CATEGORIES = ["Clothes", "Electronics & Mobile", "Furniture","Books","living & Kitchen", "Kids", "Sport & Hobby", "Accessories", "Giveaway", "Unique", "Others"]
+  ALLCATEGORIES = ["All categories", "Clothes", "Electronics & Mobile", "Furniture","Books","living & Kitchen", "Kids", "Sport & Hobby", "Accessories", "Giveaway", "Unique", "Others"]
   validates :name, :description, :category, :photos, presence: true
 end

@@ -15,6 +15,9 @@ button {
   }
 }
 
+input[type="submit" i] {
+  border-color: transparent;
+}
 // link text as btn class
 .btn-link {
   border: none;
@@ -29,24 +32,25 @@ button {
 
 // .btn-flat :main buttons
 .btn-flat {
-  color: $gray-1;
-  padding: 8px 24px;
+  color: $gray-4;
+  padding: 8px 16px;
   border-radius: 4px;
   background: $light;
   transition: background 0.3s ease;
   &:focus {
-    background-color: $gray-2;
+    background-color: $gray-3;
+    color: $lighter;
   }
 }
 
 .btn-flat:hover {
-  background: $gray-2;
-  color: $gray-3;
+  background: $gray-3;
+  color: $lighter;
 }
 
 .btn-flat-green {
   color: white;
-  padding: 8px 24px;
+  padding: 8px 16px;
   border-radius: 4px;
   background: $green;
   transition: background 0.3s ease;
@@ -58,13 +62,6 @@ button {
 .btn-flat-green:hover {
   background: $green-sub;
   color: white;
-}
-
-.btn-full-green{
-  background: $green !important;
-  color: white !important;
-  width: 100% !important;
-  border-radius: 7px !important;
 }
 
 .btn-flat-orange {

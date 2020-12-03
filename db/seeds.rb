@@ -24,7 +24,7 @@ j.photo.attach(io: file, filename: 'j.png', content_type: 'image/jpg')
 j.save!
 
 file = File.open("app/assets/images/alize.png")
-alize = User.create!(name: "Alize", address: "Götgatan 65, 116 21 Stockholm, Sweden", bio: "Born and raise in South Korea but I live in Stockholm now. When I'm not working as a UX designer, I like to spend my time with my reading a good book and listening to some good music", email: "alize@alize.com", nickname: "alize", password: "123456")
+alize = User.create!(name: "Alize", address: "Götgatan 65, 116 21 Stockholm, Sweden", bio: "Born and raise in South Korea but I live in Stockholm now. When I'm not working as a UX designer, I like to spend my time with reading a good book and listening to some good music", email: "alize@alize.com", nickname: "alize", password: "123456")
 alize.photo.attach(io: file, filename: 'alize.png', content_type: 'image/png')
 alize.save!
 
@@ -53,12 +53,12 @@ cape.photos.attach(io: file, filename: 'cape.jpg"', content_type: 'image/jpg')
 cape.save!
 
 file = File.open("app/assets/images/books.jpg")
-books = Item.new(name: "Old books", category: "Collectibles & Hobbies", description: "Old books in weird language. Maybe from a different planet.", user_id: martin.id)
+books = Item.new(name: "Old books", category: "Books", description: "Old books in weird language. Maybe from a different planet.", user_id: martin.id)
 books.photos.attach(io: file, filename: 'books.jpg', content_type: 'image/jpg')
 books.save!
 
 file = File.open("app/assets/images/plant.jpg")
-plant = Item.new(name: " A plant", category: "Others", description: "A very unique plant from South America", user_id: alize.id)
+plant = Item.new(name: " A plant", category: "Living & Kitchen", description: "A very unique plant from South America", user_id: alize.id)
 plant.photos.attach(io: file, filename: 'plant.jpg', content_type: 'image/jpg')
 plant.save!
 
@@ -78,17 +78,17 @@ bread.photos.attach(io: file, filename: 'bread.jpg', content_type: 'image/jpg')
 bread.save!
 
 file = File.open("app/assets/images/husband.jpg")
-husband = Item.new(name: "My husband", category: "Collectibles & Hobbies", description: "my annoying husband. We have been married for 25 years and now I'm tired of him ", user_id: antje.id)
+husband = Item.new(name: "My husband", category: "Giveaway", description: "my annoying husband. We have been married for 25 years and now I'm tired of him ", user_id: antje.id)
 husband.photos.attach(io: file, filename: 'husband.jpg', content_type: 'image/jpg')
 husband.save!
 
 file = File.open("app/assets/images/wateringcan.jpg")
-watering_can = Item.new(name: "Watering Can", category: "Collectibles & Hobbies", description: "Beutiful watering can from a famous designer, I dont remember who. ", user_id: antje.id)
+watering_can = Item.new(name: "Watering Can", category: "living & Kitchen", description: "Beutiful watering can from a famous designer, I dont remember who. ", user_id: antje.id)
 watering_can.photos.attach(io: file, filename: 'wateringcan.jpg"', content_type: 'image/jpg')
 watering_can.save!
 
 file = File.open("app/assets/images/guitar.jpg")
-guitar = Item.new(name: "Pink guitar", category: "Collectibles & Hobbies", description: "I'm selling my guitar. Now I play only heavy metal. I don't use it. ", user_id: j.id)
+guitar = Item.new(name: "Pink guitar", category: "Sport & Hobby", description: "I'm selling my guitar. Now I play only heavy metal. I don't use it. ", user_id: j.id)
 guitar.photos.attach(io: file, filename: 'guitar.jpg"', content_type: 'image/jpg')
 guitar.save!
 
@@ -103,7 +103,7 @@ couch2.photos.attach(io: file, filename: 'couch2.jpg"', content_type: 'image/jpg
 couch2.save!
 
 file = File.open("app/assets/images/chair2.jpg")
-chair2 = Item.new(name: "A chair for chilren", category: "Furniture", description: "My child is too big for it. It's in a good state.", user_id: alize.id)
+chair2 = Item.new(name: "A chair for chilren", category: "Kids", description: "My child is too big for it. It's in a good state.", user_id: alize.id)
 chair2.photos.attach(io: file, filename: 'chair2.jpg"', content_type: 'image/jpg')
 chair2.save!
 
@@ -118,7 +118,7 @@ chair4.photos.attach(io: file, filename: 'chair4.jpg"', content_type: 'image/jpg
 chair4.save!
 
 file = File.open("app/assets/images/watch.jpg")
-watch = Item.new(name: "GPS Watch", category: "Collectibles & Hobbies", description: "I want to trade my Garmin GPS watch for runnning. ", user_id: antje.id)
+watch = Item.new(name: "GPS Watch", category: "Accessories", description: "I want to trade my Garmin GPS watch for runnning. ", user_id: antje.id)
 watch.photos.attach(io: file, filename: 'watch.jpg"', content_type: 'image/jpg')
 watch.save!
 
@@ -128,12 +128,12 @@ chair5.photos.attach(io: file, filename: 'chair5.jpg"', content_type: 'image/jpg
 chair5.save!
 
 file = File.open("app/assets/images/oscar.jpg")
-oscar = Item.new(name: "Oscar award", category: "Collectibles & Hobbies", description: "I'm selling my oscar don't need it anymore.", user_id: j.id)
+oscar = Item.new(name: "Oscar award", category: "Unique", description: "I'm selling my oscar don't need it anymore.", user_id: j.id)
 oscar.photos.attach(io: file, filename: 'oscar.jpg"', content_type: 'image/jpg')
 oscar.save!
 
 file = File.open("app/assets/images/rug.jpg")
-rug = Item.new(name: "Turkish rug", category: "Furniture", description: "I want to trade my Turkish rug, bought in Istanbul 2014.", user_id: toni.id)
+rug = Item.new(name: "Turkish rug", category: "Living & Kitchen", description: "I want to trade my Turkish rug, bought in Istanbul 2014.", user_id: toni.id)
 rug.photos.attach(io: file, filename: 'rug.jpg"', content_type: 'image/jpg')
 rug.save!
 

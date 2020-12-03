@@ -6,15 +6,11 @@ background-position: center;
 background-size: cover;
 }
 
-
 a:-webkit-any-link {
     text-decoration: none !important;
     cursor: pointer;
     color: inherit;
 }
-
-
-
 
 .rating .stars {
   color: $yellow;
@@ -22,4 +18,8 @@ a:-webkit-any-link {
 
 .jumbotron {
   background-color: white;
+}
+
+.figure-caption {
+  color: $silver;
 }

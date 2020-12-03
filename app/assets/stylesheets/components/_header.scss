@@ -2,19 +2,20 @@
   padding: .8rem 1.2rem;
   justify-content: center;
   display: block;
-  background-color: $light;
+  background-color: white;
   height: auto;
   max-width: 100%;
 }
 
 .fa .fas .fa-map-marker-alt {
   padding: 0px;
+  color: $gray-3;
+  font-size: 28px;
 }
 
 .header-search .form-control {
   background-color: white;
   color: $gray-4;
-
   width: 100%;
   border: transparent;
   border-radius: 20px;
@@ -27,36 +28,42 @@
 }
 
 #searchbar {
-  background-color: $white;
+  background-color: $light-gray;
   border: transparent;
-  color: $green;
   border-radius: 20px;
-  width: 100%;
+  width: inherit;
   &::placeholder {
-    color: $gray-2;
-    font-weight: bolder;
+    color: $gray-3;
   }
   &:focus {
-    background-color: $light-gray;
-    color: $gray-4;
+    width: fit-content;
+    background-color: $gray;
+    color: $gray-3;
+    font-weight: bolder;
     &::placeholder {
-      color: $light;
+      color: $gray-3;
     }
   }
 }
 
 #nearme {
-  font-weight: bold;
-  text-shadow: 0px 0px 3px $gray;
+  font-size: x-large;
+  opacity: 1;
 }
 
 #select-apply {
-  width: auto;
+  width: fit-content;
   transition: width 0.4s ease-in-out;
   background-color: transparent;
   border: none;
   color: $orange;
+  opacity: 0.8;
   text-decoration: none;
+  font-size: larger;
 }
 
+#apply {
+  font-size: larger;
+  opacity: .8;
+}
 

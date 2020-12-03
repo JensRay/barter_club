@@ -1,3 +1,6 @@
+form {
+  width: 100%;
+}
 
 .form-group {
   color: $gray-3;
@@ -5,6 +8,7 @@
 
 .form-control {
   display: block;
+  justify-content: center;
   color: $gray-3;
   background-color: white;
   border: 1px solid opacify($color: $gray, $amount: .9);

@@ -1,10 +1,42 @@
 <div class="container-fluid fullscreen">
   <!-- <h1>#<%#= @chatroom.name %></h1> -->
-  <div>
+  <div class="banner">
     <% if @chatroom.offer.my_item.user == current_user %>
-      <%= @chatroom.offer.original_item.user.name %>
+      <div class="d-flex justify-content-center">
+        <div class="mr-2">
+          <%= cl_image_tag @chatroom.offer.original_item.user.photo.key, class: "avatar-sm" %>
+        </div>
+        <div>
+          <%= @chatroom.offer.original_item.user.name %>
+        </div>
+        <div>
+          <i class="fa fa-exchange-alt text-center col-4"></i>
+        </div>
+      </div>
+
+
+      <i class="fa fa-exchange-alt text-center col-4"></i>
     <% else %>
-      <%= @chatroom.offer.my_item.user.name %>
+        <div class="d-flex justify-content-center">
+          <div class="mr-2">
+            <%= cl_image_tag @chatroom.offer.my_item.user.photo.key, class: "avatar-sm" %>
+          </div>
+          <div class="ml-2 mr-2">
+            <%= @chatroom.offer.my_item.user.name %>
+          </div>
+          <div class="mr-2 ml-2">
+            |
+          </div>
+          <div class="ml-2 mr-2">
+            <%= @chatroom.offer.my_item.name %>
+          </div>
+          <div class="ml-2">
+            <%= cl_image_tag @chatroom.offer.my_item.photos.first.key, class: "avatar-sm" %>
+          </div>
+        </div>
+
+
+
     <% end %>
   </div>
   <div class="" id="messages" data-chatroom-id="<%= @chatroom.id %>">

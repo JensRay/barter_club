@@ -73,7 +73,7 @@
 .message-content {
   display:inline-block;
   clear: both;
-  margin: 0 16px;
+  margin: 8px 16px 8px 16px;
 }
 
 .message-content p {
@@ -101,6 +101,7 @@
   margin-bottom: 33px;
   border-radius: 15px;
   display: inline;
+  border: 1px solid #d9dada;
 }
 
 #messages {
@@ -165,6 +166,7 @@
   overflow-y: scroll;
   height: 100%;
   margin-bottom: 3.5rem;
+
 }
 
 .fullscreen.container-fluid {

@@ -59,35 +59,10 @@
   <%# <p>It uses utility classes for typography and spacing to space content out within the larger con
   <p class="lead"> %>
 
-            <div class="user-question">
-              <button class="btn-ghost-green btn-block text-center" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Questions? <i class="fas fa-caret-down"></i>
-              </button>
-
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body">
-                <% @item.comments.each do |comment| %>
-                  <div class="mb-0 bg-light">
-                    <p class="message-author"><strong><%= comment.user.name %></strong></p>
-                    <p class="message mb-3" ><%= comment.content %></p>
-                  </div>
-                <% end %>
-                <hr>
-
-                <%= simple_form_for [@item, @comment], remote: true do |f| %>
-                    <div class="form-row align-items-center">
-                      <div class="col-9">
-                        <%= f.input :content, label: false %>
-                      </div>
-                      <div class="col-3">
-                        <%= f.submit "Send", class: "btn-flat-green btn-sm col"%>
-                      </div>
-                    </div>
-                <% end %>
-              </div>
+            <div>
+              <a href="#questions" class="btn-flat-green btn-block text-center text-white">Questions</a>
+              <!-- <i class="fas fa-caret-down"></i> -->
             </div>
-
-        </div>
 </div>
 
 
@@ -132,6 +107,49 @@
         <% end %>
       <% end %>
   </div>
+  <div id="questions">
+              <div class="card card-body">
+                <% @item.comments.each do |comment| %>
+                 <% klass = current_user == comment.user ? 'me' : 'you' %>
+                  <div class="comment-container" id="comment-<%= comment.id %>">
+
+                  <div class="comment-content" id="<%= klass %>">
+            <!-- <span><%#= message.user.nickname %></span> -->
+                  <div class="d-flex <%= klass %>">
+                    <span><%= cl_image_tag comment.user.photo.key, class: "avatar-sm" %></span>
+                    <p class="comment-text">
+                      <%= comment.content %>
+                    </p>
+                  </div>
+
+
+                <% end %>
+
+
+<!--
+                  <div class="mb-0 bg-light">
+                    <p class="message-author"><strong><%#= comment.user.name %></strong></p>
+                    <p class="message mb-3" ><%= comment.content %></p>
+                  </div> -->
+
+            <!-- <small><%#= message.created_at.strftime("%a %b %e at %l:%M%p") %></small> -->
+            <small><%= message.created_at.strftime("%H:%M") %></small>
+          </div>
+      </div>
+                <hr>
+
+                <%= simple_form_for [@item, @comment], remote: true do |f| %>
+                    <div class="form-row align-items-center">
+                      <div class="col-9">
+                        <%= f.input :content, label: false %>
+                      </div>
+                      <div class="col-3">
+                        <%= f.submit "Send", class: "btn-flat-green btn-sm col"%>
+                      </div>
+                    </div>
+                <% end %>
+              </div>
+            </div>
 </div>
 
 

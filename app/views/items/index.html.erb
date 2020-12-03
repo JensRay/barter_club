@@ -1,4 +1,4 @@
-<%= render 'shared/header_search' %>
+<%= render 'shared/search' %>
 
 <div class="cards">
   <div class="row justify-content-center">
@@ -12,19 +12,19 @@
               <% end %>
             </div>
             <div class="card-body card-index-infos">
-              <div class="item-info pb-4">
-                <div class="card-title text-capitalize mb-3"><%= item.name.capitalize %></div>
-                <div class="card-subtitle item-distance text-info">
+              <div class="item-info">
+                <div class="card-title text-capitalize mb-2"><%= item.name.capitalize %></div>
+                <div class="card-subtitle item-distance">
                   <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [item.user.latitude, item.user.longitude]) %>
                     <% if distance != 0 %>
                       <%= number_with_precision(distance, precision: 0) %> km away
                     <% else %>
-                      -
+
                     <% end %>
+               <em>by <%= link_to item.user.name.capitalize, user_path(item.user)%></em>
                 </div>
               </div>
               <div class="card-subtitle user">
-               <%= link_to item.user.name.capitalize, user_path(item.user)%>
               </div>
             </div>
           </div>

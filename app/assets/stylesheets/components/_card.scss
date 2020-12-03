@@ -14,14 +14,19 @@
 .card-title {
   color: $gray-3;
   margin-bottom: 16px;
+  font-size: larger;
 }
 
 .card-header {
   background-color: $light;
   color: $gray-3;
+  padding: 0.5rem 1rem;
   font-size: larger;
   font-weight: lighter;
-  letter-spacing: 1px;
+  text-transform: capitalize;
+  text-align: center;
+  border-bottom: 1px solid $light-gray;
+  letter-spacing: 1.3px;
 }
 
 .card-subtitle {
@@ -46,7 +51,7 @@
 }
 
 .card-index .card-index-img {
-  padding: 0px 6px 0px 12px;
+  padding: 0px 4px 0px 4px;
   background-size: cover;
 }
 
@@ -55,6 +60,7 @@
   object-position: center;
   height: 135px;
   width: 140px;
+  box-shadow: 0px 0px 5px $lighter;
 }
 
 .card-index .card-index-infos {
@@ -63,23 +69,23 @@
   margin-bottom: 0px;
   width: 100%;
   color: $gray-1;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+  display: block;
   min-height: 100px;
+}
+
+.card-index .card-subtitle {
+  color: $orange;
 }
 
 
 .card-index .user {
-  padding-right: 4px;
+  padding-right: 6px;
+  text-align: end;
+  padding-top: 1em;
 }
 
 .card-index .user a {
-    color: $green;
-    opacity: 0.7;
-    font-weight: lighter;
-    transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
   }
 
 .card-index .user a:hover {
@@ -218,7 +224,6 @@ border: solid 1px;
 
   .card-product-lg {
   border: none;
-  // border-bottom: opacify($color: $gray, $amount: 0.9);
   overflow: hidden;
   height: 320px;
   background: white;

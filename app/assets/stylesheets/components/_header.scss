@@ -1,29 +1,50 @@
 .header {
+  padding: .8rem 1.2rem;
   justify-content: center;
-  background-color: white;
-  padding: 1.2em;
-  width: auto;
+  display: block;
+  background-color: $light;
   height: auto;
+  max-width: 100%;
 }
 
-.header .form {
-  width: fit-content;
-  position: relative;
+.header-search {
+  align-items: center;
 }
 
 .header .form-control {
   background-color: white;
+  color: $gray-4;
+  &::placeholder {
+    color: $gray-2;
+    font-weight: bolder;
+  }
   width: 100%;
-  border: 1px solid opacify($color: $gray, $amount: 0.7);
-  border-radius: 30px;
+  border: 1px solid $gray;
+  border-radius: 20px;
   transition: width 0.4s ease-in-out;
 }
 
-.header-category {
-  display: inline;
-  justify-content: space-between;
-  width: auto;
-  border-radius: 10px;
-  transition: width 0.4s ease-in-out;
-  margin-right: 3px;
+.search-near .fa-map-marker-alt {
+ color: $gray-3;
+ font-size: 28px;
+ padding: 6px 16px;
 }
+
+.header-category select, input.btn {
+  width: auto;
+  transition: width 0.4s ease-in-out;
+  background-color: $white;
+  border: 1px solid $gray;
+  border-radius: 20px;
+  color: $gray-2;
+  .btn {
+  border: 1px solid $gray;
+  }
+}
+
+.header-category .list-inline {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+}
+

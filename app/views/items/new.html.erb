@@ -1,6 +1,6 @@
 <div class="banner">post your item</div>
 
-<div class="container pt-5 d-block justify-content-center">
+<div class="container pt-5 p-4 d-block">
   <div>
     <%= simple_form_for @item do |f| %>
           <%= f.input :name,
@@ -15,7 +15,9 @@
                   item_wrapper_class: 'tag-item' %>
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <br>
-          <%=f.button :submit, "Submit", class: "btn-flat-green btn-lg"%>
+          <div class="text-center">
+          <%=f.button :submit, "Submit", class: "btn-flat-green btn-lg text-center"%>
+          </div>
     <% end %>
   </div>
 </div>

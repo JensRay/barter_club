@@ -21,7 +21,13 @@ textarea.form-control {
   opacity: .5;
 }
 
-
+.form-control:focus {
+  color: inherit;
+  background-color: inherit;
+  border-color: inherit;
+  outline: 0;
+  box-shadow: none;
+}
 
 
 // landing page

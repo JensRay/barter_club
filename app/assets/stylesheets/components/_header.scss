@@ -37,8 +37,8 @@
     font-weight: bolder;
   }
   &:focus {
-    background-color: $green;
-    color: white;
+    background-color: $light-gray;
+    color: $gray-4;
     &::placeholder {
       color: $light;
     }

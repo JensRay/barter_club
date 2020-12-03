@@ -110,32 +110,21 @@
   <div id="questions">
               <div class="card card-body">
                 <% @item.comments.each do |comment| %>
-                 <% klass = current_user == comment.user ? 'me' : 'you' %>
-                  <div class="comment-container" id="comment-<%= comment.id %>">
+                <div class="comment-container" id="comment-<%= comment.id %>">
+                  <% commentklass = current_user == comment.user ? 'me' : 'you' %>
+                    <div class="comment-content" id="<%= commentklass %>">
 
-                  <div class="comment-content" id="<%= klass %>">
-            <!-- <span><%#= message.user.nickname %></span> -->
-                  <div class="d-flex <%= klass %>">
+                    <div class="d-flex <%= commentklass %>">
                     <span><%= cl_image_tag comment.user.photo.key, class: "avatar-sm" %></span>
                     <p class="comment-text">
                       <%= comment.content %>
                     </p>
                   </div>
+                  <small><%= comment.created_at.strftime("%H:%M") %></small>
+                </div>
+                </div>
 
-
-                <% end %>
-
-
-<!--
-                  <div class="mb-0 bg-light">
-                    <p class="message-author"><strong><%#= comment.user.name %></strong></p>
-                    <p class="message mb-3" ><%= comment.content %></p>
-                  </div> -->
-
-            <!-- <small><%#= message.created_at.strftime("%a %b %e at %l:%M%p") %></small> -->
-            <small><%= message.created_at.strftime("%H:%M") %></small>
-          </div>
-      </div>
+              <% end %>
                 <hr>
 
                 <%= simple_form_for [@item, @comment], remote: true do |f| %>

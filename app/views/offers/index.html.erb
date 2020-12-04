@@ -124,15 +124,17 @@
               <button class="btn-ghost-green">Contact bidder</button>
             <% end %>
             <%= link_to new_offer_review_path(offer) do  %>
-            <button class="btn-ghost-green">Leave a revie</button>
+            <button class="btn-ghost-green">Leave a review</button>
             <% end %>
           <% else %>
+            <% unless offer.chatroom.nil? %>
             <p class="p-1 mb-1">Congrats! You have a deal!</p>
             <%= link_to chatroom_path(offer.chatroom) do  %>
               <button class="btn-ghost-green">Contact bidder</button>
             <% end %>
             <%= link_to new_offer_review_path(offer) do  %>
             <button class="btn-ghost-green">Leave a review</button>
+              <% end %>
             <% end %>
           <% end %>
         </div>

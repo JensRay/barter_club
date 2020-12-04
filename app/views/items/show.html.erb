@@ -8,10 +8,12 @@
 
     <div id="carouselExampleControls" class="item-gallery carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        <% @item.photos.each do |photo| %>
-          <div class="carousel-item active">
+        <% @item.photos.each_with_index do |photo, ind| %>
+          <div class="carousel-item <%= "active" if ind == 0 %>">
             <%= cl_image_tag photo.key, class: 'item-gallery-img d-block w-100 mb-3'%>
           </div>
+        <% end %>
+        <% unless @item.photos.size < 2  %>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>

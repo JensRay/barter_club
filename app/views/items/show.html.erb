@@ -22,14 +22,14 @@
           </a>
         <% end %>
       </div>
-        <div class="figure-caption mt-0 pt-1 pb-2 text-center ">
-          <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [@item.user.latitude, @item.user.longitude]) %>
-          <% if distance != 0 %>
-            <%= @item.category %> | <strong><%= number_with_precision(distance, precision: 0) %></strong> km away
-          <% else %>
-            <%= @item.category %> | 1km away
-          <% end %>
-        </div>
+        <!-- <div class="figure-caption mt-0 pt-1 pb-2 text-center "> -->
+          <%# distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [@item.user.latitude, @item.user.longitude]) %>
+          <%# if distance != 0 %>
+            <!-- <%#= @item.category %> | <strong><%#= number_with_precision(distance, precision: 0) %></strong> km away -->
+          <%# else %>
+            <!-- <%#= @item.category %> | 1km away -->
+          <%# end %>
+        <!-- </div> -->
     </div>
 
 

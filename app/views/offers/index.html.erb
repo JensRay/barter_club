@@ -27,7 +27,8 @@
           <% end %>
 
         <div class="container bg-white text-center ">
-           <div class="row">
+
+          <div class="row">
             <h6 class="col-4 text-warning" ><%= offer.my_item.name.capitalize %></h6>
             <i class='fa fa-exchange-alt text-center col-4 d-flex align-items-center justify-content-center'></i>
             <h6 class="col-4 text-primary"><%=offer.original_item.name.capitalize %></h6>
@@ -37,7 +38,7 @@
 
         <div class="text-center mt-2">
           <div class="d-flex justify-content-center mb-1">
-           <p><%= offer.my_item.user.name.capitalize %> has placed a bid</p>
+           <p><%= offer.my_item.user.name.capitalize %> has place a bid</p>
          </div>
 
          <div class="d-flex justify-content-center mt-2 mb-4">
@@ -118,7 +119,7 @@
         </div>
         <div class="text-center mb-2">
           <% if offer.original_item.user != current_user %>
-            <p class="p-2 mb-3">Congrats! You have a deal!</p>
+            <p class="p-2 mb-1">Congrats! You have a deal!</p>
             <%= link_to chatroom_path(offer.chatroom) do  %>
               <button class="btn-ghost-green">Contact bidder</button>
             <% end %>
@@ -126,7 +127,7 @@
             <button class="btn-ghost-green">Leave a revie</button>
             <% end %>
           <% else %>
-            <p class="p-1 mb-3">Congrats! You have a deal!</p>
+            <p class="p-1 mb-1">Congrats! You have a deal!</p>
             <%= link_to chatroom_path(offer.chatroom) do  %>
               <button class="btn-ghost-green">Contact bidder</button>
             <% end %>
@@ -158,9 +159,10 @@
             </div>
            <% end %>
         </div>
-         <div class="container bg-white text-center">
+
+        <div class="container bg-white text-center">
           <div class="row">
-             <h6 class="col-4 text-warning" ><%= bid.original_item.name %></h6>
+            <h6 class="col-4 text-warning" ><%= bid.original_item.name %></h6>
             <i class='fa fa-exchange-alt text-center col-4'></i>
             <h6 class="col-4 text-primary"><%=bid.my_item.name %></h6>
           </div>

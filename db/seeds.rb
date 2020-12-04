@@ -157,8 +157,8 @@ offer1.save
 offer2 = Offer.new(user_id: martin.id, original_item: lamp, my_item: books )
 offer2.save
 
-offer4 = Offer.new(user_id: martin.id, original_item: husband, my_item: books )
-offer4.save
+# offer4 = Offer.new(user_id: martin.id, original_item: husband, my_item: books )
+# offer4.save
 
 offer5 = Offer.new(user_id: alize.id, original_item: chair, my_item: plant )
 offer5.save
@@ -170,7 +170,7 @@ offer7 = Offer.new(user_id: toni.id, original_item: chair3, my_item: rug, status
 offer7.save
 
 puts "creating chatrooms"
-chatrooms = [offer1, offer2, offer4, offer5, offer6]
+chatrooms = [offer1, offer2, offer5, offer6]
 chatrooms.each do |offer|
   Chatroom.create!(offer_id: offer.id)
 end

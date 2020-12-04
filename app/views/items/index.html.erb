@@ -7,9 +7,9 @@
           <div class="card-index d-flex col-12 col-sm-12 col-md-12 col-lg-6">
 
             <div class="card-index-img">
-              <% item.photos.each do |photo| %>
-                <%= cl_image_tag photo.key, crop: :fill, class: "item-img" %>
-              <% end %>
+              <%# item.photos.each do |photo| %>
+                <%= cl_image_tag item.photos.first.key, crop: :fill, class: "item-img" %>
+              <%# end %>
             </div>
             <div class="card-body card-index-infos">
 

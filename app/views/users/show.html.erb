@@ -98,7 +98,7 @@
     <% @user.items.each do |item| %>
       <%= link_to item_path(item) do %>
         <div class="card user-item">
-            <% if item.photos.size == 1 %>
+            <% if item.photos.size < 3 %>
               <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">

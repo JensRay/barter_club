@@ -93,7 +93,7 @@
 
 
 
-<div class="card-header text-center text-capitalize mt-3"> <%= @user.name.capitalize %>'s' Items </div>
+<div class="card-header text-center text-capitalize mt-3"> <%= @user.name.capitalize %>'s Items </div>
   <div class="card-deck user-items">
     <% @user.items.each do |item| %>
       <%= link_to item_path(item) do %>

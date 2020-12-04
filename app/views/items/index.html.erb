@@ -14,14 +14,14 @@
             <div class="card-body card-index-infos">
 
                 <div class="d-flex justify-content-between align-items-center">
-                  <!-- <div class="card-subtitle distance"> -->
-                    <%# distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [item.user.latitude, item.user.longitude]) %>
-                      <%# if distance != 0 %>
-                        <!-- <%#= number_with_precision(distance, precision: 0) %> km away -->
-                      <%# else %>
-                        <!-- < 1 km away -->
-                      <%# end %>
-                  <!-- </div> -->
+                  <div class="card-subtitle distance">
+                    <% distance = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude ], [item.user.latitude, item.user.longitude]) %>
+                      <% if distance != 0 %>
+                        <%= number_with_precision(distance, precision: 0) %> km away
+                      <% else %>
+                        < 1 km away
+                      <% end %>
+                  </div>
                   <div class="card-subtitle user">
                     <%= link_to item.user.name.capitalize, user_path(item.user)%>
                   </div>

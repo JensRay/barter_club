@@ -17,7 +17,20 @@
   }
 }
 
+.notification-number {
+  font-weight: bold;
+  font-size: 10px;
+  height: 15px;
+  width: 18px;
+  background: red;
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+  top: -3px;
+  right: -8px;
+  text-align: center;
 
+}
 
 
 .navbar-barters .navbar-collapse {

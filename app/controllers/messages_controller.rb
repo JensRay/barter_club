@@ -10,6 +10,14 @@ class MessagesController < ApplicationController
         @chatroom,
           render_to_string(partial: "messages/message", locals: { message: @message })
       )
+
+
+
+       (@chatroom.users.uniq - [current_user]).each do |user|
+        Notification.create(recipient: user, actor:current_user, action: "sent", notifiable_id: @message.chatroom, notifiable_type: "message")
+      end
+
+
       redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
     else
       render "chatrooms/show"

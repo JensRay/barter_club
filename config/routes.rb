@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   end
   resources :offers, only: [:index, :destroy, :update]
 
+  resources :notifications, only: [:index, :update]
+
   # resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
 
   # end

@@ -9,6 +9,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+
+
 // require("micromodal/dist/micromodal")
 
 
@@ -27,6 +29,8 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 
 // Internal imports, e.g:
 
@@ -36,12 +40,14 @@ import { initChatroomCable } from "../channels/chatroom_channel";
 import { selectTab } from '../components/tabs';
 
 
+
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 
   initChatroomCable();
 
-  // selectTab();
+
 
 });

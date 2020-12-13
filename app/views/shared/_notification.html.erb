@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+<%= link_to notifications_path do %>
+<div class="nav-item dropdown"  style="position: relative; ">
+  <div class="text-right " >
+    <i class="fas fa-bell"></i>
+    <% if current_user.notification.where.not(read_at: nil).count > 0 %>
+      <div class="notification-number">
+        <% current_user.notification.count %>
+      </div>
+    <% end %>
+
+  </div>
+
+  </div>
+<% end %>
+<% end %>
+
+
+<!-- img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" /> -->

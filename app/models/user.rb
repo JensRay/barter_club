@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :reviews_as_bidder, through: :offers, source: :reviews
   has_many :offers_as_owner, through: :items, foreign_key: :original_item_id, source: :offers
   has_many :reviews_as_owner, through: :offers_as_owner, source: :reviews
+  has_many :notification, foreign_key: :recipient_id
+
 
   has_one_attached :photo
 end

@@ -8,6 +8,7 @@ Item.destroy_all
 User.destroy_all
 Message.destroy_all
 Review.destroy_all
+Notification.destroy_all
 puts "destroyed all"
 
 

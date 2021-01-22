@@ -1,3 +1,13 @@
+<div class="container">
+<div class="card card-item-show justify-content-center">
+  <div class="banner row">
+  <div class="col-3"></div>
+  <div class="col-6"> Find your item  </div>
+  <div class="col-3">
+    <%= render 'shared/notification' %>
+  </div>
+</div>
+
 <%= render 'shared/search' %>
 
 <div class="cards">
@@ -42,11 +52,6 @@
       <% end %>
   </div>
 </div>
-
-  <!-- Here is the nav bar. DONT TOUCH!
- -->
-
-
 <div class="navbar navbar-expand-sm navbar-light navbar-barters navbar-sticky fixed-bottom mt-0">
 
     <%= link_to items_path do %>

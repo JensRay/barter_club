@@ -1,4 +1,10 @@
-<div class="banner">Trade room</div>
+<div class="banner row">
+  <div class="col-3"></div>
+  <div class="col-6"> Trade Room </div>
+  <div class="col-3">
+    <%= render 'shared/notification' %>
+  </div>
+</div>
 
 <!-- Tab links -->
 <div class=" tab">
@@ -19,7 +25,6 @@
   <div class="container border-bottom">
     <% @offers.each do |offer| %>
       <% if offer.original_item.user == current_user && offer.pending? %>
-
           <%= link_to item_path(offer.my_item_id) do %>
             <div class=" p-2 text-center ">
               <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 200, width: 355, crop: :fill %>
@@ -96,49 +101,72 @@
   </div>
 
   <div class="card">
-    <% @offers.each do |offer| %>
-      <% if (offer.original_item.user  == current_user && offer.accept?) || (offer.user  == current_user && offer.accept?) %>
-        <div class="d-flex  mb-10 justify-content-center align-items-center pt-1 pb-1 pl-1 rounded position-relative">
-          <%= link_to item_path(offer.my_item_id) do %>
-            <div class=" p-2 text-center">
-              <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 200, width:175, crop: :fill %>
-            </div>
-          <% end %>
-          <%= link_to item_path(offer.original_item_id) do %>
-            <div class=" p-2 text-center">
-              <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 200, width:175, crop: :fill %>
-            </div>
-           <% end %>
-        </div>
-        <div class="container bg-white text-center">
-          <div class="row">
-            <h6 class="col-4 text-warning" ><%= offer.my_item.name %></h6>
-            <i class='fa fa-exchange-alt text-center col-4'></i>
-            <h6 class="col-4 text-primary"><%=offer.original_item.name %></h6>
+    <% @accepted.each do |offer| %>
+        <% if offer.my_item.user == current_user %>
+          <div class="d-flex  mb-10 justify-content-center align-items-center pt-1 pb-1 pl-1 rounded position-relative">
+            <%= link_to item_path(offer.original_item_id) do %>
+              <div class=" p-2 text-center">
+                <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 200, width:175, crop: :fill %>
+              </div>
+            <% end %>
+            <%= link_to item_path(offer.my_item_id) do %>
+              <div class=" p-2 text-center">
+                <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 200, width:175, crop: :fill %>
+              </div>
+            <% end %>
           </div>
-        </div>
-        <div class="text-center mb-2">
-          <% if offer.original_item.user != current_user %>
-            <p class="p-2 mb-1">Congrats! You have a deal!</p>
-            <%= link_to chatroom_path(offer.chatroom) do  %>
-              <button class="btn-ghost-green">Contact bidder</button>
-            <% end %>
-            <%= link_to new_offer_review_path(offer) do  %>
-            <button class="btn-ghost-green">Leave a review</button>
-            <% end %>
-          <% else %>
-            <% unless offer.chatroom.nil? %>
-            <p class="p-1 mb-1">Congrats! You have a deal!</p>
-            <%= link_to chatroom_path(offer.chatroom) do  %>
-              <button class="btn-ghost-green">Contact bidder</button>
-            <% end %>
-            <%= link_to new_offer_review_path(offer) do  %>
-            <button class="btn-ghost-green">Leave a review</button>
+
+          <div class="container bg-white text-center">
+            <div class="row">
+              <h6 class="col-4 text-warning" ><%= offer.original_item.name %></h6>
+              <i class='fa fa-exchange-alt text-center col-4'></i>
+              <h6 class="col-4 text-primary"><%=offer.my_item.name %></h6>
+            </div>
+          </div>
+
+          <div class="text-center mb-2">
+              <p class="p-2 mb-1">Congrats! You have a deal!</p>
+              <%= link_to chatroom_path(offer.chatroom) do  %>
+                <button class="btn-ghost-green">Contact bidder</button>
               <% end %>
+              <%= link_to new_offer_review_path(offer) do  %>
+                <button class="btn-ghost-green">Leave a review</button>
+              <% end %>
+          </div>
+
+        <% elsif offer.original_item.user == current_user %>
+          <div class="d-flex  mb-10 justify-content-center align-items-center pt-1 pb-1 pl-1 rounded position-relative">
+            <%= link_to item_path(offer.my_item_id) do %>
+              <div class=" p-2 text-center">
+                <%= cl_image_tag offer.my_item.photos.first.key, class: "rounded", height: 200, width:175, crop: :fill %>
+              </div>
             <% end %>
-          <% end %>
-        </div>
-      <% end %>
+
+            <%= link_to item_path(offer.original_item_id) do %>
+              <div class=" p-2 text-center">
+                <%= cl_image_tag offer.original_item.photos.first.key, class: "rounded", height: 200, width:175, crop: :fill %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="container bg-white text-center">
+            <div class="row">
+              <h6 class="col-4 text-warning" ><%= offer.my_item.name %></h6>
+              <i class='fa fa-exchange-alt text-center col-4'></i>
+              <h6 class="col-4 text-primary"><%=offer.original_item.name %></h6>
+            </div>
+          </div>
+
+          <div class="text-center mb-2">
+              <p class="p-2 mb-1">Congrats! You have a deal!</p>
+              <%= link_to chatroom_path(offer.chatroom) do  %>
+                <button class="btn-ghost-green">Contact bidder</button>
+              <% end %>
+              <%= link_to new_offer_review_path(offer) do  %>
+                <button class="btn-ghost-green">Leave a review</button>
+              <% end %>
+          </div>
+        <% end %>
     <% end %>
   </div>
 

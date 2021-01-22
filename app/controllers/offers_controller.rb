@@ -3,6 +3,7 @@ class OffersController < ApplicationController
 
   def index
     @offers = policy_scope(Offer).order(created_at: :desc)
+    @accepted = Offer.where(status:"accept")
   end
 
   def show

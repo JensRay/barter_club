@@ -1,14 +1,23 @@
-<div class="banner">Inbox</div>
+<div class="container">
+<div class="card card-item-show justify-content-center">
+  <div class="banner row">
+  <div class="col-3"></div>
+  <div class="col-6"> Inbox</div>
+  <div class="col-3">
+    <%= render 'shared/notification' %>
+  </div>
+</div>
 
 
 <div class="">
   <% @chatrooms.each do |chatroom| %>
-    <% if (chatroom.offer.original_item.user || chatroom.offer.my_item.user) == current_user %>
+    <% if (chatroom.offer.original_item.user == current_user) || (chatroom.offer.my_item.user == current_user) %>
       <%= link_to chatroom_path(chatroom) do %>
-        <div class="border-bottom">
+        <div class="card-mailbox">
+          <div class="d-flex align-items-center">
           <i class="far fa-envelope fa-2x text-primary ml-2 "></i>
-          <div class="d-flex align-items-center ">
-            <p class="ml-2">
+
+            <p class="ml-2 pt-3">
               Chat with
                 <% if (chatroom.offer.my_item.user || chatroom.offer.original_item.user) != current_user  %>
                   <%= chatroom.offer.my_item.user.name.capitalize %>
@@ -19,7 +28,8 @@
             </p>
           </div>
 
-          <div class="card p-1 " >
+
+          <div class=" p-1 " >
             <div class="row ">
               <div class="text-warning col-4">
                 <% if current_user.items.include?(chatroom.offer.my_item) %>

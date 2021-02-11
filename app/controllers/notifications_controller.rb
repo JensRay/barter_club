@@ -1,7 +1,7 @@
 class NotificationsController < ApplicationController
 
 def index
-  @notifications = policy_scope(Notification).where(recipient_id: current_user).where.not(read_at: nil)
+  @notifications = policy_scope(Notification).where(recipient_id: current_user).where(read_at: nil)
 end
 
 def update

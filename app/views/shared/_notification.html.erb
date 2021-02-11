@@ -3,9 +3,10 @@
 <div class="nav-item dropdown"  style="position: relative; ">
   <div class="text-right " >
     <i class="fas fa-bell"></i>
-    <% if current_user.notification.where.not(read_at: nil).count > 0 %>
+  
+    <% if current_user.notification.where(read_at: nil).count > 0 %>
       <div class="notification-number">
-        <% current_user.notification.count %>
+        <p><%= current_user.notification.where(read_at: nil).count %><p>
       </div>
     <% end %>
 

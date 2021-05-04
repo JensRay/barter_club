@@ -8,7 +8,7 @@ A Rails app built as Le Wagon final project by *Martin Nordlund, Jedrzej Lagodzi
 ## Functionality:
 - sign up / log in
 - posting items
-- search items (geolocation, categories)
+- search items (geolocation, terms, categories)
 - instant messenger
 - comments and reviews
 - bidding item for item
